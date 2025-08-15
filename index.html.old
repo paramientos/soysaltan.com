@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soysal Tan - Yazılım Geliştirici, DevOps & Siber Güvenlik</title>
+    <meta name="description" content="Soysal Tan'ın kişisel web sitesi. PHP, Laravel, DevOps ve Siber Güvenlik üzerine yazılar ve projeler.">
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
+    <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+    <!-- Header -->
+    <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
+            <nav class="hidden md:flex items-center">
+                <ul class="flex space-x-8 text-base font-medium">
+                    <li><a href="#" class="nav-link relative active">Ana Sayfa</a></li>
+                    <li><a href="#about" class="nav-link relative">Hakkımda</a></li>
+                    <li><a href="#blog" class="nav-link relative">Blog</a></li>
+                    <li><a href="#contact" class="nav-link relative">İletişim</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#" class="nav-link relative active">Ana Sayfa</a></li>
+                <li><a href="#about" class="nav-link relative">Hakkımda</a></li>
+                <li><a href="#blog" class="nav-link relative">Blog</a></li>
+                <li><a href="#contact" class="nav-link relative">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="py-24 md:py-36 text-center flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+            <div class="container max-w-3xl mx-auto px-4 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Soysal Tan</h1>
+                <p class="text-lg md:text-2xl mb-8 text-[#b8b8d1] font-light animate-fade-in">PHP & Laravel geliştiricisi, DevOps ve Siber Güvenlik tutkunu. Modern web teknolojileriyle dijital çözümler üretiyorum.</p>
+                <div class="flex justify-center gap-6 mb-10">
+                    <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.69 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3.01 0 0 .97-.31 3.18 1.19a11.1 11.1 0 0 1 2.9-.39c.98.01 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.56.23 2.72.11 3.01.75.81 1.2 1.85 1.2 3.11 0 4.42-2.7 5.39-5.27 5.68.42.36.8 1.09.8 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.2.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg></a>
+                    <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75-1.75zm13.5 11.28h-3v-5.5c0-1.32-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.59h-3v-10h3v1.38h.04c.42-.79 1.44-1.63 2.86-1.63 3.06 0 3.63 2.01 3.63 4.62v5.63z"/></svg></a>
+                    <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56c-.88.39-1.83.65-2.83.77.99-.6 1.76-1.55 2.12-2.72-.93.55-1.95.95-3.03 1.15-1.75-1.86-4.5-1.86-6.25 0-1.74 1.86-1.74 4.87 0 6.73-5.59-.28-10.55-2.96-13.87-7.03-.58 1-.92 2.17-.92 3.42 0 2.34 1.19 4.41 3.01 5.62-.93-.03-1.8-.29-2.56-.7v.05c0 3.27 2.32 5.99 5.39 6.61-.56.15-1.15.23-1.76.23-.43 0-.85-.04-1.26-.12.86 2.68 3.35 4.64 6.3 4.69-2.3 1.8-5.21 2.88-8.36 2.88-.54 0-1.08-.03-1.61-.09 2.98 1.91 6.52 3.02 10.34 3.02 12.4 0 19.19-10.27 19.19-19.2 0-.29-.01-.58-.02-.87.9-.65 1.67-1.46 2.28-2.36z"/></svg></a>
+                </div>
+                <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-[#a259ff] to-[#3f8efc] text-white rounded-full shadow-lg hover:scale-105 transition-transform text-lg font-medium focus:outline-none focus:ring-2 focus:ring-[#a259ff]">İletişime Geç</a>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180 z-10">
+                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#232946"/></svg>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 md:py-32 bg-[#232946]/80 backdrop-blur-xl relative">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-3 gap-12 md:gap-16 items-start">
+                    <div class="md:col-span-1 flex flex-col items-center text-center">
+                        <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="rounded-full shadow-2xl w-40 h-40 md:w-48 md:h-48 object-cover bg-[#181824] border-4 border-gradient animate-tilt mb-6">
+                        <h2 class="text-3xl font-bold">Soysal Tan</h2>
+                        <p class="text-[#b8b8d1]">Full-Stack Geliştirici</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white">Hakkımda</h3>
+                        <p class="mb-6 text-base md:text-lg text-[#b8b8d1]">10 yılı aşkın süredir web teknolojileriyle ilgileniyorum. PHP ve Laravel'de uzmanlaştım, modern DevOps süreçlerini ve siber güvenlik en iyi pratiklerini benimsiyorum. Ölçeklenebilir, güvenli ve yüksek performanslı uygulamalar geliştirmek benim tutkum.</p>
+                        <h4 class="text-2xl font-bold mt-10 mb-6">Becerilerim</h4>
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                            <span class="skill-badge">PHP</span>
+                            <span class="skill-badge">Laravel</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Vue.js</span>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">CI/CD</span>
+                            <span class="skill-badge">Linux</span>
+                            <span class="skill-badge">Nginx</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">API Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#181824"/></svg>
+            </div>
+        </section>
+
+        <section id="blog" class="py-24 md:py-32 bg-[#181824] relative overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white">Blog</h2>
+                    <p class="text-base md:text-lg text-[#b8b8d1] mt-4">Teknoloji, yazılım ve kariyer üzerine düşüncelerim.</p>
+                </div>
+                <div class="flex justify-center gap-2 md:gap-4 mb-12 flex-wrap">
+                    <button class="filter-btn active">Tümü</button>
+                    <button class="filter-btn">Laravel</button>
+                    <button class="filter-btn">DevOps</button>
+                    <button class="filter-btn">Siber Güvenlik</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Blog Post Card -->
+                    <div class="blog-card bg-[#232946]/90 rounded-2xl shadow-lg hover:shadow-[0_8px_32px_0_rgba(162,89,255,0.25)] transition-all p-0 flex flex-col group overflow-hidden border-2 border-gradient animate-fade-in" data-tilt>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Blog Post" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" class="w-10 h-10 rounded-full border-2 border-[#a259ff]">
+                                <div>
+                                    <p class="font-semibold">Soysal Tan</p>
+                                    <p class="text-sm text-[#b8b8d1]">15 Ağu 2025 ・ 5 dk okuma</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-white">Laravel 10 ile API Geliştirme</h3>
+                            <p class="text-[#b8b8d1] mb-4 flex-grow">Laravel 10 ile modern API'ler nasıl geliştirilir? RESTful API tasarımı ve en iyi pratikler...</p>
+                            <div class="flex gap-2 mt-auto">
+                                <span class="tag">#laravel</span>
+                                <span class="tag">#api</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for other blog cards -->
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180 z-10">
+                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#232946"/></svg>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 md:py-32 bg-[#232946]/80 backdrop-blur-xl relative">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-14 text-center text-white">İletişime Geç</h2>
+                <div class="max-w-2xl mx-auto bg-[#181824]/80 rounded-2xl shadow-2xl p-6 md:p-10 border-2 border-gradient">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-medium text-white">İsim</label>
+                                <input type="text" id="name" class="form-input bg-[#232946]/80 border-2 border-gradient text-white placeholder-[#b8b8d1]">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-white">E-posta</label>
+                                <input type="email" id="email" class="form-input bg-[#232946]/80 border-2 border-gradient text-white placeholder-[#b8b8d1]">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block mb-2 text-sm font-medium text-white">Konu</label>
+                            <input type="text" id="subject" class="form-input bg-[#232946]/80 border-2 border-gradient text-white placeholder-[#b8b8d1]">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 text-sm font-medium text-white">Mesaj</label>
+                            <textarea id="message" rows="5" class="form-input bg-[#232946]/80 border-2 border-gradient text-white placeholder-[#b8b8d1]"></textarea>
+                        </div>
+                        <button type="submit" class="px-10 py-4 bg-gradient-to-r from-[#a259ff] to-[#3f8efc] text-white rounded-full shadow-xl hover:scale-105 transition-transform w-full text-xl font-bold focus:outline-none">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#181824] border-t border-[#393a5a] py-10 text-[#b8b8d1] text-sm relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.69 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3.01 0 0 .97-.31 3.18 1.19a11.1 11.1 0 0 1 2.9-.39c.98.01 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.56.23 2.72.11 3.01.75.81 1.2 1.85 1.2 3.11 0 4.42-2.7 5.39-5.27 5.68.42.36.8 1.09.8 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.2.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg></a>
+                <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75-1.75zm13.5 11.28h-3v-5.5c0-1.32-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.59h-3v-10h3v1.38h.04c.42-.79 1.44-1.63 2.86-1.63 3.06 0 3.63 2.01 3.63 4.62v5.63z"/></svg></a>
+                <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-gray-400 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56c-.88.39-1.83.65-2.83.77.99-.6 1.76-1.55 2.12-2.72-.93.55-1.95.95-3.03 1.15-1.75-1.86-4.5-1.86-6.25 0-1.74 1.86-1.74 4.87 0 6.73-5.59-.28-10.55-2.96-13.87-7.03-.58 1-.92 2.17-.92 3.42 0 2.34 1.19 4.41 3.01 5.62-.93-.03-1.8-.29-2.56-.7v.05c0 3.27 2.32 5.99 5.39 6.61-.56.15-1.15.23-1.76.23-.43 0-.85-.04-1.26-.12.86 2.68 3.35 4.64 6.3 4.69-2.3 1.8-5.21 2.88-8.36 2.88-.54 0-1.08-.03-1.61-.09 2.98 1.91 6.52 3.02 10.34 3.02 12.4 0 19.19-10.27 19.19-19.2 0-.29-.01-.58-.02-.87.9-.65 1.67-1.46 2.28-2.36z"/></svg></a>
+            </div>
+            <p>&copy; 2025 Soysal Tan. Tüm hakları saklıdır.</p>
+        </div>
+        <div class="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-[#a259ff] via-[#3f8efc] to-[#ff7eb3] animate-gradient-bar"></div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

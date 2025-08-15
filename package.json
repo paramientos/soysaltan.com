@@ -1,0 +1,26 @@
+{
+  "name": "soysaltan-website",
+  "version": "1.0.0",
+  "description": "Soysal Tan Kişisel Web Sitesi",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --watch"
+  },
+  "keywords": [
+    "personal",
+    "website",
+    "blog",
+    "php",
+    "laravel",
+    "devops",
+    "security"
+  ],
+  "author": "Soysal Tan",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.27"
+  }
+}

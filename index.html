@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soysal Tan - Yazılım Geliştirici, DevOps & Siber Güvenlik</title>
+    <meta name="description" content="Soysal Tan'ın kişisel web sitesi. PHP, Laravel, DevOps ve Siber Güvenlik üzerine yazılar ve projeler.">
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
+    <canvas id="matrix-canvas" class="hidden fixed top-0 left-0 w-full h-full z-50"></canvas>
+    <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+    <div id="bsod" class="hidden fixed top-0 left-0 w-full h-full z-50"></div>
+    <canvas id="snake-canvas" class="hidden z-50"></canvas>
+    <!-- Header -->
+    <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
+            <nav class="hidden md:flex items-center">
+                <ul class="flex space-x-8 text-base font-medium">
+                    <li><a href="#" class="nav-link relative active">Ana Sayfa</a></li>
+                    <li><a href="#about" class="nav-link relative">Hakkımda</a></li>
+                    <li><a href="#projects" class="nav-link relative">Projelerim</a></li>
+                    <li><a href="#blog" class="nav-link relative">Blog</a></li>
+                    <li><a href="#terminal-section" class="nav-link relative">Terminal</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#" class="nav-link relative active">Ana Sayfa</a></li>
+                <li><a href="#about" class="nav-link relative">Hakkımda</a></li>
+                <li><a href="#projects" class="nav-link relative">Projelerim</a></li>
+                <li><a href="#blog" class="nav-link relative">Blog</a></li>
+                <li><a href="#terminal-section" class="nav-link relative">Terminal</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="py-24 md:py-36 text-center flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+            <div class="container max-w-3xl mx-auto px-4 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Soysal Tan</h1>
+                <p class="text-lg md:text-2xl mb-8 text-[#b8b8d1] font-light animate-fade-in">PHP & Laravel geliştiricisi, DevOps ve Siber Güvenlik tutkunu. Modern web teknolojileriyle dijital çözümler üretiyorum.</p>
+                <div class="flex justify-center gap-6 mb-10">
+                    <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.69 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3.01 0 0 .97-.31 3.18 1.19a11.1 11.1 0 0 1 2.9-.39c.98.01 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.56.23 2.72.11 3.01.75.81 1.2 1.85 1.2 3.11 0 4.42-2.7 5.39-5.27 5.68.42.36.8 1.09.8 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.2.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg></a>
+                    <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75-1.75zm13.5 11.28h-3v-5.5c0-1.32-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.59h-3v-10h3v1.38h.04c.42-.79 1.44-1.63 2.86-1.63 3.06 0 3.63 2.01 3.63 4.62v5.63z"/></svg></a>
+                    <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56c-.88.39-1.83.65-2.83.77.99-.6 1.76-1.55 2.12-2.72-.93.55-1.95.95-3.03 1.15-1.75-1.86-4.5-1.86-6.25 0-1.74 1.86-1.74 4.87 0 6.73-5.59-.28-10.55-2.96-13.87-7.03-.58 1-.92 2.17-.92 3.42 0 2.34 1.19 4.41 3.01 5.62-.93-.03-1.8-.29-2.56-.7v.05c0 3.27 2.32 5.99 5.39 6.61-.56.15-1.15.23-1.76.23-.43 0-.85-.04-1.26-.12.86 2.68 3.35 4.64 6.3 4.69-2.3 1.8-5.21 2.88-8.36 2.88-.54 0-1.08-.03-1.61-.09 2.98 1.91 6.52 3.02 10.34 3.02 12.4 0 19.19-10.27 19.19-19.2 0-.29-.01-.58-.02-.87.9-.65 1.67-1.46 2.28-2.36z"/></svg></a>
+                </div>
+                <a href="#terminal-section" class="px-8 py-3 bg-gradient-to-r from-[#a259ff] to-[#3f8efc] text-white rounded-full shadow-lg hover:scale-105 transition-transform text-lg font-medium focus:outline-none focus:ring-2 focus:ring-[#a259ff]">Terminali Başlat</a>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180 z-10">
+                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#232946"/></svg>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 md:py-32 bg-[#232946]/80 backdrop-blur-xl relative">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-3 gap-12 md:gap-16 items-start">
+                    <div class="md:col-span-1 flex flex-col items-center text-center">
+                        <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="rounded-full shadow-2xl w-40 h-40 md:w-48 md:h-48 object-cover bg-[#181824] border-4 border-gradient animate-tilt mb-6">
+                        <h2 class="text-3xl font-bold">Soysal Tan</h2>
+                        <p class="text-[#b8b8d1]">Full-Stack Geliştirici</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white">Hakkımda</h3>
+                        <p class="mb-6 text-base md:text-lg text-[#b8b8d1]">10 yılı aşkın süredir web teknolojileriyle ilgileniyorum. PHP ve Laravel'de uzmanlaştım, modern DevOps süreçlerini ve siber güvenlik en iyi pratiklerini benimsiyorum. Ölçeklenebilir, güvenli ve yüksek performanslı uygulamalar geliştirmek benim tutkum.</p>
+                        <h4 class="text-2xl font-bold mt-10 mb-6">Becerilerim</h4>
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                            <span class="skill-badge">PHP</span>
+                            <span class="skill-badge">Laravel</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Vue.js</span>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">CI/CD</span>
+                            <span class="skill-badge">Linux</span>
+                            <span class="skill-badge">Nginx</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">API Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#181824"/></svg>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-[#1a2036]">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 animate-gradient">Projelerim</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Project 1 -->
+                    <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out border border-slate-700 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold mb-3 text-white">Kişisel Web Sitesi & Terminal</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Şu an gezdiğiniz bu site! Statik bir portfolyo sitesini, interaktif komutlar, oyunlar ve dinamik özellikler içeren bir terminal arayüzü ile birleştiren bir proje.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-teal-500/20 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">HTML5</span>
+                                <span class="bg-sky-500/20 text-sky-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">TailwindCSS</span>
+                                <span class="bg-yellow-500/20 text-yellow-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-800/50 flex justify-end gap-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">GitHub &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (Placeholder) -->
+                    <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out border border-slate-700 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold mb-3 text-white">E-Ticaret Platformu API</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Laravel ile geliştirilmiş, ürün yönetimi, sipariş takibi ve kullanıcı kimlik doğrulama gibi özelliklere sahip, ölçeklenebilir bir RESTful API.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-red-500/20 text-red-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">PHP</span>
+                                <span class="bg-orange-500/20 text-orange-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">Laravel</span>
+                                <span class="bg-blue-500/20 text-blue-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">MySQL</span>
+                                <span class="bg-cyan-500/20 text-cyan-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">Docker</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-800/50 flex justify-end gap-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">GitHub &rarr;</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Canlı Demo &rarr;</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="py-20 bg-[#232946]">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-gradient">Yazılarım</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-[#b8c1ec]/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out border border-slate-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-white">Laravel: Neden Hala PHP'nin Kralı?</h3>
+                            <p class="text-[#eebbc3] mb-4">16 Ağustos 2025</p>
+                            <p class="text-gray-300 leading-relaxed">
+                                PHP dünyası sürekli bir evrim içinde olsa da, Laravel zarafeti, güçlü özellikleri ve geliştirici dostu yapısıyla yıllardır tahtını koruyor. Peki, onu bu kadar özel kılan ne? Gelin, Eloquent ORM'nin büyüsünden, Blade şablon motorunun esnekliğine ve Artisan konsolunun gücüne kadar Laravel'i zirvede tutan temel direkleri inceleyelim.
+                            </p>
+                            <a href="blog/laravel-king.html" class="inline-block mt-4 text-yellow-400 hover:text-yellow-300 transition-colors duration-300">Daha Fazla Oku &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="bg-[#b8c1ec]/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out border border-slate-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-white">DevOps'a Giriş: CI/CD Pipeline Kurulumu</h3>
+                            <p class="text-[#eebbc3] mb-4">17 Ağustos 2025</p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Kodunuzu yazdıktan sonra dağıtım sürecini otomatikleştirmek, modern yazılım geliştirmenin temel taşıdır. Bu yazıda, bir CI/CD pipeline'ının ne olduğunu ve basit bir otomasyon hattını nasıl kurabileceğinizi ele alacağız.
+                            </p>
+                            <a href="blog/devops-intro.html" class="inline-block mt-4 text-yellow-400 hover:text-yellow-300 transition-colors duration-300">Daha Fazla Oku &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="bg-[#b8c1ec]/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out border border-slate-700">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-white">Siber Güvenlikte Proaktif Savunma</h3>
+                            <p class="text-[#eebbc3] mb-4">18 Ağustos 2025</p>
+                            <p class="text-gray-300 leading-relaxed">
+                               Saldırıları sadece engellemek yetmez, onları öngörmek gerekir. Proaktif savunma stratejileri, siber güvenlik duruşunuzu nasıl güçlendirebilir? Bu konuyu derinlemesine inceleyeceğiz.
+                            </p>
+                            <a href="blog/proactive-security.html" class="inline-block mt-4 text-yellow-400 hover:text-yellow-300 transition-colors duration-300">Daha Fazla Oku &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="py-20 bg-[#232946]">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient">Teknoloji Yığınım</h2>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                    <!-- Tech Icon 1: PHP -->
+                    <div class="group flex flex-col items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-110" />
+                        <span class="mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">PHP</span>
+                    </div>
+                    <!-- Tech Icon 2: Laravel -->
+                    <div class="group flex flex-col items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" class="h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-110" />
+                         <span class="mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Laravel</span>
+                    </div>
+                    <!-- Tech Icon 3: JavaScript -->
+                    <div class="group flex flex-col items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-110" />
+                         <span class="mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">JavaScript</span>
+                    </div>
+                    <!-- Tech Icon 4: TailwindCSS -->
+                    <div class="group flex flex-col items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="TailwindCSS" class="h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-110" />
+                         <span class="mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">TailwindCSS</span>
+                    </div>
+                    <!-- Tech Icon 5: Docker -->
+                    <div class="group flex flex-col items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-110" />
+                         <span class="mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Docker</span>
+                    </div>
+                    <!-- Tech Icon 6: Nginx -->
+                    <div class="group flex flex-col items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx" class="h-16 w-16 md:h-20 md:w-20 transition-transform duration-300 group-hover:scale-110" />
+                         <span class="mt-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Nginx</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Terminal Section -->
+        <section id="terminal-section" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div id="terminal" class="w-full max-w-4xl mx-auto bg-black rounded-lg shadow-2xl overflow-hidden border border-gray-700">
+                    <div id="terminal-header" class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                        <span class="text-gray-400 text-sm font-mono">soysaltan@portfolio: ~</span>
+                    </div>
+                    <div id="terminal-output" class="h-80 p-4 overflow-y-auto font-mono text-base text-white whitespace-pre-wrap"></div>
+                    <form id="terminal-form" class="flex items-center bg-black p-2 border-t border-gray-700">
+                        <span class="text-green-400 font-mono">$&nbsp;</span>
+                        <input id="terminal-input" type="text" class="flex-1 bg-transparent text-white outline-none font-mono" autofocus autocomplete="off" placeholder="Komutları görmek için 'help' yazın...">
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#181824] border-t border-slate-800 py-8 text-slate-400 text-sm">
+        <p class="text-center text-sm text-gray-400">&copy; 2025 Soysal Tan. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

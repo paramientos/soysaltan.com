@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps'a Giriş: CI/CD Pipeline Kurulumu - Soysal Tan</title>
+    <meta name="description" content="CI/CD pipeline'ları modern yazılım geliştirmenin temelidir. Bu yazıda, bir CI/CD otomasyon hattının ne olduğunu ve temel adımlarını inceliyoruz.">
+    <link href="../css/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-[#1a2036] text-white font-sans leading-normal tracking-normal">
+
+    <!-- Header -->
+    <header class="bg-[#1a2036]/80 backdrop-blur-lg sticky top-0 z-40 w-full border-b border-slate-700">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <a href="../index.html" class="text-lg font-semibold text-yellow-400 hover:text-yellow-300 transition-colors duration-300">&larr; Ana Sayfaya Dön</a>
+            <span class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500">Soysal Tan</span>
+        </div>
+    </header>
+
+    <!-- Blog Post Content -->
+    <main class="container mx-auto px-4 py-16">
+        <article class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-yellow-400">DevOps'a Giriş: CI/CD Pipeline Kurulumu</h1>
+            <p class="text-center text-[#eebbc3] mb-12">Yakında Yayınlanacak</p>
+
+            <div class="prose prose-lg prose-invert max-w-none mx-auto text-gray-300 leading-relaxed">
+                <p>Kodunuzu yazdıktan sonra dağıtım sürecini otomatikleştirmek, modern yazılım geliştirmenin temel taşıdır. Sürekli Entegrasyon (Continuous Integration - CI) ve Sürekli Dağıtım (Continuous Deployment - CD), geliştirme döngüsünü hızlandıran, hataları azaltan ve verimliliği artıran DevOps pratikleridir. Peki bu sihirli boru hattı (pipeline) nasıl çalışır?</p>
+                
+                <h2 class="text-2xl text-yellow-400">Sürekli Entegrasyon (CI) Nedir?</h2>
+                <p>CI, birden fazla geliştiricinin kod değişikliklerini merkezi bir depoda (genellikle Git) sık sık birleştirdiği bir pratiktir. Her birleştirme, otomatik bir derleme (build) ve test sürecini tetikler. Bu sayede, entegrasyon sorunları erken bir aşamada tespit edilir ve çözülür. Temel adımları şunlardır:</p>
+                <ul>
+                    <li>Kodun Depoya Gönderilmesi (Push)</li>
+                    <li>Otomatik Derleme (Build)</li>
+                    <li>Birim ve Entegrasyon Testlerinin Çalıştırılması</li>
+                    <li>Kod Kalitesi Analizi</li>
+                </ul>
+
+                <h2 class="text-2xl text-yellow-400">Sürekli Dağıtım (CD) Nedir?</h2>
+                <p>CD, CI sürecini bir adım öteye taşır. Testleri başarıyla geçen her kod değişikliği, otomatik olarak bir test (staging) veya doğrudan canlı (production) ortama dağıtılır. Bu, manuel dağıtım süreçlerinin getirdiği riskleri ve yavaşlığı ortadan kaldırır. Kullanıcılara yeni özellikleri ve hata düzeltmelerini çok daha hızlı bir şekilde ulaştırmanızı sağlar.</p>
+
+                <h3 class="text-xl mt-8">Sonuç</h3>
+                <p>Bir CI/CD pipeline'ı kurmak, başlangıçta bir yatırım gerektirse de, uzun vadede geliştirme ekibinizin hızını ve ürününüzün kalitesini katlayarak artırır. Bu, sadece bir otomasyon değil, aynı zamanda bir kültür değişimidir.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a2036] py-6 border-t border-slate-700">
+        <p class="text-center text-sm text-gray-400">&copy; 2025 Soysal Tan. Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
