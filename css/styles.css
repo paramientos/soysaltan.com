@@ -87,6 +87,45 @@ section {
   color: #a259ff;
 }
 
+/* BSOD Styles */
+#bsod {
+    background-color: #0000AA;
+    color: #FFFFFF;
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bsod::before {
+    content: ":( Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.";
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#bsod::after {
+    content: "100% complete";
+    font-size: 1.2rem;
+}
+
+.destruct {
+    animation: destruct-animation 1s forwards;
+}
+
+@keyframes destruct-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   h1 {

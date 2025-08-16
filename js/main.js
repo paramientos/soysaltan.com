@@ -266,6 +266,10 @@ function setupTerminal() {
                 <li><span class="text-yellow-400">bsod</span> - Mavi ekran şakası.</li>
                 <li><span class="text-yellow-400">self-destruct</span> - Terminali imha eder.</li>
                 <li><span class="text-yellow-400">clear</span> - Terminali temizler.</li>
+                <li><span class="text-yellow-400">matrix</span> - Matrix kod yağmuru animasyonunu başlatır.</li>
+                <li><span class="text-yellow-400">ascii-art &lt;tür&gt;</span> - ASCII sanat gösterir (cat, dog, coffee, heart).</li>
+                <li><span class="text-yellow-400">calc &lt;ifade&gt;</span> - Matematiksel ifadeleri hesaplar.</li>
+                <li><span class="text-yellow-400">quote</span> - Rastgele bir alıntı gösterir.</li>
             </ul>
         `,
         fetch: `
@@ -418,14 +422,184 @@ function setupTerminal() {
         'bsod': () => {
             const bsod = document.getElementById('bsod');
             if (bsod) {
-                bsod.classList.remove('hidden');
-                setTimeout(() => bsod.classList.add('hidden'), 5000);
+                bsod.style.display = 'flex';
+                setTimeout(() => {
+                    bsod.style.display = 'none';
+                }, 5000);
             }
             return '';
         },
         'snake': () => {
             // Snake game logic would go here
             return 'Yılan oyunu yakında...';
+        },
+        'matrix': () => {
+            const matrixCanvas = document.getElementById('matrix-canvas');
+            if (!matrixCanvas) return 'Matrix canvas bulunamadı.';
+            
+            matrixCanvas.classList.remove('hidden');
+            
+            const ctx = matrixCanvas.getContext('2d');
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+            
+            let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%"\'#&_(),.;:?!\\|{}<>[]^~';
+            chars = chars.split('');
+            
+            const fontSize = 14;
+            const columns = matrixCanvas.width / fontSize;
+            
+            let drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+            
+            const exitButton = document.createElement('button');
+            exitButton.textContent = 'Çıkış';
+            exitButton.className = 'fixed top-4 right-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md z-50';
+            document.body.appendChild(exitButton);
+            
+            exitButton.addEventListener('click', () => {
+                matrixCanvas.classList.add('hidden');
+                exitButton.remove();
+                if (matrixInterval) clearInterval(matrixInterval);
+            });
+            
+            let matrixInterval = setInterval(() => {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = chars[Math.floor(Math.random() * chars.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }, 33);
+            
+            return '';
+        },
+        'ascii-art': (args) => {
+            const artType = args.trim().toLowerCase();
+            const arts = {
+                cat: `
+ /\\_/\\
+( o.o )
+ > ^ <
+`,
+                dog: `
+  __      _
+o'')}____//
+ \`_/      )
+ (_(_/-(_/
+`,
+                coffee: `
+      ( (
+       ) )
+    ........
+    |      |]
+    \\      /
+     \`----'
+`,
+                heart: `
+ /\\  /\\
+/  \\/  \\
+\\      /
+ \\    /
+  \\  /
+   \\/
+`
+            };
+            
+            if (!artType) {
+                return `Lütfen bir ASCII sanat türü belirtin. Kullanım: ascii-art <tür>
+Mevcut türler: ${Object.keys(arts).join(', ')}`;
+            }
+            
+            if (arts[artType]) {
+                return `<pre class="text-green-300">${arts[artType]}</pre>`;
+            } else {
+                return `Belirtilen ASCII sanat türü bulunamadı: ${artType}
+Mevcut türler: ${Object.keys(arts).join(', ')}`;
+            }
+        },
+        'calc': (args) => {
+            const expression = args.trim();
+            if (!expression) {
+                return 'Lütfen bir matematiksel ifade girin. Örnek: calc 2+2 veya calc 5*10-3';
+            }
+            
+            try {
+                // Güvenli bir şekilde matematiksel ifadeleri değerlendirmek için Function kullanıyoruz
+                // Sadece matematiksel işlemler için güvenli bir ortam sağlar
+                const safeEval = new Function('return ' + expression);
+                const result = safeEval();
+                
+                if (isNaN(result) || !isFinite(result)) {
+                    return 'Geçersiz matematiksel ifade. Lütfen sadece sayılar ve işlemler (+, -, *, /, %, **) kullanın.';
+                }
+                
+                return `<span class="text-yellow-400">${expression}</span> = <span class="text-green-400">${result}</span>`;
+            } catch (error) {
+                return 'Geçersiz matematiksel ifade. Lütfen sadece sayılar ve işlemler (+, -, *, /, %, **) kullanın.';
+            }
+        },
+        'quote': () => {
+            const quotes = [
+                {
+                    text: "Programlama, bir bilgisayara ne yapacağını söyleme sanatıdır.",
+                    author: "Donald Knuth"
+                },
+                {
+                    text: "Kod, insanların okuması için yazılır, tesadüfen makineler tarafından çalıştırılır.",
+                    author: "Harold Abelson"
+                },
+                {
+                    text: "Basitlik, karmaşıklığın ötesindedir.",
+                    author: "Steve Jobs"
+                },
+                {
+                    text: "Bilgisayarlar faydalıdır. Onlar size cevaplar verir.",
+                    author: "Pablo Picasso"
+                },
+                {
+                    text: "Bilgisayar bilimi aslında bilgisayarlarla ilgili değildir. Tıpkı astronominin teleskoplarla ilgili olmadığı gibi.",
+                    author: "Edsger W. Dijkstra"
+                },
+                {
+                    text: "Hata ayıklama, kodu yazmaktan iki kat daha zordur. Bu nedenle, kodunuz olabildiğince zekice ise, hata ayıklayacak kadar zeki değilsiniz demektir.",
+                    author: "Brian W. Kernighan"
+                },
+                {
+                    text: "Bilgi güçtür.",
+                    author: "Francis Bacon"
+                },
+                {
+                    text: "Başarı, başarısızlıktan başarısızlığa coşkuyu kaybetmeden geçmektir.",
+                    author: "Winston Churchill"
+                },
+                {
+                    text: "Hayal ettiğiniz her şeyi yapabilirsiniz. Tek yapmanız gereken harekete geçmektir.",
+                    author: "Johann Wolfgang von Goethe"
+                },
+                {
+                    text: "Hayatın %10'u size ne olduğu, %90'ı ise ona nasıl tepki verdiğinizdir.",
+                    author: "Charles R. Swindoll"
+                }
+            ];
+            
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            return `<div class="p-4 bg-gray-800 rounded-md">
+                <p class="text-lg italic">"${randomQuote.text}"</p>
+                <p class="text-right text-sm text-gray-400">— ${randomQuote.author}</p>
+            </div>`;
         },
         'weather': async (args) => {
             const city = args.trim();
@@ -490,10 +664,15 @@ function setupTerminal() {
             return;
         }
 
-        if (commands[command]) {
-            const result = await commands[command](args.join(' '));
-            if (result) {
-                printOutput(result);
+        if (command in commands) {
+            const commandValue = commands[command];
+            if (typeof commandValue === 'function') {
+                const result = await commandValue(args.join(' '));
+                if (result) {
+                    printOutput(result);
+                }
+            } else {
+                printOutput(commandValue);
             }
         } else {
             printOutput(`Komut bulunamadı: ${command}. Yardım için 'help' yazın.`);
