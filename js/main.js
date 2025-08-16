@@ -270,6 +270,8 @@ function setupTerminal() {
                 <li><span class="text-yellow-400">ascii-art &lt;tür&gt;</span> - ASCII sanat gösterir (cat, dog, coffee, heart).</li>
                 <li><span class="text-yellow-400">calc &lt;ifade&gt;</span> - Matematiksel ifadeleri hesaplar.</li>
                 <li><span class="text-yellow-400">quote</span> - Rastgele bir alıntı gösterir.</li>
+                <li><span class="text-yellow-400">password [uzunluk] [seçenekler]</span> - Güçlü şifre oluşturur.</li>
+                <li><span class="text-yellow-400">colors [tür]</span> - Renk paletleri gösterir (basic, tailwind, material, flat).</li>
             </ul>
         `,
         fetch: `
@@ -597,9 +599,159 @@ Mevcut türler: ${Object.keys(arts).join(', ')}`;
             
             const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
             return `<div class="p-4 bg-gray-800 rounded-md">
-                <p class="text-lg italic">"${randomQuote.text}"</p>
+                <p class="mb-2">"${randomQuote.text}"</p>
                 <p class="text-right text-sm text-gray-400">— ${randomQuote.author}</p>
             </div>`;
+        },
+        'password': (args) => {
+            const params = args.trim().split(' ');
+            let length = 12; // Varsayılan uzunluk
+            let includeUppercase = true;
+            let includeLowercase = true;
+            let includeNumbers = true;
+            let includeSymbols = true;
+            
+            // Parametreleri işle
+            if (params[0] && !isNaN(params[0])) {
+                length = parseInt(params[0]);
+                if (length < 4) length = 4; // Minimum uzunluk
+                if (length > 64) length = 64; // Maximum uzunluk
+            }
+            
+            // Opsiyonel parametreler
+            if (params.includes('no-uppercase')) includeUppercase = false;
+            if (params.includes('no-lowercase')) includeLowercase = false;
+            if (params.includes('no-numbers')) includeNumbers = false;
+            if (params.includes('no-symbols')) includeSymbols = false;
+            
+            // En az bir karakter türü seçildiğinden emin ol
+            if (!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
+                return 'En az bir karakter türü seçmelisiniz.';
+            }
+            
+            // Karakter setlerini hazırla
+            const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+            const numbers = '0123456789';
+            const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            let charset = '';
+            if (includeUppercase) charset += uppercase;
+            if (includeLowercase) charset += lowercase;
+            if (includeNumbers) charset += numbers;
+            if (includeSymbols) charset += symbols;
+            
+            // Şifreyi oluştur
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            
+            // Her karakter türünden en az bir tane içerdiğinden emin ol
+            let missingTypes = [];
+            if (includeUppercase && !/[A-Z]/.test(password)) missingTypes.push('büyük harf');
+            if (includeLowercase && !/[a-z]/.test(password)) missingTypes.push('küçük harf');
+            if (includeNumbers && !/[0-9]/.test(password)) missingTypes.push('rakam');
+            if (includeSymbols && !/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password)) missingTypes.push('sembol');
+            
+            if (missingTypes.length > 0) {
+                // Eksik karakter türlerini ekle
+                return `Şifre oluşturulurken bir sorun oluştu. Lütfen tekrar deneyin.`;
+            }
+            
+            return `<div class="p-3 bg-gray-800 rounded-md">
+                <p class="mb-2">Oluşturulan şifre:</p>
+                <p class="text-green-400 font-mono text-xl select-all">${password}</p>
+                <p class="mt-2 text-sm text-gray-400">Uzunluk: ${length} karakter</p>
+            </div>
+            <p class="mt-2 text-xs text-gray-500">Kullanım: password [uzunluk] [no-uppercase] [no-lowercase] [no-numbers] [no-symbols]</p>`;
+        },
+        'colors': (args) => {
+            const colorType = args.trim().toLowerCase();
+            
+            const colorPalettes = {
+                'tailwind': [
+                    { name: 'Red', colors: ['#fef2f2', '#fee2e2', '#fecaca', '#fca5a5', '#f87171', '#ef4444', '#dc2626', '#b91c1c', '#991b1b', '#7f1d1d'] },
+                    { name: 'Blue', colors: ['#eff6ff', '#dbeafe', '#bfdbfe', '#93c5fd', '#60a5fa', '#3b82f6', '#2563eb', '#1d4ed8', '#1e40af', '#1e3a8a'] },
+                    { name: 'Green', colors: ['#f0fdf4', '#dcfce7', '#bbf7d0', '#86efac', '#4ade80', '#22c55e', '#16a34a', '#15803d', '#166534', '#14532d'] },
+                    { name: 'Purple', colors: ['#faf5ff', '#f3e8ff', '#e9d5ff', '#d8b4fe', '#c084fc', '#a855f7', '#9333ea', '#7e22ce', '#6b21a8', '#581c87'] },
+                    { name: 'Gray', colors: ['#f9fafb', '#f3f4f6', '#e5e7eb', '#d1d5db', '#9ca3af', '#6b7280', '#4b5563', '#374151', '#1f2937', '#111827'] }
+                ],
+                'material': [
+                    { name: 'Red', colors: ['#ffebee', '#ffcdd2', '#ef9a9a', '#e57373', '#ef5350', '#f44336', '#e53935', '#d32f2f', '#c62828', '#b71c1c'] },
+                    { name: 'Blue', colors: ['#e3f2fd', '#bbdefb', '#90caf9', '#64b5f6', '#42a5f5', '#2196f3', '#1e88e5', '#1976d2', '#1565c0', '#0d47a1'] },
+                    { name: 'Green', colors: ['#e8f5e9', '#c8e6c9', '#a5d6a7', '#81c784', '#66bb6a', '#4caf50', '#43a047', '#388e3c', '#2e7d32', '#1b5e20'] },
+                    { name: 'Purple', colors: ['#f3e5f5', '#e1bee7', '#ce93d8', '#ba68c8', '#ab47bc', '#9c27b0', '#8e24aa', '#7b1fa2', '#6a1b9a', '#4a148c'] },
+                    { name: 'Gray', colors: ['#fafafa', '#f5f5f5', '#eeeeee', '#e0e0e0', '#bdbdbd', '#9e9e9e', '#757575', '#616161', '#424242', '#212121'] }
+                ],
+                'flat': [
+                    { name: 'Flat UI', colors: ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e', '#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50', '#f1c40f', '#e67e22', '#e74c3c', '#ecf0f1', '#95a5a6', '#f39c12', '#d35400', '#c0392b', '#bdc3c7', '#7f8c8d'] }
+                ]
+            };
+            
+            const basicColors = [
+                { name: 'Black', hex: '#000000', rgb: 'rgb(0, 0, 0)' },
+                { name: 'White', hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)' },
+                { name: 'Red', hex: '#FF0000', rgb: 'rgb(255, 0, 0)' },
+                { name: 'Green', hex: '#00FF00', rgb: 'rgb(0, 255, 0)' },
+                { name: 'Blue', hex: '#0000FF', rgb: 'rgb(0, 0, 255)' },
+                { name: 'Yellow', hex: '#FFFF00', rgb: 'rgb(255, 255, 0)' },
+                { name: 'Cyan', hex: '#00FFFF', rgb: 'rgb(0, 255, 255)' },
+                { name: 'Magenta', hex: '#FF00FF', rgb: 'rgb(255, 0, 255)' }
+            ];
+            
+            if (!colorType || colorType === 'help') {
+                return `<div class="p-3 bg-gray-800 rounded-md">
+                    <p class="mb-2">Renk komutları:</p>
+                    <ul class="list-disc list-inside">
+                        <li><span class="text-yellow-400">colors basic</span> - Temel renkleri gösterir</li>
+                        <li><span class="text-yellow-400">colors tailwind</span> - Tailwind renk paletini gösterir</li>
+                        <li><span class="text-yellow-400">colors material</span> - Material Design renk paletini gösterir</li>
+                        <li><span class="text-yellow-400">colors flat</span> - Flat UI renk paletini gösterir</li>
+                    </ul>
+                </div>`;
+            }
+            
+            if (colorType === 'basic') {
+                let output = `<div class="p-3 bg-gray-800 rounded-md">
+                    <p class="mb-2">Temel Renkler:</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">`;
+                
+                basicColors.forEach(color => {
+                    output += `
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-md mb-1" style="background-color: ${color.hex};"></div>
+                            <p class="text-sm font-bold">${color.name}</p>
+                            <p class="text-xs">${color.hex}</p>
+                            <p class="text-xs">${color.rgb}</p>
+                        </div>`;
+                });
+                
+                output += `</div></div>`;
+                return output;
+            }
+            
+            if (colorPalettes[colorType]) {
+                let output = `<div class="p-3 bg-gray-800 rounded-md">
+                    <p class="mb-2">${colorType.charAt(0).toUpperCase() + colorType.slice(1)} Renk Paleti:</p>`;
+                
+                colorPalettes[colorType].forEach(palette => {
+                    output += `<p class="mt-3 mb-1 font-bold">${palette.name}</p>
+                    <div class="flex flex-wrap">`;
+                    
+                    palette.colors.forEach(color => {
+                        output += `<div class="w-8 h-8 m-1 rounded-md" style="background-color: ${color};" title="${color}"></div>`;
+                    });
+                    
+                    output += `</div>`;
+                });
+                
+                output += `</div>`;
+                return output;
+            }
+            
+            return `Belirtilen renk paleti bulunamadı: ${colorType}. Kullanılabilir paletler: basic, tailwind, material, flat`;
         },
         'weather': async (args) => {
             const city = args.trim();
