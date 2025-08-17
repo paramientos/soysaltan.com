@@ -1,51 +1,139 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel: Neden Hala PHP'nin Kralı? - Soysal Tan</title>
-    <meta name="description" content="PHP dünyasında Laravel'in neden hala en popüler framework olduğunu, Eloquent ORM, Blade ve Artisan gibi temel özelliklerini derinlemesine inceliyoruz.">
-    <link href="../css/tailwind.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.15.1/devicon.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laravel King: Neden Laravel? | Soysal Tan</title>
+  <meta name="description" content="Laravel neden modern PHP dünyasında bu kadar popüler? Avantajları, topluluğu ve ekosistemiyle Laravel'in kral olma hikayesi.">
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#1a2036] text-white font-sans leading-normal tracking-normal">
+<body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
+  <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+  
+  <!-- Header -->
+  <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
+      <nav class="hidden md:flex items-center">
+        <ul class="flex space-x-8 text-base font-medium">
+          <li><a href="/" class="nav-link relative">Ana Sayfa</a></li>
+          <li><a href="/#about" class="nav-link relative">Hakkımda</a></li>
+          <li><a href="/#projects" class="nav-link relative">Projelerim</a></li>
+          <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
+          <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+        </ul>
+      </nav>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col items-center space-y-4 py-4">
+        <li><a href="/" class="nav-link relative">Ana Sayfa</a></li>
+        <li><a href="/#about" class="nav-link relative">Hakkımda</a></li>
+        <li><a href="/#projects" class="nav-link relative">Projelerim</a></li>
+        <li><a href="/blog/index.html" class="nav-link relative">Blog</a></li>
+        <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header class="bg-[#1a2036]/80 backdrop-blur-lg sticky top-0 z-40 w-full border-b border-slate-700">
-        <div class="container mx-auto flex items-center justify-between p-4">
-            <a href="../index.html" class="text-lg font-semibold text-yellow-400 hover:text-yellow-300 transition-colors duration-300">&larr; Ana Sayfaya Dön</a>
-            <span class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500">Soysal Tan</span>
+  <main>
+    <section class="py-24 md:py-32 relative">
+      <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+      <div class="container max-w-3xl mx-auto px-4 relative z-10">
+        <div class="mb-8">
+          <a href="/blog/index.html" class="text-[#b8b8d1] hover:text-white transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            Blog'a Dön
+          </a>
         </div>
-    </header>
-
-    <!-- Blog Post Content -->
-    <main class="container mx-auto px-4 py-16">
-        <article class="max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-yellow-400">Laravel: Neden Hala PHP'nin Kralı?</h1>
-            <p class="text-center text-[#eebbc3] mb-12">16 Ağustos 2025</p>
-
-            <div class="prose prose-lg prose-invert max-w-none mx-auto text-gray-300 leading-relaxed">
-                <p>PHP dünyası sürekli bir evrim içinde olsa da, Laravel zarafeti, güçlü özellikleri ve geliştirici dostu yapısıyla yıllardır tahtını koruyor. Peki, onu bu kadar özel kılan ne? Gelin, Laravel'i zirvede tutan temel direkleri inceleyelim.</p>
-                
-                <h2 class="text-2xl text-yellow-400">Eloquent ORM: Veritabanı ile Dans</h2>
-                <p>Veritabanı işlemlerini sanki doğal bir dille konuşur gibi yapmanızı sağlayan Eloquent, karmaşık SQL sorgularını basit ve okunabilir PHP koduna dönüştürür. Bu, hem geliştirme sürecini hızlandırır hem de kodun bakımını kolaylaştırır. Active Record implementasyonu sayesinde, her veritabanı tablosu, o tabloyla etkileşim kurmak için kullanılan karşılık gelen bir "Model"e sahiptir. Bu, verilerinizi sorgulamanın yanı sıra yeni kayıtları eklemeyi, mevcutları güncellemeyi ve silmeyi de inanılmaz derecede basit hale getirir.</p>
-
-                <h2 class="text-2xl text-yellow-400">Blade Şablon Motoru: Esnek ve Güçlü</h2>
-                <p>Blade, basit sözdizimi ile karmaşık görünümleri kolayca oluşturmanıza olanak tanır. Diğer popüler PHP şablon motorlarının aksine Blade, görünümlerinizde düz PHP kodu kullanmanızı kısıtlamaz. Aslında, tüm Blade görünümleri düz PHP koduna derlenir ve değişiklik yapılana kadar önbellekte tutulur, bu da Blade'in uygulamanıza neredeyse hiç ek yük getirmediği anlamına gelir. Kalıtım (inheritance) ve bölümler (sections) gibi özellikleriyle, tekrar eden kodları ortadan kaldırarak temiz ve modüler bir yapı sunar.</p>
-
-                <h2 class="text-2xl text-yellow-400">Artisan Konsolu: Komut Satırındaki Sihirbaz</h2>
-                <p>Veritabanı taşımasından (migration) test verisi oluşturmaya (seeding), kuyruk (queue) yönetiminden özel komutlar yazmaya kadar birçok işlemi otomatikleştiren Artisan, geliştiricinin en büyük yardımcısıdır. Laravel ile birlikte gelen düzinelerce yerleşik komutun yanı sıra, uygulamanıza özel komutlar oluşturarak tekrarlayan görevleri kolayca otomatik hale getirebilirsiniz. Bu, geliştirme verimliliğini önemli ölçüde artırır.</p>
-
-                <h3 class="text-xl mt-8">Sonuç</h3>
-                <p>Sonuç olarak Laravel, sadece bir framework değil, aynı zamanda modern web uygulamaları geliştirmek için eksiksiz bir ekosistemdir. Güçlü topluluk desteği, zengin paket (package) arşivi ve sürekli güncellenen yapısıyla, PHP ekosistemindeki tahtını kolay kolay kimseye kaptıracak gibi görünmüyor.</p>
+        
+        <article class="prose prose-lg prose-invert max-w-none">
+          <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Laravel King: Neden Laravel?</h1>
+            <div class="flex items-center gap-3 text-[#b8b8d1] mb-6">
+              <span class="badge">PHP</span>
+              <span class="text-sm">21 Haziran 2024</span>
             </div>
+          </header>
+          
+          <div class="text-[#b8b8d1] leading-relaxed">
+            <p class="mb-6">Modern web geliştirme dünyasında, PHP framework'leri arasında Laravel'in özel bir yeri var. Peki neden Laravel bu kadar popüler ve neden geliştiriciler tarafından "King" olarak anılıyor? Bu yazıda Laravel'in başarısının arkasındaki nedenleri ve PHP ekosistemindeki konumunu inceleyeceğiz.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Elegant Syntax ve Temiz Kod</h2>
+            <p class="mb-6">Laravel'in en büyük avantajlarından biri, son derece temiz ve anlaşılır bir syntax'a sahip olmasıdır. Taylor Otwell tarafından "developer happiness" (geliştirici mutluluğu) odaklı tasarlanan Laravel, kodun okunabilirliğini ve bakım yapılabilirliğini ön planda tutar.</p>
+            
+            <p class="mb-6">Örneğin, Laravel'in route tanımlamaları:</p>
+            
+            <pre class="bg-[#232946] p-4 rounded-lg overflow-x-auto mb-6"><code>Route::get('/posts', [PostController::class, 'index']);
+Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/{post}', [PostController::class, 'show']);</code></pre>
+            
+            <p class="mb-6">Bu syntax, hem okunması kolay hem de anlaşılır. Laravel'in Eloquent ORM'i de benzer şekilde temiz bir syntax sunar:</p>
+            
+            <pre class="bg-[#232946] p-4 rounded-lg overflow-x-auto mb-6"><code>$posts = Post::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();</code></pre>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Zengin Ekosistem</h2>
+            <p class="mb-6">Laravel, geniş bir ekosisteme sahiptir. Paket yönetimi için Composer, frontend için Mix (ve şimdi Vite), deployment için Forge ve Envoyer, mikroservisler için Lumen, sunucu yönetimi için Laravel Vapor gibi araçlar, Laravel'i tam bir çözüm haline getiriyor.</p>
+            
+            <p class="mb-6">Ayrıca Laravel Nova, Jetstream, Breeze, Sanctum, Horizon, Echo gibi resmi paketler, geliştirme sürecini hızlandırır ve standartlaştırır.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Güçlü Topluluk Desteği</h2>
+            <p class="mb-6">Laravel'in başarısının arkasındaki en önemli faktörlerden biri de güçlü topluluk desteğidir. Laracasts gibi eğitim platformları, Laravel News gibi haber kaynakları, Laravel Podcast gibi podcastler ve dünya çapında düzenlenen Laravel konferansları, bilgi paylaşımını ve topluluğun büyümesini sağlar.</p>
+            
+            <p class="mb-6">Ayrıca, Laravel'in açık kaynak doğası, binlerce geliştiricinin framework'e katkıda bulunmasına olanak tanır. Bu da Laravel'in sürekli olarak gelişmesini ve iyileştirilmesini sağlar.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Modern PHP Pratikleri</h2>
+            <p class="mb-6">Laravel, modern PHP pratiklerini benimser ve teşvik eder. Dependency injection, service container, middleware, event-driven programming gibi modern yazılım geliştirme konseptlerini PHP dünyasına entegre eder.</p>
+            
+            <p class="mb-6">Laravel, PHP 8'in özelliklerini tam olarak destekler ve yeni PHP sürümleriyle birlikte güncellenir. Bu da Laravel'in her zaman güncel ve modern kalmasını sağlar.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Hızlı Geliştirme Süreci</h2>
+            <p class="mb-6">Laravel, hızlı geliştirme süreçleri için tasarlanmıştır. Artisan komut satırı aracı, migration sistemi, seeder'lar, factory'ler ve test araçları, geliştirme sürecini hızlandırır ve kolaylaştırır.</p>
+            
+            <p class="mb-6">Örneğin, bir model, migration, controller ve factory oluşturmak için tek bir Artisan komutu yeterlidir:</p>
+            
+            <pre class="bg-[#232946] p-4 rounded-lg overflow-x-auto mb-6"><code>php artisan make:model Post -mcf</code></pre>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Sonuç</h2>
+            <p class="mb-6">Laravel, elegant syntax'ı, zengin ekosistemi, güçlü topluluk desteği, modern PHP pratiklerini benimsemesi ve hızlı geliştirme süreci sağlaması nedeniyle PHP framework'leri arasında "King" olarak anılmayı hak ediyor.</p>
+            
+            <p class="mb-6">Eğer modern web geliştirme dünyasında PHP ile çalışıyorsanız, Laravel kesinlikle değerlendirmeniz gereken bir framework. Laravel'in sunduğu avantajlar, geliştirme sürecinizi daha verimli, daha keyifli ve daha modern hale getirecektir.</p>
+          </div>
         </article>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#1a2036] py-6 border-t border-slate-700">
-        <p class="text-center text-sm text-gray-400">&copy; 2025 Soysal Tan. Tüm hakları saklıdır.</p>
-    </footer>
+  <footer class="py-12 bg-[#181824] text-[#b8b8d1] text-sm">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Soysal Tan. Tüm hakları saklıdır.</p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z"></path></svg></a>
+        <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.32-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.59h-3v-10h3v1.38h.04c.42-.79 1.44-1.63 2.86-1.63 3.06 0 3.63 2.01 3.63 4.62v5.63z"/></svg></a>
+        <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-gray-400 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56c-.88.39-1.83.65-2.83.77.99-.6 1.76-1.55 2.12-2.72-.93.55-1.95.95-3.03 1.15-1.75-1.86-4.5-1.86-6.25 0-1.74 1.86-1.74 4.87 0 6.73-5.59-.28-10.55-2.96-13.87-7.03-.58 1-.92 2.17-.92 3.42 0 2.34 1.19 4.41 3.01 5.62-.93-.03-1.8-.29-2.56-.7v.05c0 3.27 2.32 5.99 5.39 6.61-.56.15-1.15.23-1.76.23-.43 0-.85-.04-1.26-.12.86 2.68 3.35 4.64 6.3 4.69-2.3 1.8-5.21 2.88-8.36 2.88-.54 0-1.08-.03-1.61-.09 2.98 1.91 6.52 3.02 10.34 3.02 12.4 0 19.19-10.27 19.19-19.2 0-.29-.01-.58-.02-.87.9-.65 1.67-1.46 2.28-2.36z"/></svg></a>
+      </div>
+    </div>
+  </footer>
 
+  <script src="/js/main.js"></script>
+  <script>
+    // Blog sayfası için özel JS
+    document.addEventListener('DOMContentLoaded', function() {
+      setupStarsBackground();
+      setupMobileMenu();
+    });
+  </script>
 </body>
 </html>

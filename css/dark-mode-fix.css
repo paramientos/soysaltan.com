@@ -1,0 +1,50 @@
+/* Dark mode metin görünürlük düzeltmesi */
+html.dark body {
+  color: white !important;
+}
+
+html.dark h1, 
+html.dark h2, 
+html.dark h3, 
+html.dark h4, 
+html.dark h5, 
+html.dark h6, 
+html.dark p, 
+html.dark span, 
+html.dark div, 
+html.dark li {
+  color: white !important;
+}
+
+html.dark .text-gray-700, 
+html.dark .text-gray-800, 
+html.dark .text-gray-900, 
+html.dark .text-gray-600, 
+html.dark .text-gray-500, 
+html.dark .text-gray-400, 
+html.dark .text-gray-300 {
+  color: white !important;
+}
+
+html.dark .dark\:text-gray-100, 
+html.dark .dark\:text-gray-200, 
+html.dark .dark\:text-gray-300, 
+html.dark .dark\:text-gray-400 {
+  color: white !important;
+}
+
+html.dark .dark\:text-white {
+  color: white !important;
+}
+
+/* Typography plugin kendi renklerini yönetsin: .prose içeriği override etme */
+
+/* İçindekiler bölümü için özel stil */
+html.dark .bg-gray-50.dark\:bg-gray-800 a {
+  color: #93c5fd !important; /* light blue rengi */
+}
+
+/* Kod blokları için özel stil */
+html.dark pre code {
+  color: #e5e7eb !important;
+}

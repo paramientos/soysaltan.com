@@ -1,5 +1,11 @@
 // Main JavaScript file for Soysal Tan website
 
+// Ensure page loads at the top
+window.onload = function() {
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 0);
+};
 document.addEventListener('DOMContentLoaded', function() {
     // Tüm başlangıç fonksiyonları burada toplanır
     setupThemeToggle();
@@ -272,6 +278,7 @@ function setupTerminal() {
                 <li><span class="text-yellow-400">quote</span> - Rastgele bir alıntı gösterir.</li>
                 <li><span class="text-yellow-400">password [uzunluk] [seçenekler]</span> - Güçlü şifre oluşturur.</li>
                 <li><span class="text-yellow-400">colors [tür]</span> - Renk paletleri gösterir (basic, tailwind, material, flat).</li>
+                <li><span class="text-yellow-400">timer &lt;sn&gt;</span> - Geri sayım başlatır.</li>
             </ul>
         `,
         fetch: `
@@ -752,6 +759,22 @@ Mevcut türler: ${Object.keys(arts).join(', ')}`;
             }
             
             return `Belirtilen renk paleti bulunamadı: ${colorType}. Kullanılabilir paletler: basic, tailwind, material, flat`;
+        },
+        'timer': (args) => {
+            const secs = parseInt(args.trim());
+            if (isNaN(secs) || secs <= 0) {
+                return 'Lütfen pozitif bir saniye değeri girin. Kullanım: timer 10';
+            }
+            let remaining = secs;
+            const interval = setInterval(() => {
+                printOutput(`<span class="text-green-400">⏳ ${remaining}s</span>`);
+                remaining--;
+                if (remaining < 0) {
+                    clearInterval(interval);
+                    printOutput('<span class="text-red-400">⏰ Zaman doldu!</span>');
+                }
+            }, 1000);
+            return `Timer başlatıldı: ${secs} saniye`;
         },
         'weather': async (args) => {
             const city = args.trim();

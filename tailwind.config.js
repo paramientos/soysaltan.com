@@ -2,8 +2,8 @@
 module.exports = {
   content: [
     "./index.html",
-    "./js/**/*.js",
-    "./css/**/*.css"
+    "./blog/**/*.html",
+    "./js/**/*.js"
   ],
   darkMode: 'class',
   theme: {
@@ -37,6 +37,68 @@ module.exports = {
       boxShadow: {
         'soft': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            a: {
+              color: theme('colors.primary.600'),
+              textDecoration: 'underline',
+              textUnderlineOffset: '4px',
+              '&:hover': {
+                color: theme('colors.primary.500'),
+              },
+            },
+            'h1, h2, h3, h4': {
+              color: theme('colors.gray.900'),
+              'scroll-margin-top': theme('spacing.24'),
+            },
+            blockquote: {
+              borderLeftColor: theme('colors.primary.400'),
+              color: theme('colors.gray.700'),
+            },
+            code: {
+              color: theme('colors.fuchsia.600'),
+              fontWeight: '600',
+            },
+            'code::before': { content: 'none' },
+            'code::after': { content: 'none' },
+            pre: {
+              backgroundColor: theme('colors.gray.900'),
+              color: theme('colors.gray.100'),
+            },
+            hr: {
+              borderColor: theme('colors.gray.200'),
+            },
+            strong: { color: theme('colors.gray.900') },
+          },
+        },
+        invert: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.primary.400'),
+              '&:hover': { color: theme('colors.primary.300') },
+            },
+            'h1, h2, h3, h4': {
+              color: theme('colors.gray.100'),
+            },
+            blockquote: {
+              borderLeftColor: theme('colors.primary.500'),
+              color: theme('colors.gray.300'),
+            },
+            code: {
+              color: theme('colors.fuchsia.400'),
+            },
+            pre: {
+              backgroundColor: theme('colors.gray.800'),
+              color: theme('colors.gray.100'),
+            },
+            hr: { borderColor: theme('colors.gray.700') },
+            strong: { color: theme('colors.gray.100') },
+          },
+        },
+      }),
     },
     container: {
       center: true,
@@ -49,5 +111,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
+

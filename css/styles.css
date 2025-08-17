@@ -4,7 +4,7 @@
 :root {
   --primary-color: #a259ff;
   --primary-hover: #3f8efc;
-  --text-dark: #fff;
+  --text-color: #fff;
   --text-light: #b8b8d1;
   --bg-light: #232946;
   --bg-dark: #1a1d23;
@@ -87,43 +87,259 @@ section {
   color: #a259ff;
 }
 
-/* BSOD Styles */
-#bsod {
-    background-color: #0000AA;
-    color: #FFFFFF;
-    font-family: 'Lucida Console', 'Courier New', monospace;
-    text-align: center;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Timeline CV Styles */
+.timeline-container {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
 }
 
-#bsod::before {
-    content: ":( Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.";
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 0 40px;
 }
 
-#bsod::after {
-    content: "100% complete";
-    font-size: 1.2rem;
+.timeline-item.left {
+  left: 0;
 }
 
-.destruct {
-    animation: destruct-animation 1s forwards;
+.timeline-item.right {
+  left: 50%;
 }
 
-@keyframes destruct-animation {
-    0% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.5) rotate(-10deg);
-    }
+.timeline-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  border-radius: 50%;
+  top: 15px;
+  z-index: 10;
+}
+
+.timeline-item.left .timeline-dot {
+  right: -10px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -10px;
+}
+
+.timeline-content {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.timeline-content .date {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  background-color: #e5e7eb;
+  color: #1f2937;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Testimonials Styles */
+.testimonial-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-right: 1rem;
+  border: 2px solid #8b5cf6;
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-position {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.testimonial-control-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.testimonial-control-btn:hover {
+  transform: scale(1.1);
+}
+
+.testimonial-dots {
+  display: flex;
+}
+
+.testimonial-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.testimonial-dot.active {
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  transform: scale(1.2);
+}
+
+/* Services Styles */
+.service-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+.service-icon {
+  margin-bottom: 1.5rem;
+  color: #8b5cf6;
+  transition: transform 0.3s ease;
+}
+
+.service-features {
+  margin-top: 1.5rem;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.service-features li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.service-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  border-radius: 50%;
+}
+
+.contact-btn {
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Certificate Styles */
+.certificate-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.certificate-icon {
+  margin-bottom: 1.25rem;
+  color: #8b5cf6;
+}
+
+.certificate-date {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.certificate-verify-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  color: #8b5cf6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.certificate-verify-link:hover {
+  color: #7c3aed;
 }
 
 /* Responsive adjustments */
@@ -139,4 +355,160 @@ section {
   section {
     padding: 3rem 0;
   }
+}
+
+/* Modern ve okunaklı ana başlıklar için özel stiller */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #a259ff, #3f8efc, #2dd4bf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 6px 24px rgba(162,89,255,0.12), 0 1.5px 2px rgba(24,24,36,0.15);
+  transition: background 0.4s, text-shadow 0.2s;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3.2rem;
+  }
+}
+
+/* Tech Stack Styles */
+.tech-item {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tech-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.tech-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.tech-name {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.tech-level {
+  width: 100%;
+  height: 6px;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.tech-level-bar {
+  height: 100%;
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  border-radius: 9999px;
+  transition: width 1.5s ease;
+}
+
+/* Hobbies Styles */
+.hobby-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hobby-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.hobby-card:hover .hobby-icon {
+  transform: scale(1.1);
+  color: #3b82f6;
+}
+
+.hobby-icon {
+  margin-bottom: 1.5rem;
+  color: #8b5cf6;
+  transition: all 0.3s ease;
+}
+
+/* Blog yazıları için özel stiller */
+.prose p {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.prose h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.prose pre {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  background-color: #1a1d23;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  color: #a259ff;
+  font-family: monospace;
+}
+p, .card, .certificate-card, .service-card, .testimonial-card, .timeline-content, .tech-item, .blog-post, .section-content {
+  color: #232946;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(24,24,36,0.09);
+}
+
+.card, .certificate-card, .service-card, .testimonial-card, .timeline-content, .tech-item, .blog-post {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 16px rgba(24,24,36,0.06);
+}
+
+/* Paragraflar için ekstra kontrast ve ferahlık */
+p {
+  margin-bottom: 1.2em;
+}
+
+/* Kart başlıklarını daha okunaklı yap */
+.card h3, .certificate-card h3, .service-card h3, .testimonial-card h3, .timeline-content h3, .tech-item h3, .blog-post h3 {
+  color: #181824;
+  font-weight: 700;
 }
