@@ -45,6 +45,34 @@
     </div>
   </header>
 
+  <!-- Breadcrumb Navigation -->
+  <nav class="bg-[#1a2036]/50 backdrop-blur-sm border-b border-gray-700/30" aria-label="Breadcrumb">
+    <div class="container mx-auto px-6 py-4">
+      <ol class="flex items-center space-x-2 text-sm">
+        <li>
+          <a href="/" class="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <a href="/blog/" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-white font-medium">Introduction to DevOps: Setting Up CI/CD Pipeline</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
   <main>
     <section class="py-24 md:py-32 relative">
       <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
@@ -155,6 +183,48 @@ resource "aws_instance" "web_server" {
             <p class="mb-6">While the journey to DevOps can be challenging, the benefits - faster delivery, improved quality, and better collaboration - make it a worthwhile investment for any organization serious about software development.</p>
             
             <p class="mb-6">Remember, DevOps is not a destination but a continuous journey of improvement. Start small, learn from your experiences, and gradually expand your DevOps practices as your team and organization mature.</p>
+          </div>
+          
+          <!-- Related Posts Section -->
+          <div class="mt-16 pt-12 border-t border-gray-700/30">
+            <h3 class="text-2xl font-bold mb-8 text-white">Related Posts</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">Framework</span>
+                  <span class="text-gray-400 text-sm">8 min read</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
+                  <a href="/blog/laravel-king.html">Laravel: Why is it Still the King of PHP?</a>
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Explore why Laravel continues to dominate the PHP framework landscape with its elegant syntax and powerful features.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
+                    <span class="text-gray-400 text-sm">Soysal Tan</span>
+                  </div>
+                  <span class="text-gray-500 text-sm">Dec 20, 2024</span>
+                </div>
+              </article>
+              
+              <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">Tutorial</span>
+                  <span class="text-gray-400 text-sm">6 min read</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
+                  <a href="#">Building RESTful APIs with Laravel: Complete Guide</a>
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Step-by-step tutorial on creating robust and scalable REST APIs using Laravel framework and best practices.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
+                    <span class="text-gray-400 text-sm">Soysal Tan</span>
+                  </div>
+                  <span class="text-gray-500 text-sm">Dec 12, 2024</span>
+                </div>
+              </article>
+            </div>
           </div>
         </article>
       </div>

@@ -13,17 +13,91 @@
   <style>
     /* Custom styles for blog page */
     .card {
-      background-color: #232946;
+      background: linear-gradient(135deg, #232946 0%, #1e2139 100%);
       border: 1px solid #393a5a;
       color: white;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #a259ff, #3f8efc, #ff7eb3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .card:hover {
       border-color: #a259ff;
-      box-shadow: 0 8px 32px rgba(162,89,255,0.15);
+      box-shadow: 0 20px 40px rgba(162,89,255,0.2);
+      transform: translateY(-5px);
+    }
+    .card:hover::before {
+      opacity: 1;
     }
     .badge {
-      background: rgba(162,89,255,0.2);
+      background: linear-gradient(135deg, rgba(162,89,255,0.3), rgba(63,142,252,0.3));
       color: #a259ff;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(162,89,255,0.3);
+    }
+    .search-box {
+      background: rgba(35, 41, 70, 0.8);
+      border: 1px solid #393a5a;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+    .search-box:focus {
+      border-color: #a259ff;
+      box-shadow: 0 0 0 3px rgba(162,89,255,0.1);
+    }
+    .filter-btn {
+      background: rgba(35, 41, 70, 0.6);
+      border: 1px solid #393a5a;
+      border-radius: 25px;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, #a259ff, #3f8efc);
+      border-color: #a259ff;
+      color: white;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .read-time {
+      color: #b8b8d1;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
     }
   </style>
 </head>
@@ -38,9 +112,9 @@
         <ul class="flex space-x-8 text-base font-medium">
           <li><a href="/" class="nav-link relative">Home</a></li>
           <li><a href="/#about" class="nav-link relative">About</a></li>
-          <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+          <li><a href="/#tech-stack" class="nav-link relative">Tech Stack</a></li>
           <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
-          <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+                    <li><a href="/#cv" class="nav-link relative">Journey</a></li>
         </ul>
       </nav>
       <div class="md:hidden">
@@ -54,9 +128,9 @@
       <ul class="flex flex-col items-center space-y-4 py-4">
         <li><a href="/" class="nav-link relative">Home</a></li>
         <li><a href="/#about" class="nav-link relative">About</a></li>
-        <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+        <li><a href="/#tech-stack" class="nav-link relative">Tech Stack</a></li>
         <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
-        <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+                    <li><a href="/#cv" class="nav-link relative">Journey</a></li>
       </ul>
     </div>
   </header>
@@ -64,41 +138,149 @@
   <main>
     <section class="py-24 md:py-32 relative">
       <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
-      <div class="container max-w-4xl mx-auto px-4 relative z-10">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Blog</h1>
-        <p class="text-lg md:text-xl mb-12 text-white font-light">My thoughts and experiences on Software Development, DevOps, and Cyber Security.</p>
+      <div class="container max-w-5xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-12">
+          <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Blog</h1>
+          <p class="text-lg md:text-xl mb-8 text-white font-light">My thoughts and experiences on Software Development, DevOps, and Cyber Security.</p>
+          
+          <!-- Search Box -->
+          <div class="max-w-md mx-auto mb-8">
+            <div class="relative">
+              <input type="text" id="search-input" placeholder="Search articles..." class="search-box w-full px-4 py-3 pl-12 text-white placeholder-gray-400 focus:outline-none">
+              <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Category Filters -->
+          <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="filter-btn active" data-category="all">All Posts</button>
+            <button class="filter-btn" data-category="php">PHP</button>
+            <button class="filter-btn" data-category="devops">DevOps</button>
+            <button class="filter-btn" data-category="security">Security</button>
+            <button class="filter-btn" data-category="tutorial">Tutorial</button>
+          </div>
+        </div>
         
-        <div class="grid gap-8">
+        <div id="blog-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- Blog Cards Start -->
-          <article class="card p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow">
-            <a href="/blog/laravel-king.html" class="block">
-              <h2 class="text-2xl font-bold mb-1 text-white">Laravel King: Why Laravel?</h2>
-              <p class="text-white mb-2">Why is Laravel so popular in the modern PHP world? The story of Laravel becoming king with its advantages, community, and ecosystem.</p>
-              <div class="flex items-center gap-2">
+          <article class="card p-6 animate-fade-in-up" data-category="php" style="animation-delay: 0.1s">
+            <a href="/blog/laravel-king.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Laravel: Why is it Still the King of PHP?</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">Discover why Laravel continues to dominate the PHP ecosystem with its elegant syntax, robust features, and thriving community support.</p>
+              </div>
+              <div class="blog-meta">
                 <span class="badge">PHP</span>
-                <span class="text-xs text-white/80">2024-06-21</span>
+                <span class="badge">Laravel</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  5 min read
+                </div>
+                <span class="text-xs text-white/60">Jun 21, 2024</span>
               </div>
             </a>
           </article>
           
-          <article class="card p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow">
-            <a href="/blog/devops-intro.html" class="block">
-              <h2 class="text-2xl font-bold mb-1 text-white">Introduction to DevOps</h2>
-              <p class="text-white mb-2">How DevOps culture, tools, and practices are transforming software development processes? An introduction to the world of DevOps with basic concepts.</p>
-              <div class="flex items-center gap-2">
+          <article class="card p-6 animate-fade-in-up" data-category="devops" style="animation-delay: 0.2s">
+            <a href="/blog/devops-intro.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Introduction to DevOps: Setting Up CI/CD Pipeline</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">Learn how DevOps culture, tools, and practices are transforming software development processes with modern CI/CD implementations.</p>
+              </div>
+              <div class="blog-meta">
                 <span class="badge">DevOps</span>
-                <span class="text-xs text-white/80">2024-05-10</span>
+                <span class="badge">CI/CD</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  8 min read
+                </div>
+                <span class="text-xs text-white/60">May 10, 2024</span>
               </div>
             </a>
           </article>
           
-          <article class="card p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow">
-            <a href="/blog/proactive-security.html" class="block">
-              <h2 class="text-2xl font-bold mb-1 text-white">Proactive Cyber Security</h2>
-              <p class="text-white mb-2">Why are proactive approaches important in cyber security? Ways to reduce risk and be prepared against attacks.</p>
-              <div class="flex items-center gap-2">
-                <span class="badge">Cyber Security</span>
-                <span class="text-xs text-white/80">2024-04-02</span>
+          <article class="card p-6 animate-fade-in-up" data-category="security" style="animation-delay: 0.3s">
+            <a href="/blog/proactive-security.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Web Security Best Practices for Modern Applications</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">Essential security measures and proactive approaches to protect your web applications from common vulnerabilities and attacks.</p>
+              </div>
+              <div class="blog-meta">
+                <span class="badge">Security</span>
+                <span class="badge">Web Security</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  6 min read
+                </div>
+                <span class="text-xs text-white/60">Apr 02, 2024</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="card p-6 animate-fade-in-up" data-category="tutorial" style="animation-delay: 0.4s">
+            <a href="/blog/api-tutorial.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Building RESTful APIs with Laravel: Complete Guide</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">Step-by-step tutorial on creating robust and scalable RESTful APIs using Laravel with authentication and best practices.</p>
+              </div>
+              <div class="blog-meta">
+                <span class="badge">Tutorial</span>
+                <span class="badge">API</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  12 min read
+                </div>
+                <span class="text-xs text-white/60">Mar 15, 2024</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="card p-6 animate-fade-in-up" data-category="devops" style="animation-delay: 0.5s">
+            <a href="/blog/docker-guide.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Docker Containerization: From Development to Production</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">Master Docker containerization techniques for seamless application deployment across different environments.</p>
+              </div>
+              <div class="blog-meta">
+                <span class="badge">DevOps</span>
+                <span class="badge">Docker</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  10 min read
+                </div>
+                <span class="text-xs text-white/60">Feb 28, 2024</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="card p-6 animate-fade-in-up" data-category="php" style="animation-delay: 0.6s">
+            <a href="/blog/php-performance.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">PHP Performance Optimization: Advanced Techniques</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">Boost your PHP application performance with advanced optimization techniques, caching strategies, and profiling tools.</p>
+              </div>
+              <div class="blog-meta">
+                <span class="badge">PHP</span>
+                <span class="badge">Performance</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  9 min read
+                </div>
+                <span class="text-xs text-white/60">Jan 20, 2024</span>
               </div>
             </a>
           </article>
@@ -138,7 +320,111 @@
     document.addEventListener('DOMContentLoaded', function() {
       setupStarsBackground();
       setupMobileMenu();
+      setupBlogSearch();
+      setupBlogFilters();
     });
+    
+    function setupBlogSearch() {
+      const searchInput = document.getElementById('search-input');
+      const blogCards = document.querySelectorAll('#blog-grid article');
+      
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        blogCards.forEach(card => {
+          const title = card.querySelector('h2').textContent.toLowerCase();
+          const description = card.querySelector('p').textContent.toLowerCase();
+          const badges = Array.from(card.querySelectorAll('.badge')).map(badge => badge.textContent.toLowerCase());
+          
+          const matches = title.includes(searchTerm) || 
+                         description.includes(searchTerm) || 
+                         badges.some(badge => badge.includes(searchTerm));
+          
+          if (matches) {
+            card.style.display = 'block';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              if (card.style.opacity === '0') {
+                card.style.display = 'none';
+              }
+            }, 300);
+          }
+        });
+        
+        // Show "No results" message if no cards are visible
+        const visibleCards = Array.from(blogCards).filter(card => card.style.display !== 'none');
+        let noResultsMsg = document.getElementById('no-results');
+        
+        if (visibleCards.length === 0 && searchTerm.length > 0) {
+          if (!noResultsMsg) {
+            noResultsMsg = document.createElement('div');
+            noResultsMsg.id = 'no-results';
+            noResultsMsg.className = 'col-span-full text-center py-12';
+            noResultsMsg.innerHTML = `
+              <div class="text-gray-400">
+                <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33"></path>
+                </svg>
+                <p class="text-lg font-medium mb-2">No articles found</p>
+                <p class="text-sm">Try adjusting your search terms or browse all posts</p>
+              </div>
+            `;
+            document.getElementById('blog-grid').appendChild(noResultsMsg);
+          }
+        } else if (noResultsMsg) {
+          noResultsMsg.remove();
+        }
+      });
+    }
+    
+    function setupBlogFilters() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const blogCards = document.querySelectorAll('#blog-grid article');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.dataset.category;
+          
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Clear search
+          const searchInput = document.getElementById('search-input');
+          searchInput.value = '';
+          
+          // Remove no results message if exists
+          const noResultsMsg = document.getElementById('no-results');
+          if (noResultsMsg) noResultsMsg.remove();
+          
+          // Filter cards
+          blogCards.forEach((card, index) => {
+            const cardCategory = card.dataset.category;
+            const shouldShow = category === 'all' || cardCategory === category;
+            
+            if (shouldShow) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, index * 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                if (card.style.opacity === '0') {
+                  card.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+        });
+      });
+    }
   </script>
 </body>
 </html>

@@ -8,32 +8,63 @@ window.onload = function() {
 };
 document.addEventListener('DOMContentLoaded', function() {
     // Tüm başlangıç fonksiyonları burada toplanır
-    setupThemeToggle();
     setupNavbarScroll();
     setupSmoothScrolling();
     setupFormValidation();
     setupStarsBackground();
     setupCardTilt();
     setupMobileMenu();
-    setupTerminal(); 
+    setupBlogFilter();
 });
 
-function setupThemeToggle() {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-        htmlElement.classList.add('dark');
-    } else {
-        htmlElement.classList.remove('dark');
-    }
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', function() {
-            const isDarkMode = htmlElement.classList.toggle('dark');
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+// Blog Filter Functionality
+function setupBlogFilter() {
+    const filterButtons = document.querySelectorAll('.blog-filter-btn');
+    const blogPosts = document.querySelectorAll('.blog-post');
+    
+    if (filterButtons.length === 0 || blogPosts.length === 0) return;
+    
+    // Initialize all blog posts to be visible
+    blogPosts.forEach(post => {
+        post.style.display = 'block';
+        post.style.opacity = '1';
+        post.style.transform = 'translateY(0)';
+    });
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-gradient-to-r', 'from-purple-600', 'to-blue-500', 'text-white', 'shadow-lg');
+                btn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+            });
+            
+            this.classList.add('active', 'bg-gradient-to-r', 'from-purple-600', 'to-blue-500', 'text-white', 'shadow-lg');
+            this.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+            
+            // Filter blog posts
+            blogPosts.forEach(post => {
+                if (category === 'all' || post.getAttribute('data-category') === category) {
+                    post.style.display = 'block';
+                    post.style.opacity = '0';
+                    setTimeout(() => {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    post.style.opacity = '0';
+                    post.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        if (post.style.opacity === '0') {
+                            post.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
         });
-    }
+    });
 }
 
 function setupNavbarScroll() {
@@ -225,9 +256,6 @@ function setupMobileMenu() {
         });
     }
 }
-
-// Interactive Terminal
-function setupTerminal() {
     const terminalOutput = document.getElementById('terminal-output');
     const terminalInput = document.getElementById('terminal-input');
     const terminalForm = document.getElementById('terminal-form');
@@ -873,4 +901,3 @@ Mevcut türler: ${Object.keys(arts).join(', ')}`;
     });
 
     printOutput('Soysal Tan interaktif terminaline hoş geldiniz. Başlamak için `help` yazın.');
-}
