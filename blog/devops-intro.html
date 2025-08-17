@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to DevOps | Soysal Tan</title>
+  <meta name="description" content="How DevOps culture, tools, and practices are transforming software development processes? An introduction to the world of DevOps with basic concepts.">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
+  <link rel="stylesheet" href="/css/styles.css?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
+  <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+  
+  <!-- Header -->
+  <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
+      <nav class="hidden md:flex items-center">
+        <ul class="flex space-x-8 text-base font-medium">
+          <li><a href="/" class="nav-link relative">Home</a></li>
+          <li><a href="/#about" class="nav-link relative">About</a></li>
+          <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+          <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
+          <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+        </ul>
+      </nav>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col items-center space-y-4 py-4">
+        <li><a href="/" class="nav-link relative">Home</a></li>
+        <li><a href="/#about" class="nav-link relative">About</a></li>
+        <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+        <li><a href="/blog/index.html" class="nav-link relative">Blog</a></li>
+        <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="py-24 md:py-32 relative">
+      <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+      <div class="container max-w-3xl mx-auto px-4 relative z-10">
+        <div class="mb-8">
+          <a href="/blog/index.html" class="text-[#b8b8d1] hover:text-white transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            Back to Blog
+          </a>
+        </div>
+        
+        <article class="prose prose-lg prose-invert max-w-none">
+          <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Introduction to DevOps</h1>
+            <div class="flex items-center gap-3 text-[#b8b8d1] mb-6">
+              <span class="badge">DevOps</span>
+              <span class="text-sm">May 10, 2024</span>
+            </div>
+          </header>
+          
+          <div class="text-[#b8b8d1] leading-relaxed">
+            <p class="mb-6">DevOps has become one of the most important concepts in modern software development. But what exactly is DevOps, and why has it become so crucial for organizations? In this article, we'll explore the fundamentals of DevOps culture, its core principles, and how it's transforming the way we build and deploy software.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">What is DevOps?</h2>
+            <p class="mb-6">DevOps is a cultural and technical movement that emphasizes collaboration between Development (Dev) and Operations (Ops) teams. It's not just a set of tools or practices, but a fundamental shift in how organizations approach software delivery and infrastructure management.</p>
+            
+            <p class="mb-6">The term "DevOps" was coined around 2009, combining "Development" and "Operations" to represent the breaking down of traditional silos between these two critical functions in software organizations.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Core Principles of DevOps</h2>
+            <p class="mb-6">DevOps is built on several fundamental principles that guide its implementation:</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">1. Collaboration and Communication</h3>
+            <p class="mb-6">Breaking down silos between development, operations, and other stakeholders. Teams work together throughout the entire software lifecycle, sharing responsibilities and knowledge.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">2. Automation</h3>
+            <p class="mb-6">Automating repetitive tasks such as testing, deployment, and infrastructure provisioning. This reduces human error, increases consistency, and frees up time for more valuable work.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">3. Continuous Integration and Continuous Deployment (CI/CD)</h3>
+            <p class="mb-6">Implementing practices that allow for frequent, reliable releases. Code changes are automatically tested and deployed through a pipeline, enabling faster feedback and shorter release cycles.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">4. Monitoring and Feedback</h3>
+            <p class="mb-6">Continuous monitoring of applications and infrastructure to gain insights into performance, user behavior, and system health. This feedback drives improvements and helps prevent issues.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Key DevOps Practices</h2>
+            <p class="mb-6">Several practices are commonly associated with successful DevOps implementations:</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Infrastructure as Code (IaC)</h3>
+            <p class="mb-6">Managing and provisioning infrastructure through code rather than manual processes. Tools like Terraform, Ansible, and CloudFormation enable version-controlled, repeatable infrastructure deployments.</p>
+            
+            <pre class="bg-[#232946] p-4 rounded-lg overflow-x-auto mb-6"><code># Example Terraform configuration
+resource "aws_instance" "web_server" {
+  ami           = "ami-0c55b159cbfafe1d0"
+  instance_type = "t2.micro"
+  
+  tags = {
+    Name = "WebServer"
+    Environment = "Production"
+  }
+}</code></pre>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Version Control</h3>
+            <p class="mb-6">Using version control systems like Git not just for application code, but also for infrastructure code, configuration files, and documentation. This ensures traceability and enables collaboration.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Containerization</h3>
+            <p class="mb-6">Using containers (Docker, Kubernetes) to package applications with their dependencies, ensuring consistency across different environments and simplifying deployment processes.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Popular DevOps Tools</h2>
+            <p class="mb-6">The DevOps ecosystem includes a wide variety of tools that support different aspects of the DevOps lifecycle:</p>
+            
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</li>
+              <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, GitLab CI, Azure DevOps</li>
+              <li><strong>Containerization:</strong> Docker, Kubernetes, OpenShift</li>
+              <li><strong>Infrastructure as Code:</strong> Terraform, Ansible, Puppet, Chef</li>
+              <li><strong>Monitoring:</strong> Prometheus, Grafana, ELK Stack, Datadog</li>
+              <li><strong>Cloud Platforms:</strong> AWS, Azure, Google Cloud Platform</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Benefits of DevOps</h2>
+            <p class="mb-6">Organizations that successfully implement DevOps practices typically see significant benefits:</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Faster Time to Market</h3>
+            <p class="mb-6">Automated processes and improved collaboration enable faster development cycles and more frequent releases, allowing organizations to respond quickly to market demands.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Improved Quality</h3>
+            <p class="mb-6">Automated testing, continuous integration, and monitoring help catch issues early and maintain high-quality standards throughout the development process.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Enhanced Reliability</h3>
+            <p class="mb-6">Infrastructure as Code and automated deployment processes reduce the risk of human error and ensure consistent, reliable deployments.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Better Collaboration</h3>
+            <p class="mb-6">Breaking down silos between teams leads to better communication, shared responsibility, and a more cohesive approach to software delivery.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Getting Started with DevOps</h2>
+            <p class="mb-6">If you're new to DevOps, here are some steps to get started:</p>
+            
+            <ol class="list-decimal list-inside mb-6 space-y-2">
+              <li>Start with version control - ensure all code and configurations are in Git</li>
+              <li>Implement basic CI/CD pipelines for automated testing and deployment</li>
+              <li>Begin automating repetitive tasks and infrastructure provisioning</li>
+              <li>Establish monitoring and logging practices</li>
+              <li>Foster a culture of collaboration and continuous improvement</li>
+            </ol>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Conclusion</h2>
+            <p class="mb-6">DevOps represents a fundamental shift in how we approach software development and operations. It's not just about tools and technologies, but about creating a culture of collaboration, automation, and continuous improvement.</p>
+            
+            <p class="mb-6">While the journey to DevOps can be challenging, the benefits - faster delivery, improved quality, and better collaboration - make it a worthwhile investment for any organization serious about software development.</p>
+            
+            <p class="mb-6">Remember, DevOps is not a destination but a continuous journey of improvement. Start small, learn from your experiences, and gradually expand your DevOps practices as your team and organization mature.</p>
+          </div>
+        </article>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+        <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#232946"/></svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 bg-[#181824] text-white text-sm">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Soysal Tan. All rights reserved.</p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+          </svg>
+        </a>
+        <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Custom JS for blog page
+    document.addEventListener('DOMContentLoaded', function() {
+      setupStarsBackground();
+      setupMobileMenu();
+    });
+  </script>
+</body>
+</html>

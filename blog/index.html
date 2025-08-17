@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Soysal Tan</title>
-  <meta name="description" content="Soysal Tan Blog - Yazılım, DevOps, Cyber Security üzerine içerikler">
+  <meta name="description" content="Soysal Tan Blog - Content on Software Development, DevOps, Cyber Security">
   <link rel="stylesheet" href="/css/tailwind.css?v=1">
   <link rel="stylesheet" href="/css/styles.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Blog sayfası için özel stiller */
+    /* Custom styles for blog page */
     .card {
       background-color: #232946;
       border: 1px solid #393a5a;
@@ -36,9 +36,9 @@
       <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
       <nav class="hidden md:flex items-center">
         <ul class="flex space-x-8 text-base font-medium">
-          <li><a href="/" class="nav-link relative">Ana Sayfa</a></li>
-          <li><a href="/#about" class="nav-link relative">Hakkımda</a></li>
-          <li><a href="/#projects" class="nav-link relative">Projelerim</a></li>
+          <li><a href="/" class="nav-link relative">Home</a></li>
+          <li><a href="/#about" class="nav-link relative">About</a></li>
+          <li><a href="/#projects" class="nav-link relative">Projects</a></li>
           <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
           <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
         </ul>
@@ -52,9 +52,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden">
       <ul class="flex flex-col items-center space-y-4 py-4">
-        <li><a href="/" class="nav-link relative">Ana Sayfa</a></li>
-        <li><a href="/#about" class="nav-link relative">Hakkımda</a></li>
-        <li><a href="/#projects" class="nav-link relative">Projelerim</a></li>
+        <li><a href="/" class="nav-link relative">Home</a></li>
+        <li><a href="/#about" class="nav-link relative">About</a></li>
+        <li><a href="/#projects" class="nav-link relative">Projects</a></li>
         <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
         <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
       </ul>
@@ -66,14 +66,14 @@
       <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
       <div class="container max-w-4xl mx-auto px-4 relative z-10">
         <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Blog</h1>
-        <p class="text-lg md:text-xl mb-12 text-white font-light">Yazılım, DevOps ve Siber Güvenlik üzerine düşüncelerim ve deneyimlerim.</p>
+        <p class="text-lg md:text-xl mb-12 text-white font-light">My thoughts and experiences on Software Development, DevOps, and Cyber Security.</p>
         
         <div class="grid gap-8">
-          <!-- Blog Kartları Başlangıç -->
+          <!-- Blog Cards Start -->
           <article class="card p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow">
             <a href="/blog/laravel-king.html" class="block">
-              <h2 class="text-2xl font-bold mb-1 text-white">Laravel King: Neden Laravel?</h2>
-              <p class="text-white mb-2">Laravel neden modern PHP dünyasında bu kadar popüler? Avantajları, topluluğu ve ekosistemiyle Laravel'in kral olma hikayesi.</p>
+              <h2 class="text-2xl font-bold mb-1 text-white">Laravel King: Why Laravel?</h2>
+              <p class="text-white mb-2">Why is Laravel so popular in the modern PHP world? The story of Laravel becoming king with its advantages, community, and ecosystem.</p>
               <div class="flex items-center gap-2">
                 <span class="badge">PHP</span>
                 <span class="text-xs text-white/80">2024-06-21</span>
@@ -83,8 +83,8 @@
           
           <article class="card p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow">
             <a href="/blog/devops-intro.html" class="block">
-              <h2 class="text-2xl font-bold mb-1 text-white">DevOps'a Giriş</h2>
-              <p class="text-white mb-2">DevOps kültürü, araçları ve pratikleriyle yazılım geliştirme süreçlerini nasıl dönüştürüyor? Temel kavramlarla DevOps dünyasına giriş.</p>
+              <h2 class="text-2xl font-bold mb-1 text-white">Introduction to DevOps</h2>
+              <p class="text-white mb-2">How DevOps culture, tools, and practices are transforming software development processes? An introduction to the world of DevOps with basic concepts.</p>
               <div class="flex items-center gap-2">
                 <span class="badge">DevOps</span>
                 <span class="text-xs text-white/80">2024-05-10</span>
@@ -94,15 +94,15 @@
           
           <article class="card p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow">
             <a href="/blog/proactive-security.html" class="block">
-              <h2 class="text-2xl font-bold mb-1 text-white">Proaktif Siber Güvenlik</h2>
-              <p class="text-white mb-2">Siber güvenlikte proaktif yaklaşımlar neden önemlidir? Risk azaltma ve saldırılara karşı hazırlıklı olmanın yolları.</p>
+              <h2 class="text-2xl font-bold mb-1 text-white">Proactive Cyber Security</h2>
+              <p class="text-white mb-2">Why are proactive approaches important in cyber security? Ways to reduce risk and be prepared against attacks.</p>
               <div class="flex items-center gap-2">
                 <span class="badge">Cyber Security</span>
                 <span class="text-xs text-white/80">2024-04-02</span>
               </div>
             </a>
           </article>
-          <!-- Blog Kartları Bitiş -->
+          <!-- Blog Cards End -->
         </div>
       </div>
       <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
@@ -113,7 +113,7 @@
 
   <footer class="py-12 bg-[#181824] text-white text-sm">
     <div class="container mx-auto px-4 text-center">
-      <p>© 2025 Soysal Tan. Tüm hakları saklıdır.</p>
+      <p>© 2025 Soysal Tan. All rights reserved.</p>
       <div class="flex justify-center gap-6 mt-4">
         <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-white/70 hover:text-white transition">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@
 
   <script src="/js/main.js"></script>
   <script>
-    // Blog sayfası için özel JS
+    // Custom JS for blog page
     document.addEventListener('DOMContentLoaded', function() {
       setupStarsBackground();
       setupMobileMenu();
