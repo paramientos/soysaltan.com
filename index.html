@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soysal Tan - Software Developer, DevOps & Cyber Security</title>
-    <meta name="description" content="Soysal Tan's personal website. Articles and projects on PHP, Laravel, DevOps and Cyber Security.">
+    <meta name="description"
+        content="Soysal Tan's personal website. Articles and projects on PHP, Laravel, DevOps and Cyber Security.">
     <link rel="stylesheet" href="./css/tailwind.css?v=1">
     <link rel="stylesheet" href="./css/styles.css?v=1">
     <link rel="stylesheet" href="./css/print.css" media="print">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
     <div id="bsod" class="fixed top-0 left-0 w-full h-full z-50" style="display: none;"></div>
     <canvas id="matrix-canvas" class="hidden fixed top-0 left-0 w-full h-full z-50"></canvas>
     <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
     <canvas id="snake-canvas" class="hidden z-50"></canvas>
     <!-- Header -->
-    <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+    <header
+        class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
             <nav class="hidden md:flex items-center">
@@ -32,7 +37,11 @@
             </nav>
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -51,13 +60,29 @@
     <!-- Hero Section -->
     <main>
         <section class="py-24 md:py-36 text-center flex flex-col items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+            <div
+                class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80">
+            </div>
             <div class="container max-w-3xl mx-auto px-4 relative z-10">
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Soysal Tan</h1>
-                <p class="text-lg md:text-2xl mb-8 text-[#b8b8d1] font-light animate-fade-in">PHP & Laravel developer with 20+ years of experience, <br>DevOps and Cyber Security enthusiast. <br>Creating digital solutions with modern web technologies.</p>
+                <h1
+                    class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">
+                    Soysal Tan</h1>
+                <p class="text-lg md:text-2xl mb-8 text-[#b8b8d1] font-light animate-fade-in">PHP & Laravel developer
+                    with 20+ years of experience, <br>DevOps and Cyber Security enthusiast. <br>Creating digital
+                    solutions with modern web technologies.</p>
                 <div class="flex justify-center gap-6 mb-10">
-                    <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.32-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.59h-3v-10h3v1.38h.04c.42-.79 1.44-1.63 2.86-1.63 3.06 0 3.63 2.01 3.63 4.62v5.63z"/></svg></a>
-                    <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z"></path></svg></a>
+                    <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn"
+                        class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.32-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.59h-3v-10h3v1.38h.04c.42-.79 1.44-1.63 2.86-1.63 3.06 0 3.63 2.01 3.63 4.62v5.63z" />
+                        </svg></a>
+                    <a href="https://github.com/paramientos" target="_blank" aria-label="GitHub"
+                        class="text-gray-400 hover:text-white transition"><svg class="w-7 h-7" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg></a>
                 </div>
             </div>
         </section>
@@ -66,18 +91,23 @@
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-3 gap-12 md:gap-16 items-start">
                     <div class="md:col-span-1 flex flex-col items-center text-center">
-                        <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="rounded-full shadow-2xl w-40 h-40 md:w-48 md:h-48 object-cover bg-[#181824] border-4 border-gradient animate-tilt mb-6">
+                        <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan"
+                            class="rounded-full shadow-2xl w-40 h-40 md:w-48 md:h-48 object-cover bg-[#181824] border-4 border-gradient animate-tilt mb-6">
                         <h2 class="text-3xl font-bold">Soysal Tan</h2>
                         <p class="text-[#b8b8d1]">Full-Stack Developer</p>
                     </div>
                     <div class="md:col-span-2">
                         <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-white section-title">About Me</h3>
-                        <p class="mb-6 text-base md:text-lg text-[#b8b8d1]">I've been working with web technologies for over 20 years. I specialize in PHP and Laravel, embracing modern DevOps processes and cyber security best practices. My passion is developing scalable, secure, and high-performance applications.</p>
+                        <p class="mb-6 text-base md:text-lg text-[#b8b8d1]">I've been working with web technologies for
+                            over 20 years. I specialize in PHP and Laravel, embracing modern DevOps processes and cyber
+                            security best practices. My passion is developing scalable, secure, and high-performance
+                            applications.</p>
                         <h4 class="text-2xl font-bold mt-10 mb-6">My Skills</h4>
-                        
+
                         <!-- Programming Languages -->
                         <div class="mb-6">
-                            <h5 class="text-lg font-semibold mb-3 text-purple-300">Programming Languages & Frameworks</h5>
+                            <h5 class="text-lg font-semibold mb-3 text-purple-300">Programming Languages & Frameworks
+                            </h5>
                             <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                                 <span class="skill-badge">PHP</span>
                                 <span class="skill-badge">JavaScript</span>
@@ -97,75 +127,91 @@
                 </div>
             </div>
             <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
-                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#181824"/></svg>
+                <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32">
+                    <path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#181824" />
+                </svg>
             </div>
         </section>
 
         <!-- Tech Stack Section -->
         <section id="tech-stack" class="py-20 bg-[#1a2036]">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 animate-gradient section-title">Tech Stack</h2>
-                
-                 <!-- Backend Technologies -->
+                <h2
+                    class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 animate-gradient section-title">
+                    Tech Stack</h2>
+
+                <!-- Backend Technologies -->
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold text-center mb-8 text-white">Backend Development</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐘</div>
                             <h4 class="text-white font-semibold mb-2">PHP</h4>
                             <p class="text-gray-400 text-sm">Language</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔴</div>
                             <h4 class="text-white font-semibold mb-2">Laravel</h4>
                             <p class="text-gray-400 text-sm">Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🟢</div>
                             <h4 class="text-white font-semibold mb-2">Node.js</h4>
                             <p class="text-gray-400 text-sm">Runtime</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐍</div>
                             <h4 class="text-white font-semibold mb-2">C#</h4>
                             <p class="text-gray-400 text-sm">Language</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐍</div>
                             <h4 class="text-white font-semibold mb-2">C++</h4>
                             <p class="text-gray-400 text-sm">Language</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔥</div>
                             <h4 class="text-white font-semibold mb-2">Express</h4>
                             <p class="text-gray-400 text-sm">Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">⚡</div>
                             <h4 class="text-white font-semibold mb-2">FastAPI</h4>
                             <p class="text-gray-400 text-sm">Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔄</div>
                             <h4 class="text-white font-semibold mb-2">RESTful API</h4>
                             <p class="text-gray-400 text-sm">Design</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700"> 
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔒</div>
                             <h4 class="text-white font-semibold mb-2">JWT</h4>
                             <p class="text-gray-400 text-sm">Authentication</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔄</div>
                             <h4 class="text-white font-semibold mb-2">.Net Core</h4>
                             <p class="text-gray-400 text-sm">Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐹</div>
                             <h4 class="text-white font-semibold mb-2">GoLang</h4>
                             <p class="text-gray-400 text-sm">Language</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔄</div>
                             <h4 class="text-white font-semibold mb-2">Livewire & Inertia</h4>
                             <p class="text-gray-400 text-sm">Library</p>
@@ -177,62 +223,74 @@
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold text-center mb-8 text-white">Frontend Development</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">⚛️</div>
                             <h4 class="text-white font-semibold mb-2">React</h4>
                             <p class="text-gray-400 text-sm">UI Library</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🟢</div>
                             <h4 class="text-white font-semibold mb-2">Vue.js</h4>
                             <p class="text-gray-400 text-sm">Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">💨</div>
                             <h4 class="text-white font-semibold mb-2">Tailwind</h4>
                             <p class="text-gray-400 text-sm">CSS Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">📱</div>
                             <h4 class="text-white font-semibold mb-2">Bootstrap</h4>
                             <p class="text-gray-400 text-sm">UI Kit</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🟨</div>
                             <h4 class="text-white font-semibold mb-2">JavaScript</h4>
                             <p class="text-gray-400 text-sm">Language</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔷</div>
                             <h4 class="text-white font-semibold mb-2">TypeScript</h4>
                             <p class="text-gray-400 text-sm">Language</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">⚡</div>
                             <h4 class="text-white font-semibold mb-2">Next.js</h4>
                             <p class="text-gray-400 text-sm">React Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">💚</div>
                             <h4 class="text-white font-semibold mb-2">Nuxt.js</h4>
                             <p class="text-gray-400 text-sm">Vue Framework</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">⚡</div>
                             <h4 class="text-white font-semibold mb-2">Vite</h4>
                             <p class="text-gray-400 text-sm">Build Tool</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">📦</div>
                             <h4 class="text-white font-semibold mb-2">Webpack</h4>
                             <p class="text-gray-400 text-sm">Bundler</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🎨</div>
                             <h4 class="text-white font-semibold mb-2">Sass/SCSS</h4>
                             <p class="text-gray-400 text-sm">CSS Preprocessor</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔧</div>
                             <h4 class="text-white font-semibold mb-2">ESLint</h4>
                             <p class="text-gray-400 text-sm">Code Quality</p>
@@ -244,87 +302,104 @@
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold text-center mb-8 text-white">Database & DevOps</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐬</div>
                             <h4 class="text-white font-semibold mb-2">MySQL</h4>
                             <p class="text-gray-400 text-sm">Database</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐘</div>
                             <h4 class="text-white font-semibold mb-2">PostgreSQL</h4>
                             <p class="text-gray-400 text-sm">Database</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔴</div>
                             <h4 class="text-white font-semibold mb-2">Redis</h4>
                             <p class="text-gray-400 text-sm">Cache</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐳</div>
                             <h4 class="text-white font-semibold mb-2">Docker</h4>
                             <p class="text-gray-400 text-sm">Container</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">☸️</div>
                             <h4 class="text-white font-semibold mb-2">Kubernetes</h4>
                             <p class="text-gray-400 text-sm">Orchestration</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔧</div>
                             <h4 class="text-white font-semibold mb-2">Jenkins</h4>
                             <p class="text-gray-400 text-sm">CI/CD</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🍃</div>
                             <h4 class="text-white font-semibold mb-2">MongoDB</h4>
                             <p class="text-gray-400 text-sm">NoSQL Database</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🛋️</div>
                             <h4 class="text-white font-semibold mb-2">CouchDB</h4>
                             <p class="text-gray-400 text-sm">Document Database</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔥</div>
                             <h4 class="text-white font-semibold mb-2">Firebase</h4>
                             <p class="text-gray-400 text-sm">BaaS Platform</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">⚡</div>
                             <h4 class="text-white font-semibold mb-2">Elasticsearch</h4>
                             <p class="text-gray-400 text-sm">Search Engine</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🚀</div>
                             <h4 class="text-white font-semibold mb-2">GitLab CI</h4>
                             <p class="text-gray-400 text-sm">DevOps Platform</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">📨</div>
                             <h4 class="text-white font-semibold mb-2">Kafka</h4>
                             <p class="text-gray-400 text-sm">Message Broker</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐰</div>
                             <h4 class="text-white font-semibold mb-2">RabbitMQ</h4>
                             <p class="text-gray-400 text-sm">Message Queue</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">📡</div>
                             <h4 class="text-white font-semibold mb-2">Apache Pulsar</h4>
                             <p class="text-gray-400 text-sm">Pub-Sub Messaging</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔄</div>
                             <h4 class="text-white font-semibold mb-2">Apache Airflow</h4>
                             <p class="text-gray-400 text-sm">Workflow Engine</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">📊</div>
                             <h4 class="text-white font-semibold mb-2">Grafana</h4>
                             <p class="text-gray-400 text-sm">Monitoring</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔒</div>
                             <h4 class="text-white font-semibold mb-2">RabbitMQ</h4>
                             <p class="text-gray-400 text-sm">Message Queue</p>
@@ -336,32 +411,38 @@
                 <div>
                     <h3 class="text-2xl font-bold text-center mb-8 text-white">Cloud & Security</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">☁️</div>
                             <h4 class="text-white font-semibold mb-2">AWS</h4>
                             <p class="text-gray-400 text-sm">Cloud Platform</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔵</div>
                             <h4 class="text-white font-semibold mb-2">Azure</h4>
                             <p class="text-gray-400 text-sm">Cloud Platform</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🌐</div>
                             <h4 class="text-white font-semibold mb-2">Nginx</h4>
                             <p class="text-gray-400 text-sm">Web Server</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🐧</div>
                             <h4 class="text-white font-semibold mb-2">Linux</h4>
                             <p class="text-gray-400 text-sm">Operating System</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">🔒</div>
                             <h4 class="text-white font-semibold mb-2">Security</h4>
                             <p class="text-gray-400 text-sm">Cyber Security</p>
                         </div>
-                        <div class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
+                        <div
+                            class="bg-[#232946]/50 backdrop-blur-lg rounded-xl text-center hover:scale-105 transition-transform border border-slate-700">
                             <div class="text-4xl mb-3">📊</div>
                             <h4 class="text-white font-semibold mb-2">Monitoring</h4>
                             <p class="text-gray-400 text-sm">Performance</p>
@@ -377,42 +458,57 @@
                 <div class="max-w-5xl mx-auto">
                     <!-- Featured Blog Post -->
                     <div class="mb-16 blog-post" data-category="framework">
-                        <div class="bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                        <div
+                            class="bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700">
                             <div class="grid md:grid-cols-2 gap-0">
                                 <div class="aspect-video md:aspect-auto overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1566837945700-30057527ade0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Laravel: Why is it Still the King of PHP?" class="w-full h-full object-cover">
+                                    <img src="https://images.unsplash.com/photo-1566837945700-30057527ade0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                                        alt="Laravel: Why is it Still the King of PHP?"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-8 flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center mb-4">
-                                            <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Framework</span>
+                                            <span
+                                                class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Framework</span>
                                             <span class="mx-2 text-gray-400">•</span>
                                             <span class="text-gray-500 dark:text-gray-400 text-sm">5 minute read</span>
                                         </div>
-                                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">Laravel: Why is it Still the King of PHP?</h3>
+                                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+                                            Laravel: Why is it Still the King of PHP?</h3>
                                         <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                                            While the PHP world is constantly evolving, Laravel maintains its throne with its elegance, powerful features, and developer-friendly structure. So what makes it so special?
+                                            While the PHP world is constantly evolving, Laravel maintains its throne
+                                            with its elegance, powerful features, and developer-friendly structure. So
+                                            what makes it so special?
                                         </p>
                                         <div class="flex flex-wrap gap-2 mb-4">
-                                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Laravel</span>
-                                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#PHP</span>
-                                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#WebDevelopment</span>
+                                            <span
+                                                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Laravel</span>
+                                            <span
+                                                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#PHP</span>
+                                            <span
+                                                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#WebDevelopment</span>
                                         </div>
                                     </div>
                                     <div class="flex items-center justify-between mt-4">
                                         <div class="flex items-center">
                                             <div class="h-8 w-8 rounded-full overflow-hidden mr-3">
-                                                <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="h-full w-full object-cover">
+                                                <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan"
+                                                    alt="Soysal Tan" class="h-full w-full object-cover">
                                             </div>
                                             <div>
-                                                <p class="text-sm font-medium text-gray-900 dark:text-white">Soysal Tan</p>
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white">Soysal Tan
+                                                </p>
                                                 <p class="text-xs text-gray-500 dark:text-gray-400">August 16, 2025</p>
                                             </div>
                                         </div>
-                                        <a href="blog/laravel-king.html" class="inline-flex items-center font-medium text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300">
+                                        <a href="blog/laravel-king.html"
+                                            class="inline-flex items-center font-medium text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300">
                                             Read
-                                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 5l7 7-7 7"></path>
                                             </svg>
                                         </a>
                                     </div>
@@ -420,275 +516,377 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Blog Posts Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Blog Post 1 -->
-                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post" data-category="devops">
+                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post"
+                            data-category="devops">
                             <div class="aspect-video overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Introduction to DevOps: Setting Up CI/CD Pipeline" class="w-full h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                                    alt="Introduction to DevOps: Setting Up CI/CD Pipeline"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <div class="flex items-center mb-4">
-                                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full">DevOps</span>
+                                    <span
+                                        class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full">DevOps</span>
                                     <span class="mx-2 text-gray-400">•</span>
                                     <span class="text-gray-500 dark:text-gray-400 text-sm">4 minute read</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Introduction to DevOps: Setting Up CI/CD Pipeline</h3>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Introduction to DevOps:
+                                    Setting Up CI/CD Pipeline</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                                    Automating the deployment process after writing your code is a cornerstone of modern software development. In this article, we'll explore what a CI/CD pipeline is and how to set up a simple automation pipeline.
+                                    Automating the deployment process after writing your code is a cornerstone of modern
+                                    software development. In this article, we'll explore what a CI/CD pipeline is and
+                                    how to set up a simple automation pipeline.
                                 </p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#DevOps</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#CI/CD</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Automation</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#DevOps</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#CI/CD</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Automation</span>
                                 </div>
                                 <div class="flex items-center justify-between mt-4">
                                     <div class="flex items-center">
                                         <div class="h-7 w-7 rounded-full overflow-hidden mr-2">
-                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="h-full w-full object-cover">
+                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan"
+                                                alt="Soysal Tan" class="h-full w-full object-cover">
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 dark:text-gray-400">August 17, 2025</p>
                                         </div>
                                     </div>
-                                    <a href="blog/devops-intro.html" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                                    <a href="blog/devops-intro.html"
+                                        class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
                                         Read
-                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Blog Post 2 -->
-                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post" data-category="security">
+                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post"
+                            data-category="security">
                             <div class="aspect-video overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Web Application Security Best Practices" class="w-full h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                                    alt="Web Application Security Best Practices" class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <div class="flex items-center mb-4">
-                                    <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Security</span>
+                                    <span
+                                        class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Security</span>
                                     <span class="mx-2 text-gray-400">•</span>
                                     <span class="text-gray-500 dark:text-gray-400 text-sm">6 minute read</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Web Application Security Best Practices</h3>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Web Application
+                                    Security Best Practices</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                                    Security should be a top priority in web development. Learn about common vulnerabilities and how to protect your applications from attacks like XSS, CSRF, and SQL injection.
+                                    Security should be a top priority in web development. Learn about common
+                                    vulnerabilities and how to protect your applications from attacks like XSS, CSRF,
+                                    and SQL injection.
                                 </p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Security</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#WebSecurity</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#BestPractices</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Security</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#WebSecurity</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#BestPractices</span>
                                 </div>
                                 <div class="flex items-center justify-between mt-4">
                                     <div class="flex items-center">
                                         <div class="h-7 w-7 rounded-full overflow-hidden mr-2">
-                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="h-full w-full object-cover">
+                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan"
+                                                alt="Soysal Tan" class="h-full w-full object-cover">
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 dark:text-gray-400">August 15, 2025</p>
                                         </div>
                                     </div>
-                                    <a href="blog/web-security.html" class="inline-flex items-center font-medium text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300">
+                                    <a href="blog/web-security.html"
+                                        class="inline-flex items-center font-medium text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300">
                                         Read
-                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Blog Post 3 -->
-                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post" data-category="tutorial">
+                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post"
+                            data-category="tutorial">
                             <div class="aspect-video overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Building RESTful APIs with Laravel" class="w-full h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                                    alt="Building RESTful APIs with Laravel" class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <div class="flex items-center mb-4">
-                                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Tutorial</span>
+                                    <span
+                                        class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Tutorial</span>
                                     <span class="mx-2 text-gray-400">•</span>
                                     <span class="text-gray-500 dark:text-gray-400 text-sm">8 minute read</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Building RESTful APIs with Laravel</h3>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Building RESTful APIs
+                                    with Laravel</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                                    Step-by-step guide to creating robust RESTful APIs using Laravel. Learn about routing, controllers, middleware, and API authentication best practices.
+                                    Step-by-step guide to creating robust RESTful APIs using Laravel. Learn about
+                                    routing, controllers, middleware, and API authentication best practices.
                                 </p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Laravel</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#API</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#REST</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Laravel</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#API</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#REST</span>
                                 </div>
                                 <div class="flex items-center justify-between mt-4">
                                     <div class="flex items-center">
                                         <div class="h-7 w-7 rounded-full overflow-hidden mr-2">
-                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="h-full w-full object-cover">
+                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan"
+                                                alt="Soysal Tan" class="h-full w-full object-cover">
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 dark:text-gray-400">August 14, 2025</p>
                                         </div>
                                     </div>
-                                    <a href="blog/laravel-api-tutorial.html" class="inline-flex items-center font-medium text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-300">
+                                    <a href="blog/laravel-api-tutorial.html"
+                                        class="inline-flex items-center font-medium text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-300">
                                         Read
-                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Blog Post 4 -->
-                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post" data-category="devops">
+                        <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-post"
+                            data-category="devops">
                             <div class="aspect-video overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Docker Containerization Guide" class="w-full h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                                    alt="Docker Containerization Guide" class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <div class="flex items-center mb-4">
-                                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full">DevOps</span>
+                                    <span
+                                        class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full">DevOps</span>
                                     <span class="mx-2 text-gray-400">•</span>
                                     <span class="text-gray-500 dark:text-gray-400 text-sm">7 minute read</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Docker Containerization Guide</h3>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Docker Containerization
+                                    Guide</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                                    Learn how to containerize your applications with Docker. From basic concepts to advanced deployment strategies using Docker Compose and orchestration.
+                                    Learn how to containerize your applications with Docker. From basic concepts to
+                                    advanced deployment strategies using Docker Compose and orchestration.
                                 </p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Docker</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Containerization</span>
-                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#DevOps</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Docker</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Containerization</span>
+                                    <span
+                                        class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#DevOps</span>
                                 </div>
                                 <div class="flex items-center justify-between mt-4">
                                     <div class="flex items-center">
                                         <div class="h-7 w-7 rounded-full overflow-hidden mr-2">
-                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="h-full w-full object-cover">
+                                            <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan"
+                                                alt="Soysal Tan" class="h-full w-full object-cover">
                                         </div>
                                         <div>
                                             <p class="text-xs text-gray-500 dark:text-gray-400">August 13, 2025</p>
                                         </div>
                                     </div>
-                                    <a href="blog/docker-beginners-guide.html" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                                    <a href="blog/docker-beginners-guide.html"
+                                        class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
                                         Read
-                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <!-- React Fundamentals -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+                        <div
+                            class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
                             <div class="flex items-start justify-between mb-3">
-                                <span class="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs font-medium rounded-full border border-blue-600/30">Tutorial</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs font-medium rounded-full border border-blue-600/30">Tutorial</span>
                                 <div class="flex items-center text-gray-400 text-sm">
                                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                     12 min
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">React.js Fundamentals: Building Modern User Interfaces</h3>
-                            <p class="text-gray-300 mb-4 leading-relaxed">Master React.js fundamentals including components, state management, hooks, and modern development patterns for building interactive web applications.</p>
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
+                                React.js Fundamentals: Building Modern User Interfaces</h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Master React.js fundamentals including
+                                components, state management, hooks, and modern development patterns for building
+                                interactive web applications.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded border border-blue-600/30">React</span>
-                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-300 text-xs rounded border border-yellow-600/30">JavaScript</span>
-                                <span class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">Frontend</span>
+                                <span
+                                    class="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded border border-blue-600/30">React</span>
+                                <span
+                                    class="px-2 py-1 bg-yellow-600/20 text-yellow-300 text-xs rounded border border-yellow-600/30">JavaScript</span>
+                                <span
+                                    class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">Frontend</span>
                             </div>
-                            <a href="blog/react-fundamentals.html" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                            <a href="blog/react-fundamentals.html"
+                                class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
                                 Read
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
                             </a>
                         </div>
 
                         <!-- Node.js Express Tutorial -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+                        <div
+                            class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
                             <div class="flex items-start justify-between mb-3">
-                                <span class="px-3 py-1 bg-green-600/20 text-green-300 text-xs font-medium rounded-full border border-green-600/30">Tutorial</span>
+                                <span
+                                    class="px-3 py-1 bg-green-600/20 text-green-300 text-xs font-medium rounded-full border border-green-600/30">Tutorial</span>
                                 <div class="flex items-center text-gray-400 text-sm">
                                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                     15 min
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">Node.js and Express.js: Complete Backend Development Guide</h3>
-                            <p class="text-gray-300 mb-4 leading-relaxed">Learn to build scalable backend applications with Node.js and Express.js, covering routing, middleware, authentication, and database integration.</p>
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
+                                Node.js and Express.js: Complete Backend Development Guide</h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Learn to build scalable backend applications
+                                with Node.js and Express.js, covering routing, middleware, authentication, and database
+                                integration.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">Node.js</span>
-                                <span class="px-2 py-1 bg-gray-600/20 text-gray-300 text-xs rounded border border-gray-600/30">Express</span>
-                                <span class="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded border border-blue-600/30">Backend</span>
+                                <span
+                                    class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">Node.js</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-600/20 text-gray-300 text-xs rounded border border-gray-600/30">Express</span>
+                                <span
+                                    class="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded border border-blue-600/30">Backend</span>
                             </div>
-                            <a href="blog/nodejs-express-tutorial.html" class="inline-flex items-center font-medium text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300">
+                            <a href="blog/nodejs-express-tutorial.html"
+                                class="inline-flex items-center font-medium text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300">
                                 Read
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
                             </a>
                         </div>
 
                         <!-- JavaScript ES6 Features -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+                        <div
+                            class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
                             <div class="flex items-start justify-between mb-3">
-                                <span class="px-3 py-1 bg-yellow-600/20 text-yellow-300 text-xs font-medium rounded-full border border-yellow-600/30">Tutorial</span>
+                                <span
+                                    class="px-3 py-1 bg-yellow-600/20 text-yellow-300 text-xs font-medium rounded-full border border-yellow-600/30">Tutorial</span>
                                 <div class="flex items-center text-gray-400 text-sm">
                                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                     10 min
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">Modern JavaScript ES6+ Features Every Developer Should Know</h3>
-                            <p class="text-gray-300 mb-4 leading-relaxed">Explore essential ES6+ features including arrow functions, destructuring, modules, async/await, and other modern JavaScript capabilities.</p>
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
+                                Modern JavaScript ES6+ Features Every Developer Should Know</h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Explore essential ES6+ features including
+                                arrow functions, destructuring, modules, async/await, and other modern JavaScript
+                                capabilities.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-yellow-600/20 text-yellow-300 text-xs rounded border border-yellow-600/30">JavaScript</span>
-                                <span class="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded border border-orange-600/30">ES6+</span>
-                                <span class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">Frontend</span>
+                                <span
+                                    class="px-2 py-1 bg-yellow-600/20 text-yellow-300 text-xs rounded border border-yellow-600/30">JavaScript</span>
+                                <span
+                                    class="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded border border-orange-600/30">ES6+</span>
+                                <span
+                                    class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">Frontend</span>
                             </div>
-                            <a href="blog/javascript-es6-features.html" class="inline-flex items-center font-medium text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-300">
+                            <a href="blog/javascript-es6-features.html"
+                                class="inline-flex items-center font-medium text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-300">
                                 Read
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
                             </a>
                         </div>
 
                         <!-- DevOps Best Practices -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+                        <div
+                            class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
                             <div class="flex items-start justify-between mb-3">
-                                <span class="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs font-medium rounded-full border border-blue-600/30">DevOps</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs font-medium rounded-full border border-blue-600/30">DevOps</span>
                                 <div class="flex items-center text-gray-400 text-sm">
                                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                     11 min
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">DevOps Best Practices: Building Efficient Development Workflows</h3>
-                            <p class="text-gray-300 mb-4 leading-relaxed">Discover essential DevOps practices including CI/CD pipelines, infrastructure as code, monitoring, and automation strategies for modern development teams.</p>
+                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
+                                DevOps Best Practices: Building Efficient Development Workflows</h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed">Discover essential DevOps practices including
+                                CI/CD pipelines, infrastructure as code, monitoring, and automation strategies for
+                                modern development teams.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded border border-blue-600/30">DevOps</span>
-                                <span class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">CI/CD</span>
-                                <span class="px-2 py-1 bg-purple-600/20 text-purple-300 text-xs rounded border border-purple-600/30">Automation</span>
+                                <span
+                                    class="px-2 py-1 bg-blue-600/20 text-blue-300 text-xs rounded border border-blue-600/30">DevOps</span>
+                                <span
+                                    class="px-2 py-1 bg-green-600/20 text-green-300 text-xs rounded border border-green-600/30">CI/CD</span>
+                                <span
+                                    class="px-2 py-1 bg-purple-600/20 text-purple-300 text-xs rounded border border-purple-600/30">Automation</span>
                             </div>
-                            <a href="blog/devops-best-practices.html" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                            <a href="blog/devops-best-practices.html"
+                                class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
                                 Read
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- View All Posts Button -->
                     <div class="mt-12 text-center">
-                        <a href="/blog" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:from-purple-700 hover:to-blue-600 transition-all">
+                        <a href="/blog"
+                            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:from-purple-700 hover:to-blue-600 transition-all">
                             View All Posts
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </a>
                     </div>
@@ -700,17 +898,20 @@
         <section id="services" class="py-24 md:py-32 bg-[#181824]/80 backdrop-blur-xl relative">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">My Areas of Expertise</h2>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service 1 -->
                     <div class="service-card" data-aos="fade-up">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 4h14a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 4h14a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Laravel Development</h3>
-                        <p class="mb-4">Development of modern, scalable, and maintainable Laravel applications. API, microservice, and monolithic architectures.</p>
+                        <p class="mb-4">Development of modern, scalable, and maintainable Laravel applications. API,
+                            microservice, and monolithic architectures.</p>
                         <ul class="service-features">
                             <li>RESTful API Design</li>
                             <li>Database Optimization</li>
@@ -718,16 +919,19 @@
                             <li>Test-Driven Development</li>
                         </ul>
                     </div>
-                    
+
                     <!-- Service 2 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">DevOps Consulting</h3>
-                        <p class="mb-4">CI/CD processes, containerization, and cloud infrastructure setup. Continuous integration and deployment automation.</p>
+                        <p class="mb-4">CI/CD processes, containerization, and cloud infrastructure setup. Continuous
+                            integration and deployment automation.</p>
                         <ul class="service-features">
                             <li>Docker & Kubernetes</li>
                             <li>AWS & Azure Cloud Architecture</li>
@@ -735,16 +939,19 @@
                             <li>Infrastructure with Terraform</li>
                         </ul>
                     </div>
-                    
+
                     <!-- Service 3 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Cyber Security</h3>
-                        <p class="mb-4">Security audits and hardening for web applications. OWASP Top 10 and secure coding practices.</p>
+                        <p class="mb-4">Security audits and hardening for web applications. OWASP Top 10 and secure
+                            coding practices.</p>
                         <ul class="service-features">
                             <li>Vulnerability Scanning</li>
                             <li>Code Security Reviews</li>
@@ -752,16 +959,19 @@
                             <li>Security Training</li>
                         </ul>
                     </div>
-                    
+
                     <!-- Service 4 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Database Optimization</h3>
-                        <p class="mb-4">Database design, performance improvement, and scaling. Expert consulting for SQL and NoSQL databases.</p>
+                        <p class="mb-4">Database design, performance improvement, and scaling. Expert consulting for SQL
+                            and NoSQL databases.</p>
                         <ul class="service-features">
                             <li>MySQL & PostgreSQL</li>
                             <li>MongoDB & Redis</li>
@@ -769,16 +979,19 @@
                             <li>Sharding & Replication</li>
                         </ul>
                     </div>
-                    
+
                     <!-- Service 5 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Modern Frontend Development</h3>
-                        <p class="mb-4">Responsive and user-friendly interfaces. Rapid development with modern JavaScript frameworks and CSS libraries.</p>
+                        <p class="mb-4">Responsive and user-friendly interfaces. Rapid development with modern
+                            JavaScript frameworks and CSS libraries.</p>
                         <ul class="service-features">
                             <li>Vue.js & React</li>
                             <li>Tailwind CSS</li>
@@ -786,16 +999,19 @@
                             <li>Animation & Interaction</li>
                         </ul>
                     </div>
-                    
+
                     <!-- Service 6 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Performance Optimization</h3>
-                        <p class="mb-4">Identifying and resolving performance bottlenecks in web applications. Improving speed and user experience.</p>
+                        <p class="mb-4">Identifying and resolving performance bottlenecks in web applications. Improving
+                            speed and user experience.</p>
                         <ul class="service-features">
                             <li>Load Testing & Profiling</li>
                             <li>Caching Strategies</li>
@@ -804,11 +1020,15 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="mt-12 text-center">
-                    <a href="#contact" class="contact-btn inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:from-purple-700 hover:to-blue-600 transition-all">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    <a href="#contact"
+                        class="contact-btn inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:from-purple-700 hover:to-blue-600 transition-all">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                            </path>
                         </svg>
                         Contact Me
                     </a>
@@ -820,86 +1040,186 @@
         <section id="cv" class="py-24 md:py-32 bg-[#232946]/80 backdrop-blur-xl relative">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">My Professional Journey</h2>
-                
+
                 <div class="relative">
                     <!-- Timeline center line -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full"></div>
-                    
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full">
+                    </div>
+
                     <!-- Timeline items -->
                     <div class="timeline-container">
                         <!-- Experience 1 -->
                         <div class="timeline-item right">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content" data-aos="fade-left">
-                                <div class="date">2023 - Present</div>
-                                <h3 class="text-xl font-bold mb-2">Senior Laravel Developer</h3>
-                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">TechCorp Inc.</h4>
-                                <p class="mb-4">Development and maintenance of large-scale e-commerce platforms. Microservice architecture, API design, and performance optimization.</p>
+                                <div class="date">Sep 2021 - Present</div>
+                                <h3 class="text-xl font-bold mb-2">Founder</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">Expozy Technology</h4>
+                                <p class="mb-4">Founded and leading a technology company focused on innovative web solutions and digital transformation. Developing cutting-edge applications, managing technical teams, and driving business growth through technology excellence.
+                                </p>
                                 <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="tech-tag">PHP</span>
                                     <span class="tech-tag">Laravel</span>
                                     <span class="tech-tag">Vue.js</span>
+                                    <span class="tech-tag">React</span>
                                     <span class="tech-tag">Docker</span>
                                     <span class="tech-tag">AWS</span>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Experience 2 -->
                         <div class="timeline-item left">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content" data-aos="fade-right">
-                                <div class="date">2020 - 2023</div>
-                                <h3 class="text-xl font-bold mb-2">DevOps Engineer</h3>
-                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">CloudSys Solutions</h4>
-                                <p class="mb-4">Automation of CI/CD processes, containerization, and management of cloud infrastructure. Setup and maintenance of Kubernetes clusters.</p>
+                                <div class="date">Feb 2020 - Nov 2022</div>
+                                <h3 class="text-xl font-bold mb-2">Software Team Leader</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">ARMİS Bilişim Teknolojileri</h4>
+                                <p class="mb-4">Led software development teams in cybersecurity solutions. Specialized in SIEM applications, security monitoring systems, and enterprise-level security infrastructure using cutting-edge technologies.</p>
                                 <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="tech-tag">PHP7+</span>
+                                    <span class="tech-tag">.NET Core</span>
+                                    <span class="tech-tag">NodeJS</span>
+                                    <span class="tech-tag">ELK Stack</span>
+                                    <span class="tech-tag">Docker</span>
                                     <span class="tech-tag">Kubernetes</span>
-                                    <span class="tech-tag">Jenkins</span>
-                                    <span class="tech-tag">Terraform</span>
-                                    <span class="tech-tag">GitLab CI</span>
+                                    <span class="tech-tag">Wazuh</span>
+                                    <span class="tech-tag">Grafana</span>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Experience 3 -->
                         <div class="timeline-item right">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content" data-aos="fade-left">
-                                <div class="date">2018 - 2020</div>
-                                <h3 class="text-xl font-bold mb-2">Full-Stack Web Developer</h3>
-                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">WebVision Studio</h4>
-                                <p class="mb-4">Development of enterprise web applications and e-commerce solutions. Designing and implementing custom software solutions for client needs.</p>
+                                <div class="date">Feb 2019 - Feb 2020</div>
+                                <h3 class="text-xl font-bold mb-2">Full Stack Developer</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">Blesh - İTÜ Teknokent</h4>
+                                <p class="mb-4">Developed IoT solutions and REST API web services. Worked with cutting-edge technologies including microservices architecture, real-time data processing, and cloud infrastructure.</p>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="tech-tag">PHP 7+</span>
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">ASP.NET Core</span>
+                                    <span class="tech-tag">NodeJS</span>
+                                    <span class="tech-tag">Vue.js</span>
+                                    <span class="tech-tag">Angular</span>
+                                    <span class="tech-tag">Kafka</span>
+                                    <span class="tech-tag">Redis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience 4 -->
+                        <div class="timeline-item left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-aos="fade-right">
+                                <div class="date">Sep 2018 - Feb 2019</div>
+                                <h3 class="text-xl font-bold mb-2">Software Developer</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">Ericsson Turkey & Turkcell</h4>
+                                <p class="mb-4">Code analysis & development for Turkey's biggest ICT company Turkcell. Worked on CRM projects, online CRM and ERP solutions development, and next-generation system upgrades.</p>
                                 <div class="flex flex-wrap gap-2 mt-3">
                                     <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">SOAP</span>
+                                    <span class="tech-tag">jQuery</span>
+                                    <span class="tech-tag">ERP</span>
+                                    <span class="tech-tag">CRM</span>
+                                    <span class="tech-tag">AngularJS</span>
+                                    <span class="tech-tag">Vue.js</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience 5 -->
+                        <div class="timeline-item right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-aos="fade-left">
+                                <div class="date">Sep 2013 - Aug 2018</div>
+                                <h3 class="text-xl font-bold mb-2">Software Engineer</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">AvTürk Siber Güvenlik & Bilişim Hizmetleri</h4>
+                                <p class="mb-4">Developed antivirus software and provided customer training. Built online CRM and ERP solutions, developed firewall devices using Linux OS systems, and managed international collaborations.</p>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">Lua</span>
+                                    <span class="tech-tag">Bash</span>
+                                    <span class="tech-tag">Linux</span>
+                                    <span class="tech-tag">PFSense</span>
                                     <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Vue.js</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience 6 -->
+                        <div class="timeline-item left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-aos="fade-right">
+                                <div class="date">Sep 2011 - Aug 2013</div>
+                                <h3 class="text-xl font-bold mb-2">Software Developer</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">4BEM Mühendislik Bilişim Teknolojileri</h4>
+                                <p class="mb-4">Developed ERP and CRM solutions for major companies including OMSAN Logistics and GÜNSAN Electric. Built accounting software, e-commerce platforms, and provided comprehensive customer training.</p>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">jQuery</span>
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">CodeIgniter</span>
+                                    <span class="tech-tag">Bootstrap</span>
+                                    <span class="tech-tag">AWS</span>
                                     <span class="tech-tag">MySQL</span>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Education -->
+
+                        <!-- Experience 7 -->
+                        <div class="timeline-item right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content" data-aos="fade-left">
+                                <div class="date">Jun 2005 - Jan 2009</div>
+                                <h3 class="text-xl font-bold mb-2">Sales and Technical Specialist</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">Seiko Epson Corporation, Japan</h4>
+                                <p class="mb-4">Provided POS support and sales, printer support and sales across Turkey. Worked with a global technology leader known for producing the first printer used in Olympic Games history.</p>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="tech-tag">Technical Support</span>
+                                    <span class="tech-tag">Sales</span>
+                                    <span class="tech-tag">POS Systems</span>
+                                    <span class="tech-tag">Hardware</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education & Certifications -->
                         <div class="timeline-item left">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content" data-aos="fade-right">
-                                <div class="date">2014 - 2018</div>
-                                <h3 class="text-xl font-bold mb-2">Computer Engineering</h3>
-                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">Technical University</h4>
-                                <p class="mb-4">Education in software development, data structures and algorithms, database systems, and web technologies.</p>
+                                <div class="date">Continuous Learning</div>
+                                <h3 class="text-xl font-bold mb-2">Self-Taught Developer & Certifications</h3>
+                                <h4 class="text-lg text-purple-600 dark:text-purple-400 mb-2">Online Learning Platforms &
+                                    Institutions</h4>
+                                <p class="mb-4">Continuously learning and adapting to new technologies. Focused on
+                                    modern web development, cybersecurity practices, and DevOps methodologies. Active in
+                                    tech communities and knowledge sharing.</p>
                                 <div class="flex flex-wrap gap-2 mt-3">
-                                    <span class="tech-tag">Algorithms</span>
-                                    <span class="tech-tag">Data Structures</span>
-                                    <span class="tech-tag">Web Development</span>
+                                    <span class="tech-tag">Web Security</span>
+                                    <span class="tech-tag">DevOps</span>
+                                    <span class="tech-tag">Cloud Computing</span>
+                                    <span class="tech-tag">Modern PHP</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mt-12 text-center">
-                    <a href="#" class="download-cv-btn inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:from-purple-700 hover:to-blue-600 transition-all">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    <a href="#"
+                        class="download-cv-btn inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg shadow-lg hover:from-purple-700 hover:to-blue-600 transition-all">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                         </svg>
                         Download My CV
                     </a>
@@ -917,4 +1237,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

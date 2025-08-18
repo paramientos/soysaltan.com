@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     setupBlogFilter();
     setupMobileMenu();
     setupScrollToTop();
-    setupBreadcrumbs();
     setupTooltips();
     //setupLoadingAnimations();
     setupKeyboardNavigation();
@@ -240,70 +239,6 @@ function setupScrollToTop() {
             });
         }
     });
-}
-
-function setupBreadcrumbs() {
-    const main = document.querySelector('main');
-    if (!main) return;
-
-    const path = window.location.pathname;
-    const segments = path.split('/').filter(segment => segment !== '');
-
-    if (segments.length === 0 || (segments.length === 1 && segments[0] === 'index.html')) {
-        return;
-    }
-
-    const breadcrumbNav = document.createElement('nav');
-    breadcrumbNav.className = 'breadcrumb-nav mb-8';
-    breadcrumbNav.setAttribute('aria-label', 'Breadcrumb');
-
-    const breadcrumbList = document.createElement('ol');
-    breadcrumbList.className = 'flex items-center space-x-2 text-sm text-gray-400';
-
-    const homeItem = document.createElement('li');
-    const homeLink = document.createElement('a');
-    homeLink.href = '/';
-    homeLink.textContent = 'Home';
-    homeLink.className = 'hover:text-purple-400 transition-colors duration-200';
-    homeItem.appendChild(homeLink);
-    breadcrumbList.appendChild(homeItem);
-
-    let currentPath = '';
-    segments.forEach((segment, index) => {
-        currentPath += '/' + segment;
-
-        const separator = document.createElement('li');
-        separator.innerHTML = '<svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>';
-        breadcrumbList.appendChild(separator);
-
-        const item = document.createElement('li');
-
-        if (index === segments.length - 1) {
-            const span = document.createElement('span');
-            span.textContent = formatSegmentName(segment);
-            span.className = 'text-purple-400 font-medium';
-            span.setAttribute('aria-current', 'page');
-            item.appendChild(span);
-        } else {
-            const link = document.createElement('a');
-            link.href = currentPath;
-            link.textContent = formatSegmentName(segment);
-            link.className = 'hover:text-purple-400 transition-colors duration-200';
-            item.appendChild(link);
-        }
-
-        breadcrumbList.appendChild(item);
-    });
-
-    breadcrumbNav.appendChild(breadcrumbList);
-    main.insertBefore(breadcrumbNav, main.firstChild);
-
-    function formatSegmentName(segment) {
-        return segment
-            .replace(/\.(html|php)$/, '')
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, l => l.toUpperCase());
-    }
 }
 
 function setupTooltips() {
@@ -793,20 +728,20 @@ function setupTableOfContents() {
 
     mediaQuery.addListener(handleMobileView);
     handleMobileView(mediaQuery);
-    
+
     // Smart TOC positioning based on scroll
     let tocOriginalPosition = null;
     let tocFloating = false;
-    
+
     function handleTocScroll() {
         if (!tocOriginalPosition) {
             tocOriginalPosition = tocContainer.getBoundingClientRect().top + window.pageYOffset;
         }
-        
+
         const headerHeight = document.querySelector('header').offsetHeight;
         const scrollTop = window.pageYOffset;
         const shouldFloat = scrollTop > (tocOriginalPosition - headerHeight - 20);
-        
+
         if (shouldFloat && !tocFloating) {
             tocContainer.style.position = 'fixed';
             tocContainer.style.top = `${headerHeight + 20}px`;
@@ -826,7 +761,7 @@ function setupTableOfContents() {
             tocFloating = false;
         }
     }
-    
+
     // Only enable floating TOC on desktop
     if (window.innerWidth > 768) {
         window.addEventListener('scroll', handleTocScroll);
