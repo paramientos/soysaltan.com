@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laravel: Why is it Still the King of PHP? | Soysal Tan</title>
-  <meta name="description" content="While the PHP world is constantly evolving, Laravel maintains its throne with its elegance, powerful features, and developer-friendly structure. Discover why Laravel remains the top choice for PHP developers.">
+  <title>Building RESTful APIs with Laravel: Complete Guide | Soysal Tan</title>
+  <meta name="description" content="Step-by-step guide to creating robust RESTful APIs using Laravel. Learn about routing, controllers, middleware, and API authentication best practices.">
   <link rel="stylesheet" href="/css/tailwind.css?v=1">
   <link rel="stylesheet" href="/css/styles.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +67,7 @@
           <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
           </svg>
-          <span class="text-white font-medium">Laravel: Why is it Still the King of PHP?</span>
+          <span class="text-white font-medium">Building RESTful APIs with Laravel</span>
         </li>
       </ol>
     </div>
@@ -86,58 +86,141 @@
         
         <article class="prose prose-lg prose-invert max-w-none">
           <header class="mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Laravel: Why is it Still the King of PHP?</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Building RESTful APIs with Laravel: Complete Guide</h1>
             <div class="flex items-center gap-3 text-[#b8b8d1] mb-6">
-              <span class="badge">Framework</span>
-              <span class="text-sm">Dec 20, 2024</span>
+              <span class="badge">Tutorial</span>
+              <span class="text-sm">Dec 12, 2024</span>
             </div>
           </header>
           
           <div class="text-[#b8b8d1] leading-relaxed">
-            <p class="mb-6">While the PHP world is constantly evolving with new frameworks and tools, Laravel maintains its throne with its elegance, powerful features, and developer-friendly structure. Let's explore why Laravel continues to be the go-to choice for PHP developers worldwide.</p>
+            <p class="mb-6">Laravel provides an elegant and powerful framework for building RESTful APIs. This comprehensive guide will walk you through creating robust, scalable APIs with proper authentication, validation, and best practices.</p>
             
-            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">The Rise of Laravel</h2>
-            <p class="mb-6">Since its initial release in 2011 by Taylor Otwell, Laravel has revolutionized PHP development. What started as a simple alternative to CodeIgniter has grown into the most popular PHP framework, powering millions of applications worldwide.</p>
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Setting Up Your Laravel Project</h2>
+            <p class="mb-6">Start by creating a new Laravel project and configuring the necessary components for API development.</p>
             
-            <p class="mb-6">Laravel's success isn't accidental. It was built with a clear philosophy: to make web development enjoyable and creative by simplifying common tasks used in most web projects.</p>
-            
-            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Elegant Syntax and Developer Experience</h2>
-            <p class="mb-6">One of Laravel's strongest selling points is its expressive, elegant syntax. The framework follows the principle of "convention over configuration," allowing developers to write clean, readable code without sacrificing functionality.</p>
-            
-            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Powerful Built-in Features</h2>
-            
-            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Eloquent ORM</h3>
-            <p class="mb-6">Laravel's Eloquent ORM is arguably one of the most elegant Active Record implementations available. It provides a beautiful, simple ActiveRecord implementation for working with your database.</p>
-            
-            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Artisan Command Line Interface</h3>
-            <p class="mb-6">Artisan is Laravel's built-in command-line interface that provides numerous helpful commands for developing your application. From generating boilerplate code to running migrations, Artisan makes development faster and more efficient.</p>
-            
-            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Blade Templating Engine</h3>
-            <p class="mb-6">Blade is Laravel's simple yet powerful templating engine. Unlike other popular PHP templating engines, Blade does not restrict you from using plain PHP code in your views.</p>
-            
-            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Robust Ecosystem</h2>
-            <p class="mb-6">Laravel's ecosystem is vast and continuously growing. Here are some of the most popular tools:</p>
-            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Installation and Configuration</h3>
             <ul class="list-disc list-inside mb-6 space-y-2">
-              <li><strong>Laravel Forge:</strong> Server management and deployment platform</li>
-              <li><strong>Laravel Vapor:</strong> Serverless deployment platform for AWS</li>
-              <li><strong>Laravel Nova:</strong> Beautiful administration panel</li>
-              <li><strong>Laravel Horizon:</strong> Dashboard and configuration system for Redis queues</li>
-              <li><strong>Laravel Telescope:</strong> Debug assistant for Laravel applications</li>
-              <li><strong>Laravel Sanctum:</strong> API authentication system</li>
-              <li><strong>Laravel Cashier:</strong> Subscription billing integration</li>
+              <li><strong>Create Project:</strong> Use Composer to create a new Laravel project</li>
+              <li><strong>Database Setup:</strong> Configure your database connection in .env file</li>
+              <li><strong>API Routes:</strong> Set up routes in routes/api.php</li>
+              <li><strong>Middleware:</strong> Configure API middleware for authentication and rate limiting</li>
             </ul>
             
-            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Modern PHP Features</h2>
-            <p class="mb-6">Laravel stays current with modern PHP features and best practices. It leverages the latest PHP versions and incorporates modern development patterns, making it a future-proof choice for web development.</p>
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Creating API Routes</h2>
+            <p class="mb-6">Laravel's routing system makes it easy to define clean, RESTful API endpoints with proper HTTP methods and resource controllers.</p>
             
-            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Strong Community and Documentation</h2>
-            <p class="mb-6">Laravel boasts one of the strongest communities in the PHP ecosystem. The framework has excellent documentation, numerous learning resources, and an active community that contributes packages, tutorials, and support.</p>
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Resource Routes</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Route::apiResource:</strong> Generate all CRUD routes automatically</li>
+              <li><strong>Route Groups:</strong> Organize routes with prefixes and middleware</li>
+              <li><strong>Route Model Binding:</strong> Automatically inject model instances</li>
+              <li><strong>Custom Routes:</strong> Add additional endpoints as needed</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Building Controllers</h2>
+            <p class="mb-6">API controllers handle the business logic and return JSON responses. Laravel's resource controllers provide a structured approach to CRUD operations.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Controller Best Practices</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Resource Controllers:</strong> Use artisan to generate resource controllers</li>
+              <li><strong>Single Responsibility:</strong> Keep controllers focused on specific resources</li>
+              <li><strong>Response Formatting:</strong> Return consistent JSON responses</li>
+              <li><strong>Error Handling:</strong> Implement proper exception handling</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Data Validation</h2>
+            <p class="mb-6">Proper validation ensures data integrity and provides clear error messages to API consumers.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Validation Strategies</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Form Requests:</strong> Create dedicated validation classes</li>
+              <li><strong>Validation Rules:</strong> Use Laravel's built-in validation rules</li>
+              <li><strong>Custom Rules:</strong> Create custom validation logic when needed</li>
+              <li><strong>Error Responses:</strong> Return structured validation error messages</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">API Authentication</h2>
+            <p class="mb-6">Secure your API endpoints with proper authentication mechanisms. Laravel offers multiple authentication options for APIs.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Authentication Methods</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Laravel Sanctum:</strong> Simple token-based authentication</li>
+              <li><strong>Laravel Passport:</strong> Full OAuth2 server implementation</li>
+              <li><strong>JWT Tokens:</strong> JSON Web Token authentication</li>
+              <li><strong>API Keys:</strong> Simple API key authentication for trusted clients</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Database Relationships</h2>
+            <p class="mb-6">Eloquent ORM makes it easy to work with related data in your API responses.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Working with Relationships</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Eager Loading:</strong> Prevent N+1 query problems with with()</li>
+              <li><strong>Nested Resources:</strong> Handle related resource endpoints</li>
+              <li><strong>Resource Collections:</strong> Transform related data consistently</li>
+              <li><strong>Pivot Tables:</strong> Work with many-to-many relationships</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">API Resources and Transformations</h2>
+            <p class="mb-6">Laravel's API resources provide a transformation layer between your Eloquent models and JSON responses.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Resource Benefits</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Data Transformation:</strong> Control exactly what data is returned</li>
+              <li><strong>Consistent Format:</strong> Ensure uniform API response structure</li>
+              <li><strong>Conditional Fields:</strong> Include fields based on conditions</li>
+              <li><strong>Resource Collections:</strong> Handle arrays of resources efficiently</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Error Handling and Responses</h2>
+            <p class="mb-6">Proper error handling provides clear feedback to API consumers and helps with debugging.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Error Handling Best Practices</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>HTTP Status Codes:</strong> Use appropriate status codes for different scenarios</li>
+              <li><strong>Error Messages:</strong> Provide clear, actionable error messages</li>
+              <li><strong>Exception Handling:</strong> Catch and handle exceptions gracefully</li>
+              <li><strong>Logging:</strong> Log errors for debugging and monitoring</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Testing Your API</h2>
+            <p class="mb-6">Comprehensive testing ensures your API works correctly and handles edge cases properly.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Testing Strategies</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Feature Tests:</strong> Test complete API workflows</li>
+              <li><strong>Unit Tests:</strong> Test individual components in isolation</li>
+              <li><strong>Database Testing:</strong> Use factories and seeders for test data</li>
+              <li><strong>Authentication Testing:</strong> Test protected endpoints</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">API Documentation</h2>
+            <p class="mb-6">Good documentation is essential for API adoption and developer experience.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Documentation Tools</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>OpenAPI/Swagger:</strong> Generate interactive API documentation</li>
+              <li><strong>Postman Collections:</strong> Provide ready-to-use API collections</li>
+              <li><strong>Code Examples:</strong> Include request/response examples</li>
+              <li><strong>Authentication Guide:</strong> Document authentication requirements</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Performance Optimization</h2>
+            <p class="mb-6">Optimize your API for better performance and scalability.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Optimization Techniques</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Database Indexing:</strong> Add indexes for frequently queried fields</li>
+              <li><strong>Caching:</strong> Implement Redis or Memcached for data caching</li>
+              <li><strong>Pagination:</strong> Implement pagination for large datasets</li>
+              <li><strong>Rate Limiting:</strong> Protect your API from abuse</li>
+            </ul>
             
             <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Conclusion</h2>
-            <p class="mb-6">Laravel's dominance in the PHP ecosystem isn't just about its technical capabilities—it's about the complete developer experience. From its elegant syntax and powerful features to its robust ecosystem and strong community, Laravel provides everything developers need to build modern web applications efficiently.</p>
+            <p class="mb-6">Building RESTful APIs with Laravel combines the framework's elegant syntax with powerful features for creating robust, scalable web services. By following these best practices, you'll create APIs that are secure, performant, and maintainable.</p>
             
-            <p class="mb-6">Whether you're building a simple blog or a complex enterprise application, Laravel's combination of simplicity, power, and flexibility makes it the ideal choice for PHP development. It truly deserves its crown as the king of PHP frameworks.</p>
+            <p class="mb-6">Remember to always validate input data, implement proper authentication, handle errors gracefully, and document your API thoroughly. These practices will ensure your API provides a great developer experience and stands the test of time.</p>
           </div>
           
           <!-- Related Posts Section -->
@@ -146,19 +229,19 @@
             <div class="grid md:grid-cols-2 gap-8">
               <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs font-medium">Tutorial</span>
-                  <span class="text-gray-400 text-sm">8 min read</span>
+                  <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-xs font-medium">Framework</span>
+                  <span class="text-gray-400 text-sm">5 min read</span>
                 </div>
                 <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
-                  <a href="/blog/laravel-api-tutorial.html">Building RESTful APIs with Laravel: Complete Guide</a>
+                  <a href="/blog/laravel-king.html">Laravel: Why is it Still the King of PHP?</a>
                 </h4>
-                <p class="text-gray-400 mb-4 leading-relaxed">Step-by-step tutorial on creating robust and scalable REST APIs using Laravel framework and best practices.</p>
+                <p class="text-gray-400 mb-4 leading-relaxed">Explore why Laravel continues to dominate the PHP ecosystem with its elegant syntax, powerful features, and thriving community.</p>
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-2">
                     <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
                     <span class="text-gray-400 text-sm">Soysal Tan</span>
                   </div>
-                  <span class="text-gray-500 text-sm">Dec 12, 2024</span>
+                  <span class="text-gray-500 text-sm">Dec 10, 2024</span>
                 </div>
               </article>
               
@@ -170,7 +253,7 @@
                 <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
                   <a href="/blog/web-security.html">Web Application Security Best Practices</a>
                 </h4>
-                <p class="text-gray-400 mb-4 leading-relaxed">Security should be a top priority in web development. Learn about common vulnerabilities and how to protect your applications.</p>
+                <p class="text-gray-400 mb-4 leading-relaxed">Learn about common web vulnerabilities and how to protect your applications from attacks like XSS, CSRF, and SQL injection.</p>
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-2">
                     <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>

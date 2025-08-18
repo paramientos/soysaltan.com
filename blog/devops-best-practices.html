@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Best Practices: A Complete Guide for Modern Development | Soysal Tan</title>
+    <meta name="description" content="Discover essential DevOps best practices that will transform your development workflow. Learn about CI/CD, infrastructure as code, monitoring, and automation strategies for successful DevOps implementation.">
+    <meta name="keywords" content="DevOps, CI/CD, automation, infrastructure as code, monitoring, containerization, Docker, Kubernetes">
+    <meta name="author" content="Soysal Tan">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="DevOps Best Practices: A Complete Guide for Modern Development">
+    <meta property="og:description" content="Discover essential DevOps best practices that will transform your development workflow. Learn about CI/CD, infrastructure as code, monitoring, and automation strategies.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://soysaltan.com/blog/devops-best-practices.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevOps Best Practices: A Complete Guide for Modern Development">
+    <meta name="twitter:description" content="Discover essential DevOps best practices that will transform your development workflow. Learn about CI/CD, infrastructure as code, monitoring, and automation strategies.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <link href="../css/tailwind.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="canonical" href="https://soysaltan.com/blog/devops-best-practices.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DevOps Best Practices: A Complete Guide for Modern Development",
+        "description": "Discover essential DevOps best practices that will transform your development workflow. Learn about CI/CD, infrastructure as code, monitoring, and automation strategies.",
+        "image": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "author": {
+            "@type": "Person",
+            "name": "Soysal Tan",
+            "url": "https://soysaltan.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Soysal Tan",
+            "url": "https://soysaltan.com"
+        },
+        "datePublished": "2025-08-14",
+        "dateModified": "2025-08-14",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://soysaltan.com/blog/devops-best-practices.html"
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-[#232946] text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#232946]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-700 hover:to-blue-600 transition-all duration-300">
+                        Soysal Tan
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link relative">Home</a>
+                    <a href="../index.html#about" class="nav-link relative">About</a>
+                    <a href="../index.html#services" class="nav-link relative">Services</a>
+                    <a href="../index.html#blog" class="nav-link relative">Blog</a>
+                    <a href="../index.html#contact" class="nav-link relative">Contact</a>
+                    <a href="../index.html#cv" class="nav-link relative">Journey</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="pt-24 pb-8 bg-white dark:bg-[#232946]">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="../index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400">
+                            <svg class="w-3 h-3 mr-2.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-3 h-3 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"></path>
+                            </svg>
+                            <a href="index.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-purple-600 md:ml-2 dark:text-gray-400 dark:hover:text-purple-400">Blog</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg class="w-3 h-3 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"></path>
+                            </svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">DevOps Best Practices</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Article Header -->
+        <article class="bg-white dark:bg-[#1a2036] rounded-2xl shadow-xl overflow-hidden">
+            <div class="aspect-video overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="DevOps Best Practices" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="p-8 md:p-12">
+                <div class="flex items-center mb-6">
+                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium px-3 py-1 rounded-full">DevOps</span>
+                    <span class="mx-3 text-gray-400">•</span>
+                    <span class="text-gray-500 dark:text-gray-400 text-sm">10 minute read</span>
+                    <span class="mx-3 text-gray-400">•</span>
+                    <span class="text-gray-500 dark:text-gray-400 text-sm">August 14, 2025</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+                    DevOps Best Practices: A Complete Guide for Modern Development
+                </h1>
+                
+                <div class="flex items-center mb-8">
+                    <div class="h-12 w-12 rounded-full overflow-hidden mr-4">
+                        <img src="https://api.dicebear.com/7.x/micah/svg?seed=soysaltan" alt="Soysal Tan" class="h-full w-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-900 dark:text-white">Soysal Tan</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">PHP & Laravel Developer, DevOps and Cyber Security Enthusiast</p>
+                    </div>
+                </div>
+                
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        DevOps has revolutionized how we build, deploy, and maintain software. By bridging the gap between development and operations, DevOps practices enable faster delivery, improved quality, and enhanced collaboration. This comprehensive guide covers the essential best practices every team should implement.
+                    </p>
+                    
+                    <h2>What is DevOps?</h2>
+                    <p>
+                        DevOps is a cultural and technical movement that emphasizes collaboration between development and operations teams. It combines practices, tools, and philosophies to increase an organization's ability to deliver applications and services at high velocity.
+                    </p>
+                    
+                    <p>
+                        The core principles of DevOps include automation, continuous integration and deployment, monitoring, and feedback loops that enable rapid iteration and improvement.
+                    </p>
+                    
+                    <h2>1. Continuous Integration and Continuous Deployment (CI/CD)</h2>
+                    
+                    <h3>Continuous Integration (CI)</h3>
+                    <p>
+                        CI is the practice of regularly merging code changes into a central repository, followed by automated builds and tests. This helps catch integration issues early and ensures code quality.
+                    </p>
+                    
+                    <p><strong>CI Best Practices:</strong></p>
+                    <ul>
+                        <li>Commit code frequently (at least daily)</li>
+                        <li>Maintain a comprehensive test suite</li>
+                        <li>Keep builds fast (under 10 minutes)</li>
+                        <li>Fix broken builds immediately</li>
+                        <li>Use feature branches and pull requests</li>
+                        <li>Automate code quality checks (linting, security scans)</li>
+                    </ul>
+                    
+                    <h3>Continuous Deployment (CD)</h3>
+                    <p>
+                        CD extends CI by automatically deploying code changes to production after passing all tests. This enables rapid delivery of features and bug fixes.
+                    </p>
+                    
+                    <p><strong>CD Best Practices:</strong></p>
+                    <ul>
+                        <li>Implement automated testing at multiple levels</li>
+                        <li>Use blue-green or canary deployments</li>
+                        <li>Maintain deployment rollback capabilities</li>
+                        <li>Monitor deployments in real-time</li>
+                        <li>Implement feature flags for controlled releases</li>
+                    </ul>
+                    
+                    <h2>2. Infrastructure as Code (IaC)</h2>
+                    <p>
+                        IaC treats infrastructure configuration as code, enabling version control, testing, and automation of infrastructure provisioning and management.
+                    </p>
+                    
+                    <h3>Benefits of IaC</h3>
+                    <ul>
+                        <li><strong>Consistency:</strong> Eliminates configuration drift</li>
+                        <li><strong>Scalability:</strong> Easy to replicate environments</li>
+                        <li><strong>Version Control:</strong> Track infrastructure changes</li>
+                        <li><strong>Testing:</strong> Validate infrastructure before deployment</li>
+                        <li><strong>Documentation:</strong> Code serves as living documentation</li>
+                    </ul>
+                    
+                    <h3>Popular IaC Tools</h3>
+                    <ul>
+                        <li><strong>Terraform:</strong> Multi-cloud infrastructure provisioning</li>
+                        <li><strong>AWS CloudFormation:</strong> AWS-native infrastructure management</li>
+                        <li><strong>Ansible:</strong> Configuration management and automation</li>
+                        <li><strong>Pulumi:</strong> Modern IaC using familiar programming languages</li>
+                        <li><strong>Kubernetes YAML:</strong> Container orchestration configuration</li>
+                    </ul>
+                    
+                    <h2>3. Containerization and Orchestration</h2>
+                    
+                    <h3>Docker Best Practices</h3>
+                    <ul>
+                        <li>Use official base images when possible</li>
+                        <li>Keep images small and focused</li>
+                        <li>Use multi-stage builds to reduce image size</li>
+                        <li>Don't run containers as root</li>
+                        <li>Use .dockerignore to exclude unnecessary files</li>
+                        <li>Scan images for security vulnerabilities</li>
+                        <li>Tag images properly for version control</li>
+                    </ul>
+                    
+                    <h3>Kubernetes Best Practices</h3>
+                    <ul>
+                        <li>Use namespaces to organize resources</li>
+                        <li>Implement resource limits and requests</li>
+                        <li>Use health checks (liveness and readiness probes)</li>
+                        <li>Implement proper RBAC (Role-Based Access Control)</li>
+                        <li>Use ConfigMaps and Secrets for configuration</li>
+                        <li>Implement horizontal pod autoscaling</li>
+                        <li>Regular cluster updates and security patches</li>
+                    </ul>
+                    
+                    <h2>4. Monitoring and Observability</h2>
+                    <p>
+                        Comprehensive monitoring is crucial for maintaining system health and performance. Modern observability includes metrics, logs, and traces.
+                    </p>
+                    
+                    <h3>The Three Pillars of Observability</h3>
+                    
+                    <h4>1. Metrics</h4>
+                    <ul>
+                        <li>Application performance metrics (response time, throughput)</li>
+                        <li>Infrastructure metrics (CPU, memory, disk usage)</li>
+                        <li>Business metrics (user engagement, conversion rates)</li>
+                        <li>Custom application metrics</li>
+                    </ul>
+                    
+                    <h4>2. Logs</h4>
+                    <ul>
+                        <li>Structured logging (JSON format)</li>
+                        <li>Centralized log aggregation</li>
+                        <li>Log retention policies</li>
+                        <li>Security and audit logs</li>
+                    </ul>
+                    
+                    <h4>3. Traces</h4>
+                    <ul>
+                        <li>Distributed tracing for microservices</li>
+                        <li>Request flow visualization</li>
+                        <li>Performance bottleneck identification</li>
+                        <li>Error tracking and debugging</li>
+                    </ul>
+                    
+                    <h3>Popular Monitoring Tools</h3>
+                    <ul>
+                        <li><strong>Prometheus + Grafana:</strong> Metrics collection and visualization</li>
+                        <li><strong>ELK Stack:</strong> Elasticsearch, Logstash, and Kibana for logs</li>
+                        <li><strong>Jaeger:</strong> Distributed tracing</li>
+                        <li><strong>New Relic:</strong> Application performance monitoring</li>
+                        <li><strong>DataDog:</strong> Comprehensive monitoring platform</li>
+                    </ul>
+                    
+                    <h2>5. Security Best Practices (DevSecOps)</h2>
+                    <p>
+                        Security should be integrated throughout the development lifecycle, not added as an afterthought.
+                    </p>
+                    
+                    <h3>Shift-Left Security</h3>
+                    <ul>
+                        <li>Security training for developers</li>
+                        <li>Static Application Security Testing (SAST)</li>
+                        <li>Dynamic Application Security Testing (DAST)</li>
+                        <li>Dependency vulnerability scanning</li>
+                        <li>Container image security scanning</li>
+                        <li>Infrastructure security scanning</li>
+                    </ul>
+                    
+                    <h3>Runtime Security</h3>
+                    <ul>
+                        <li>Network segmentation and firewalls</li>
+                        <li>Identity and access management (IAM)</li>
+                        <li>Secrets management (HashiCorp Vault, AWS Secrets Manager)</li>
+                        <li>Regular security audits and penetration testing</li>
+                        <li>Incident response procedures</li>
+                    </ul>
+                    
+                    <h2>6. Automation Strategies</h2>
+                    <p>
+                        Automation is the backbone of successful DevOps implementation. It reduces manual errors, increases consistency, and frees up time for higher-value activities.
+                    </p>
+                    
+                    <h3>Areas to Automate</h3>
+                    <ul>
+                        <li><strong>Testing:</strong> Unit, integration, and end-to-end tests</li>
+                        <li><strong>Deployment:</strong> Application and infrastructure deployment</li>
+                        <li><strong>Monitoring:</strong> Alert generation and initial response</li>
+                        <li><strong>Backup:</strong> Data backup and recovery procedures</li>
+                        <li><strong>Scaling:</strong> Auto-scaling based on demand</li>
+                        <li><strong>Security:</strong> Vulnerability scanning and patching</li>
+                    </ul>
+                    
+                    <h2>7. Collaboration and Culture</h2>
+                    <p>
+                        DevOps is as much about culture as it is about technology. Successful DevOps requires organizational changes and improved collaboration.
+                    </p>
+                    
+                    <h3>Cultural Best Practices</h3>
+                    <ul>
+                        <li><strong>Shared Responsibility:</strong> Both dev and ops own the entire lifecycle</li>
+                        <li><strong>Blameless Post-mortems:</strong> Focus on learning, not blame</li>
+                        <li><strong>Continuous Learning:</strong> Encourage experimentation and learning</li>
+                        <li><strong>Cross-functional Teams:</strong> Include diverse skill sets</li>
+                        <li><strong>Transparent Communication:</strong> Open sharing of information</li>
+                    </ul>
+                    
+                    <h2>8. Performance Optimization</h2>
+                    
+                    <h3>Application Performance</h3>
+                    <ul>
+                        <li>Code profiling and optimization</li>
+                        <li>Database query optimization</li>
+                        <li>Caching strategies (Redis, Memcached)</li>
+                        <li>Content Delivery Networks (CDNs)</li>
+                        <li>Load balancing and auto-scaling</li>
+                    </ul>
+                    
+                    <h3>Infrastructure Performance</h3>
+                    <ul>
+                        <li>Right-sizing resources</li>
+                        <li>Performance monitoring and alerting</li>
+                        <li>Capacity planning</li>
+                        <li>Network optimization</li>
+                        <li>Storage optimization</li>
+                    </ul>
+                    
+                    <h2>9. Disaster Recovery and Business Continuity</h2>
+                    <p>
+                        Prepare for failures and ensure business continuity with proper disaster recovery planning.
+                    </p>
+                    
+                    <h3>Key Components</h3>
+                    <ul>
+                        <li><strong>Backup Strategy:</strong> Regular, tested backups</li>
+                        <li><strong>Recovery Time Objective (RTO):</strong> Maximum acceptable downtime</li>
+                        <li><strong>Recovery Point Objective (RPO):</strong> Maximum acceptable data loss</li>
+                        <li><strong>Multi-region Deployment:</strong> Geographic redundancy</li>
+                        <li><strong>Chaos Engineering:</strong> Proactive failure testing</li>
+                    </ul>
+                    
+                    <h2>10. Metrics and KPIs</h2>
+                    <p>
+                        Measure success with relevant metrics that align with business objectives.
+                    </p>
+                    
+                    <h3>DORA Metrics</h3>
+                    <ul>
+                        <li><strong>Deployment Frequency:</strong> How often you deploy</li>
+                        <li><strong>Lead Time for Changes:</strong> Time from commit to production</li>
+                        <li><strong>Change Failure Rate:</strong> Percentage of deployments causing failures</li>
+                        <li><strong>Time to Recovery:</strong> Time to recover from failures</li>
+                    </ul>
+                    
+                    <h3>Additional Metrics</h3>
+                    <ul>
+                        <li>System uptime and availability</li>
+                        <li>Application performance (response time, throughput)</li>
+                        <li>Security incidents and resolution time</li>
+                        <li>Customer satisfaction scores</li>
+                        <li>Team productivity and satisfaction</li>
+                    </ul>
+                    
+                    <h2>Implementation Roadmap</h2>
+                    <p>
+                        Implementing DevOps is a journey, not a destination. Here's a suggested roadmap:
+                    </p>
+                    
+                    <h3>Phase 1: Foundation (Months 1-3)</h3>
+                    <ul>
+                        <li>Establish version control practices</li>
+                        <li>Implement basic CI/CD pipeline</li>
+                        <li>Set up monitoring and alerting</li>
+                        <li>Begin automation of repetitive tasks</li>
+                    </ul>
+                    
+                    <h3>Phase 2: Optimization (Months 4-6)</h3>
+                    <ul>
+                        <li>Implement Infrastructure as Code</li>
+                        <li>Enhance testing automation</li>
+                        <li>Improve deployment strategies</li>
+                        <li>Strengthen security practices</li>
+                    </ul>
+                    
+                    <h3>Phase 3: Maturity (Months 7-12)</h3>
+                    <ul>
+                        <li>Implement advanced monitoring and observability</li>
+                        <li>Optimize performance and costs</li>
+                        <li>Establish disaster recovery procedures</li>
+                        <li>Focus on continuous improvement</li>
+                    </ul>
+                    
+                    <h2>Common Pitfalls to Avoid</h2>
+                    <ul>
+                        <li><strong>Tool-first approach:</strong> Focus on culture and processes before tools</li>
+                        <li><strong>Ignoring security:</strong> Integrate security from the beginning</li>
+                        <li><strong>Over-automation:</strong> Automate incrementally, not everything at once</li>
+                        <li><strong>Lack of monitoring:</strong> You can't improve what you don't measure</li>
+                        <li><strong>Siloed teams:</strong> Break down organizational barriers</li>
+                        <li><strong>Neglecting documentation:</strong> Document processes and procedures</li>
+                    </ul>
+                    
+                    <h2>Conclusion</h2>
+                    <p>
+                        DevOps best practices are essential for modern software development and operations. By implementing CI/CD, Infrastructure as Code, comprehensive monitoring, and fostering a collaborative culture, organizations can achieve faster delivery, improved quality, and enhanced reliability.
+                    </p>
+                    
+                    <p>
+                        Remember that DevOps is a journey of continuous improvement. Start with the fundamentals, measure your progress, and gradually adopt more advanced practices. The key is to remain flexible and adapt these practices to your organization's specific needs and constraints.
+                    </p>
+                    
+                    <p>
+                        Success in DevOps requires commitment from leadership, investment in training and tools, and a willingness to embrace change. With the right approach and persistence, your organization can reap the significant benefits that DevOps practices provide.
+                    </p>
+                    
+                    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mt-8">
+                        <h3 class="text-blue-800 dark:text-blue-300 font-semibold mb-2">🚀 Ready to Start Your DevOps Journey?</h3>
+                        <p class="text-blue-700 dark:text-blue-300">
+                            Begin with small, incremental changes and gradually build your DevOps capabilities. Focus on culture and collaboration first, then introduce tools and automation. Remember, the goal is to improve delivery speed, quality, and team satisfaction.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">#DevOps</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">#CI/CD</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">#Automation</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">#Infrastructure</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full">#Monitoring</span>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Related Posts -->
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Related Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Application Security Best Practices" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Security</span>
+                            <span class="mx-2 text-gray-400">•</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm">6 min read</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900 dark:text-white">Web Application Security Best Practices</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Security should be a top priority in web development. Learn about common vulnerabilities and how to protect your applications.</p>
+                        <a href="web-security.html" class="inline-flex items-center font-medium text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-[#1a2036] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566837945700-30057527ade0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Laravel: Why is it Still the King of PHP?" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Framework</span>
+                            <span class="mx-2 text-gray-400">•</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm">5 min read</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900 dark:text-white">Laravel: Why is it Still the King of PHP?</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">While the PHP world is constantly evolving, Laravel maintains its throne with its elegance, powerful features, and developer-friendly structure.</p>
+                        <a href="laravel-king.html" class="inline-flex items-center font-medium text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-[#1a2036] border-t border-gray-200 dark:border-gray-700 mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <p class="text-gray-600 dark:text-gray-400">
+                    © 2025 Soysal Tan. All rights reserved.
+                </p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="https://github.com/soysaltan" target="_blank" class="text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/soysaltan" target="_blank" class="text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/soysaltan" target="_blank" class="text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>

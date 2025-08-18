@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Web Applications with Node.js and Express | Soysal Tan</title>
+  <meta name="description" content="Learn how to build robust web applications using Node.js and Express.js, covering routing, middleware, database integration, and deployment.">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
+  <link rel="stylesheet" href="/css/styles.css?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
+  <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+  
+  <!-- Header -->
+  <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
+      <nav class="hidden md:flex items-center">
+        <ul class="flex space-x-8 text-base font-medium">
+          <li><a href="/" class="nav-link relative">Home</a></li>
+          <li><a href="/#about" class="nav-link relative">About</a></li>
+          <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+          <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
+          <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+        </ul>
+      </nav>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col items-center space-y-4 py-4">
+        <li><a href="/" class="nav-link relative">Home</a></li>
+        <li><a href="/#about" class="nav-link relative">About</a></li>
+        <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+        <li><a href="/blog/index.html" class="nav-link relative">Blog</a></li>
+        <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="bg-[#1a2036]/50 backdrop-blur-sm border-b border-gray-700/30" aria-label="Breadcrumb">
+    <div class="container mx-auto px-6 py-4">
+      <ol class="flex items-center space-x-2 text-sm">
+        <li>
+          <a href="/" class="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <a href="/blog/" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-white font-medium">Node.js and Express</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="py-24 md:py-32 relative">
+      <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+      <div class="container max-w-3xl mx-auto px-4 relative z-10">
+        <div class="mb-8">
+          <a href="/blog/index.html" class="text-[#b8b8d1] hover:text-white transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            Back to Blog
+          </a>
+        </div>
+        
+        <article class="prose prose-lg prose-invert max-w-none">
+          <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">Building Web Applications with Node.js and Express</h1>
+            <div class="flex items-center gap-3 text-[#b8b8d1] mb-6">
+              <span class="badge">Backend</span>
+              <span class="text-sm">Dec 18, 2024</span>
+            </div>
+          </header>
+          
+          <div class="text-[#b8b8d1] leading-relaxed">
+            <p class="mb-6">Node.js and Express.js form a powerful combination for building modern web applications. This comprehensive guide will take you through the process of creating robust, scalable web applications from setup to deployment.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Getting Started with Node.js</h2>
+            <p class="mb-6">Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript on the server side, making it possible to build full-stack applications using a single programming language.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Node.js Key Features</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Event-Driven Architecture:</strong> Non-blocking I/O operations for high performance</li>
+              <li><strong>NPM Ecosystem:</strong> Vast package manager with millions of modules</li>
+              <li><strong>Cross-Platform:</strong> Runs on Windows, macOS, and Linux</li>
+              <li><strong>Single-Threaded:</strong> Uses event loop for handling concurrent requests</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Introduction to Express.js</h2>
+            <p class="mb-6">Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It simplifies the process of building server-side applications.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Express.js Benefits</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Minimal Framework:</strong> Lightweight and unopinionated structure</li>
+              <li><strong>Middleware Support:</strong> Extensible through middleware functions</li>
+              <li><strong>Routing System:</strong> Powerful routing capabilities</li>
+              <li><strong>Template Engines:</strong> Support for various view engines</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Setting Up Your Development Environment</h2>
+            <p class="mb-6">Before building your first Express application, you need to set up your development environment with Node.js and create a new project structure.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Installation Steps</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Install Node.js:</strong> Download from nodejs.org and install the LTS version</li>
+              <li><strong>Initialize Project:</strong> Create package.json with npm init</li>
+              <li><strong>Install Express:</strong> Add Express as a dependency</li>
+              <li><strong>Project Structure:</strong> Organize files and folders properly</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Creating Your First Express Server</h2>
+            <p class="mb-6">Let's start by creating a basic Express server that handles HTTP requests and responses. This will be the foundation of your web application.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Basic Server Setup</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Import Express:</strong> Require the Express module</li>
+              <li><strong>Create App Instance:</strong> Initialize Express application</li>
+              <li><strong>Define Routes:</strong> Set up basic route handlers</li>
+              <li><strong>Start Server:</strong> Listen on a specific port</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Understanding Routing</h2>
+            <p class="mb-6">Routing refers to determining how an application responds to client requests for specific endpoints. Express provides a robust routing system that supports various HTTP methods and URL patterns.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Routing Concepts</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>HTTP Methods:</strong> GET, POST, PUT, DELETE, and more</li>
+              <li><strong>Route Parameters:</strong> Dynamic URL segments</li>
+              <li><strong>Query Parameters:</strong> URL query strings</li>
+              <li><strong>Route Handlers:</strong> Functions that process requests</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Working with Middleware</h2>
+            <p class="mb-6">Middleware functions are functions that have access to the request object, response object, and the next middleware function in the application's request-response cycle.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Middleware Types</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Application-Level:</strong> Bound to the app object</li>
+              <li><strong>Router-Level:</strong> Bound to express.Router() instances</li>
+              <li><strong>Error-Handling:</strong> Special middleware for handling errors</li>
+              <li><strong>Built-in:</strong> Express built-in middleware functions</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Handling Static Files</h2>
+            <p class="mb-6">Express provides built-in middleware to serve static files such as images, CSS files, and JavaScript files. This is essential for serving client-side assets.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Static File Serving</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>express.static():</strong> Built-in middleware for static files</li>
+              <li><strong>Public Directory:</strong> Common folder for static assets</li>
+              <li><strong>Virtual Paths:</strong> Create virtual path prefixes</li>
+              <li><strong>Multiple Directories:</strong> Serve from multiple static directories</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Template Engines</h2>
+            <p class="mb-6">Template engines allow you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values and transforms the template into an HTML file.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Popular Template Engines</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>EJS:</strong> Embedded JavaScript templates</li>
+              <li><strong>Handlebars:</strong> Logic-less templates</li>
+              <li><strong>Pug:</strong> Clean, whitespace-sensitive syntax</li>
+              <li><strong>Mustache:</strong> Logic-less templates</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Database Integration</h2>
+            <p class="mb-6">Most web applications need to store and retrieve data. Express can work with various databases, both SQL and NoSQL, through different database drivers and ORMs.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Database Options</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>MongoDB:</strong> Popular NoSQL database with Mongoose ODM</li>
+              <li><strong>PostgreSQL:</strong> Powerful relational database</li>
+              <li><strong>MySQL:</strong> Widely used relational database</li>
+              <li><strong>SQLite:</strong> Lightweight database for development</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Error Handling</h2>
+            <p class="mb-6">Proper error handling is crucial for building robust applications. Express provides several mechanisms for catching and handling errors that occur during request processing.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Error Handling Strategies</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Try-Catch Blocks:</strong> Handle synchronous errors</li>
+              <li><strong>Error Middleware:</strong> Centralized error handling</li>
+              <li><strong>Async Error Handling:</strong> Handle asynchronous errors</li>
+              <li><strong>Custom Error Classes:</strong> Create specific error types</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Authentication and Authorization</h2>
+            <p class="mb-6">Security is a critical aspect of web applications. Express applications can implement various authentication and authorization strategies to protect routes and resources.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Security Implementations</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Session-Based Auth:</strong> Traditional server-side sessions</li>
+              <li><strong>JWT Tokens:</strong> JSON Web Tokens for stateless auth</li>
+              <li><strong>OAuth:</strong> Third-party authentication providers</li>
+              <li><strong>Passport.js:</strong> Authentication middleware for Node.js</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">API Development</h2>
+            <p class="mb-6">Express is excellent for building RESTful APIs. You can create endpoints that handle different HTTP methods and return JSON responses for client applications.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">RESTful API Principles</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Resource-Based URLs:</strong> URLs represent resources</li>
+              <li><strong>HTTP Methods:</strong> Use appropriate HTTP verbs</li>
+              <li><strong>Status Codes:</strong> Return meaningful HTTP status codes</li>
+              <li><strong>JSON Responses:</strong> Consistent response format</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Testing Express Applications</h2>
+            <p class="mb-6">Testing is essential for maintaining code quality and ensuring your application works as expected. Express applications can be tested using various testing frameworks and tools.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Testing Tools</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Jest:</strong> Popular JavaScript testing framework</li>
+              <li><strong>Mocha:</strong> Feature-rich JavaScript test framework</li>
+              <li><strong>Supertest:</strong> HTTP assertion library for testing APIs</li>
+              <li><strong>Chai:</strong> BDD/TDD assertion library</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Performance Optimization</h2>
+            <p class="mb-6">As your application grows, performance becomes increasingly important. There are several strategies to optimize Express applications for better performance and scalability.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Optimization Techniques</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Compression:</strong> Gzip compression for responses</li>
+              <li><strong>Caching:</strong> Implement caching strategies</li>
+              <li><strong>Connection Pooling:</strong> Optimize database connections</li>
+              <li><strong>Load Balancing:</strong> Distribute traffic across servers</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Deployment Strategies</h2>
+            <p class="mb-6">Deploying your Express application to production requires careful consideration of various factors including environment configuration, process management, and monitoring.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Deployment Options</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Cloud Platforms:</strong> Heroku, AWS, Google Cloud, Azure</li>
+              <li><strong>VPS Hosting:</strong> DigitalOcean, Linode, Vultr</li>
+              <li><strong>Containerization:</strong> Docker and Kubernetes</li>
+              <li><strong>Serverless:</strong> AWS Lambda, Vercel, Netlify Functions</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Environment Configuration</h2>
+            <p class="mb-6">Managing different environments (development, staging, production) is crucial for maintaining a stable application. Use environment variables and configuration files to manage settings.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Configuration Best Practices</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Environment Variables:</strong> Use .env files for configuration</li>
+              <li><strong>Config Files:</strong> Separate configuration by environment</li>
+              <li><strong>Secrets Management:</strong> Secure handling of sensitive data</li>
+              <li><strong>Feature Flags:</strong> Toggle features without deployment</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Monitoring and Logging</h2>
+            <p class="mb-6">Production applications need proper monitoring and logging to track performance, identify issues, and maintain system health.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Monitoring Tools</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Application Monitoring:</strong> New Relic, DataDog, AppDynamics</li>
+              <li><strong>Log Management:</strong> Winston, Morgan, ELK Stack</li>
+              <li><strong>Error Tracking:</strong> Sentry, Bugsnag, Rollbar</li>
+              <li><strong>Performance Metrics:</strong> Response times, memory usage, CPU</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Security Best Practices</h2>
+            <p class="mb-6">Security should be a primary concern when building web applications. Express applications should implement various security measures to protect against common vulnerabilities.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Security Measures</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Helmet.js:</strong> Set security-related HTTP headers</li>
+              <li><strong>Rate Limiting:</strong> Prevent abuse and DoS attacks</li>
+              <li><strong>Input Validation:</strong> Validate and sanitize user input</li>
+              <li><strong>HTTPS:</strong> Use SSL/TLS encryption</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Advanced Topics</h2>
+            <p class="mb-6">As you become more comfortable with Express, you can explore advanced topics that will help you build more sophisticated applications.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Advanced Concepts</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Microservices:</strong> Breaking applications into smaller services</li>
+              <li><strong>GraphQL:</strong> Alternative to REST APIs</li>
+              <li><strong>WebSockets:</strong> Real-time communication</li>
+              <li><strong>Server-Side Rendering:</strong> SSR with template engines</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Conclusion</h2>
+            <p class="mb-6">Node.js and Express.js provide a powerful foundation for building modern web applications. From simple servers to complex APIs, this technology stack offers the flexibility and performance needed for today's web development challenges.</p>
+            
+            <p class="mb-6">Continue practicing by building projects, exploring the vast npm ecosystem, and staying updated with the latest developments in the Node.js community. The skills you develop with Express will serve you well in your web development journey.</p>
+          </div>
+          
+          <!-- Related Posts Section -->
+          <div class="mt-16 pt-12 border-t border-gray-700/30">
+            <h3 class="text-2xl font-bold mb-8 text-white">Related Posts</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">Tutorial</span>
+                  <span class="text-gray-400 text-sm">12 min read</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
+                  <a href="/blog/react-fundamentals.html">React.js Fundamentals: Complete Beginner's Guide</a>
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Master React.js fundamentals with this comprehensive beginner's guide. Learn components, JSX, state, props, hooks, and build your first React application.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
+                    <span class="text-gray-400 text-sm">Soysal Tan</span>
+                  </div>
+                  <span class="text-gray-500 text-sm">Dec 14, 2024</span>
+                </div>
+              </article>
+              
+              <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">JavaScript</span>
+                  <span class="text-gray-400 text-sm">10 min read</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
+                  <a href="/blog/javascript-es6-features.html">JavaScript ES6+ Features Every Developer Should Know</a>
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Explore modern JavaScript features including arrow functions, destructuring, modules, and async/await that make your code more elegant and efficient.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
+                    <span class="text-gray-400 text-sm">Soysal Tan</span>
+                  </div>
+                  <span class="text-gray-500 text-sm">Dec 16, 2024</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+        <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#232946"/></svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 bg-[#181824] text-white text-sm">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Soysal Tan. All rights reserved.</p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+          </svg>
+        </a>
+        <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setupStarsBackground();
+      setupMobileMenu();
+    });
+  </script>
+</body>
+</html>

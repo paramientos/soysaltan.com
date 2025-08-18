@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript ES6+ Features Every Developer Should Know | Soysal Tan</title>
+  <meta name="description" content="Explore modern JavaScript features including arrow functions, destructuring, modules, and async/await that make your code more elegant and efficient.">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
+  <link rel="stylesheet" href="/css/styles.css?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-[#181824] to-[#232946] text-white font-sans min-h-screen overflow-x-hidden">
+  <div id="stars-bg" class="fixed inset-0 z-0 pointer-events-none"></div>
+  
+  <!-- Header -->
+  <header class="bg-[#181824]/70 backdrop-blur-lg shadow-sm sticky top-0 z-30 transition-all border-b border-[#232946]">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold tracking-tight text-white">Soysal Tan</a>
+      <nav class="hidden md:flex items-center">
+        <ul class="flex space-x-8 text-base font-medium">
+          <li><a href="/" class="nav-link relative">Home</a></li>
+          <li><a href="/#about" class="nav-link relative">About</a></li>
+          <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+          <li><a href="/blog/index.html" class="nav-link relative active">Blog</a></li>
+          <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+        </ul>
+      </nav>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <ul class="flex flex-col items-center space-y-4 py-4">
+        <li><a href="/" class="nav-link relative">Home</a></li>
+        <li><a href="/#about" class="nav-link relative">About</a></li>
+        <li><a href="/#projects" class="nav-link relative">Projects</a></li>
+        <li><a href="/blog/index.html" class="nav-link relative">Blog</a></li>
+        <li><a href="/#terminal-section" class="nav-link relative">Terminal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <nav class="bg-[#1a2036]/50 backdrop-blur-sm border-b border-gray-700/30" aria-label="Breadcrumb">
+    <div class="container mx-auto px-6 py-4">
+      <ol class="flex items-center space-x-2 text-sm">
+        <li>
+          <a href="/" class="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <a href="/blog/" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 text-gray-500 mx-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-white font-medium">JavaScript ES6+ Features</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="py-24 md:py-32 relative">
+      <div class="absolute inset-0 -z-1 animate-gradient bg-gradient-to-tr from-[#a259ff]/30 via-[#3f8efc]/30 to-[#ff7eb3]/20 blur-2xl opacity-80"></div>
+      <div class="container max-w-3xl mx-auto px-4 relative z-10">
+        <div class="mb-8">
+          <a href="/blog/index.html" class="text-[#b8b8d1] hover:text-white transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            Back to Blog
+          </a>
+        </div>
+        
+        <article class="prose prose-lg prose-invert max-w-none">
+          <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">JavaScript ES6+ Features Every Developer Should Know</h1>
+            <div class="flex items-center gap-3 text-[#b8b8d1] mb-6">
+              <span class="badge">JavaScript</span>
+              <span class="text-sm">Dec 16, 2024</span>
+            </div>
+          </header>
+          
+          <div class="text-[#b8b8d1] leading-relaxed">
+            <p class="mb-6">Modern JavaScript has evolved significantly with ES6 and beyond, introducing powerful features that make code more elegant, readable, and efficient. This guide explores the essential ES6+ features every developer should master.</p>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Arrow Functions</h2>
+            <p class="mb-6">Arrow functions provide a more concise syntax for writing functions and automatically bind the lexical scope, solving common issues with the 'this' keyword.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Arrow Function Benefits</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Concise Syntax:</strong> Shorter function declarations for simple operations</li>
+              <li><strong>Lexical This:</strong> Inherits 'this' from the enclosing scope</li>
+              <li><strong>Implicit Return:</strong> Single expressions return automatically</li>
+              <li><strong>No Arguments Object:</strong> Use rest parameters instead</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Destructuring Assignment</h2>
+            <p class="mb-6">Destructuring allows you to extract values from arrays and objects into distinct variables, making code more readable and reducing repetition.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Destructuring Patterns</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Array Destructuring:</strong> Extract values from arrays by position</li>
+              <li><strong>Object Destructuring:</strong> Extract properties from objects by name</li>
+              <li><strong>Nested Destructuring:</strong> Extract from nested structures</li>
+              <li><strong>Default Values:</strong> Provide fallback values for undefined properties</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Template Literals</h2>
+            <p class="mb-6">Template literals provide an elegant way to create strings with embedded expressions, multi-line strings, and tagged templates for advanced string processing.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Template Literal Features</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>String Interpolation:</strong> Embed expressions directly in strings</li>
+              <li><strong>Multi-line Strings:</strong> Create strings spanning multiple lines</li>
+              <li><strong>Tagged Templates:</strong> Process template literals with functions</li>
+              <li><strong>Raw Strings:</strong> Access raw string content without escaping</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Let and Const</h2>
+            <p class="mb-6">Block-scoped variable declarations that replace var in modern JavaScript, providing better scoping rules and preventing common programming errors.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Variable Declaration Best Practices</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Block Scope:</strong> Variables are scoped to the nearest block</li>
+              <li><strong>Temporal Dead Zone:</strong> Variables cannot be accessed before declaration</li>
+              <li><strong>Const Immutability:</strong> Const prevents reassignment of the binding</li>
+              <li><strong>Hoisting Behavior:</strong> Different hoisting behavior than var</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Spread and Rest Operators</h2>
+            <p class="mb-6">The spread (...) operator expands iterables into individual elements, while rest parameters collect multiple elements into an array.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Spread and Rest Use Cases</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Array Spreading:</strong> Expand arrays into function arguments or new arrays</li>
+              <li><strong>Object Spreading:</strong> Copy and merge objects efficiently</li>
+              <li><strong>Rest Parameters:</strong> Collect function arguments into an array</li>
+              <li><strong>Destructuring Rest:</strong> Collect remaining elements during destructuring</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Default Parameters</h2>
+            <p class="mb-6">Function parameters can have default values, eliminating the need for manual parameter checking and making functions more robust.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Default Parameter Features</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Simple Defaults:</strong> Assign default values to parameters</li>
+              <li><strong>Expression Defaults:</strong> Use expressions as default values</li>
+              <li><strong>Parameter Dependencies:</strong> Later parameters can reference earlier ones</li>
+              <li><strong>Undefined Handling:</strong> Only undefined triggers default values</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Enhanced Object Literals</h2>
+            <p class="mb-6">Object literals have been enhanced with shorthand property names, computed property names, and method definitions.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Object Literal Enhancements</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Property Shorthand:</strong> Omit property names when they match variable names</li>
+              <li><strong>Method Shorthand:</strong> Define methods without the function keyword</li>
+              <li><strong>Computed Properties:</strong> Use expressions as property names</li>
+              <li><strong>Getter/Setter Syntax:</strong> Define accessors with get/set keywords</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Classes</h2>
+            <p class="mb-6">ES6 classes provide a cleaner syntax for creating constructor functions and prototypal inheritance, making object-oriented programming more intuitive.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Class Features</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Class Declaration:</strong> Define classes with constructor and methods</li>
+              <li><strong>Inheritance:</strong> Extend classes with the extends keyword</li>
+              <li><strong>Static Methods:</strong> Define methods that belong to the class itself</li>
+              <li><strong>Private Fields:</strong> Use # syntax for private class members</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Modules</h2>
+            <p class="mb-6">ES6 modules provide a standardized way to organize and share code between files, replacing various module systems with a native solution.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Module System Benefits</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Named Exports:</strong> Export multiple values from a module</li>
+              <li><strong>Default Exports:</strong> Export a single main value from a module</li>
+              <li><strong>Import Syntax:</strong> Import specific exports or entire modules</li>
+              <li><strong>Static Analysis:</strong> Enables tree shaking and better optimization</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Promises and Async/Await</h2>
+            <p class="mb-6">Modern asynchronous programming with Promises and async/await syntax makes handling asynchronous operations more readable and maintainable.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Asynchronous Programming</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Promise Chains:</strong> Chain asynchronous operations with then/catch</li>
+              <li><strong>Async Functions:</strong> Write asynchronous code that looks synchronous</li>
+              <li><strong>Await Expressions:</strong> Wait for Promise resolution within async functions</li>
+              <li><strong>Error Handling:</strong> Use try/catch blocks with async/await</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Array Methods</h2>
+            <p class="mb-6">New array methods like find, findIndex, includes, and others provide powerful tools for array manipulation and searching.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Modern Array Methods</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>find/findIndex:</strong> Find elements and their indices based on conditions</li>
+              <li><strong>includes:</strong> Check if an array contains a specific value</li>
+              <li><strong>Array.from:</strong> Create arrays from array-like or iterable objects</li>
+              <li><strong>Array.of:</strong> Create arrays from a variable number of arguments</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Map and Set</h2>
+            <p class="mb-6">New collection types that provide alternatives to objects and arrays for specific use cases, offering better performance and functionality.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Collection Types</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Map:</strong> Key-value pairs with any type of keys</li>
+              <li><strong>Set:</strong> Collections of unique values</li>
+              <li><strong>WeakMap/WeakSet:</strong> Weak references for garbage collection</li>
+              <li><strong>Iteration:</strong> Built-in iteration support with for...of</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Symbols</h2>
+            <p class="mb-6">Symbols are a new primitive type that creates unique identifiers, useful for object properties that should not conflict with other properties.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Symbol Use Cases</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Unique Properties:</strong> Create properties that won't conflict</li>
+              <li><strong>Well-known Symbols:</strong> Built-in symbols for customizing behavior</li>
+              <li><strong>Symbol Registry:</strong> Global symbol registry for sharing symbols</li>
+              <li><strong>Meta-programming:</strong> Customize object behavior with symbol properties</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Iterators and Generators</h2>
+            <p class="mb-6">Iterators provide a standard way to traverse collections, while generators offer a powerful way to create iterators and handle asynchronous flows.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Iterator Protocol</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Iterator Interface:</strong> Objects that implement the iterator protocol</li>
+              <li><strong>Generator Functions:</strong> Functions that can pause and resume execution</li>
+              <li><strong>Yield Expressions:</strong> Produce values from generator functions</li>
+              <li><strong>Async Generators:</strong> Combine generators with asynchronous operations</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Proxy and Reflect</h2>
+            <p class="mb-6">Advanced meta-programming features that allow you to intercept and customize operations on objects, such as property access and assignment.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Meta-programming Tools</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Proxy Traps:</strong> Intercept object operations like get, set, has</li>
+              <li><strong>Reflect API:</strong> Programmatic object manipulation methods</li>
+              <li><strong>Virtual Objects:</strong> Create objects with custom behavior</li>
+              <li><strong>Validation:</strong> Implement property validation and transformation</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Best Practices</h2>
+            <p class="mb-6">Following modern JavaScript best practices ensures your code is maintainable, performant, and follows current standards.</p>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-4 text-white">Modern JavaScript Guidelines</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+              <li><strong>Prefer const/let:</strong> Use const by default, let when reassignment is needed</li>
+              <li><strong>Use Arrow Functions:</strong> For callbacks and short functions</li>
+              <li><strong>Destructure Wisely:</strong> Extract only what you need from objects and arrays</li>
+              <li><strong>Async/Await:</strong> Prefer async/await over Promise chains for readability</li>
+            </ul>
+            
+            <h2 class="text-2xl font-bold mt-12 mb-6 text-white">Conclusion</h2>
+            <p class="mb-6">ES6+ features have transformed JavaScript into a more powerful and expressive language. By mastering these features, you'll write cleaner, more maintainable code that takes advantage of modern JavaScript capabilities.</p>
+            
+            <p class="mb-6">Continue exploring these features in your projects, and stay updated with the latest JavaScript specifications to keep your skills current with the evolving language.</p>
+          </div>
+          
+          <!-- Related Posts Section -->
+          <div class="mt-16 pt-12 border-t border-gray-700/30">
+            <h3 class="text-2xl font-bold mb-8 text-white">Related Posts</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">Tutorial</span>
+                  <span class="text-gray-400 text-sm">12 min read</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
+                  <a href="/blog/react-fundamentals.html">React.js Fundamentals: Complete Beginner's Guide</a>
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Master React.js fundamentals with this comprehensive beginner's guide. Learn components, JSX, state, props, hooks, and build your first React application.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
+                    <span class="text-gray-400 text-sm">Soysal Tan</span>
+                  </div>
+                  <span class="text-gray-500 text-sm">Dec 14, 2024</span>
+                </div>
+              </article>
+              
+              <article class="bg-[#1a2036]/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 group">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">Backend</span>
+                  <span class="text-gray-400 text-sm">8 min read</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-white group-hover:text-blue-300 transition-colors">
+                  <a href="/blog/nodejs-express-tutorial.html">Building Web Applications with Node.js and Express</a>
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">Learn how to build robust web applications using Node.js and Express.js, covering routing, middleware, database integration, and deployment.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">ST</div>
+                    <span class="text-gray-400 text-sm">Soysal Tan</span>
+                  </div>
+                  <span class="text-gray-500 text-sm">Dec 18, 2024</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+        <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-32"><path d="M0,0 C800,120 1120,0 1920,120 L1920,120 L0,120 Z" fill="#232946"/></svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 bg-[#181824] text-white text-sm">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Soysal Tan. All rights reserved.</p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://github.com/soysaltan" target="_blank" aria-label="GitHub" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/soysaltan" target="_blank" aria-label="LinkedIn" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+          </svg>
+        </a>
+        <a href="https://twitter.com/soysaltan" target="_blank" aria-label="Twitter" class="text-white/70 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setupStarsBackground();
+      setupMobileMenu();
+    });
+  </script>
+</body>
+</html>
