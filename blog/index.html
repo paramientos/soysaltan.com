@@ -406,19 +406,41 @@
     </div>
   </footer>
 
+  <!-- Load main.js for shared functions -->
   <script src="/js/main.js"></script>
+  
   <script>
     // Custom JS for blog page
     document.addEventListener('DOMContentLoaded', function() {
-      setupStarsBackground();
-      setupMobileMenu();
-      setupBlogSearch();
-      setupBlogFilters();
+      // Initialize shared functions
+      try {
+        if (typeof setupStarsBackground === 'function') setupStarsBackground();
+        if (typeof setupMobileMenu === 'function') setupMobileMenu();
+      } catch (e) {
+        console.warn('Main.js functions not available:', e);
+      }
+      
+      // Setup blog-specific functions
+      try {
+        setupBlogSearch();
+        setupBlogFilters();
+      } catch (e) {
+        console.error('Blog functions failed:', e);
+      }
     });
     
     function setupBlogSearch() {
+      console.log('Setting up blog search...');
       const searchInput = document.getElementById('search-input');
       const blogCards = document.querySelectorAll('#blog-grid article');
+      
+      console.log('Search input found:', !!searchInput);
+      console.log('Blog cards found:', blogCards.length);
+      
+      if (!searchInput) {
+        console.error('Search input element not found!');
+        return;
+      }
       
       searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
@@ -474,8 +496,17 @@
     }
     
     function setupBlogFilters() {
+      console.log('Setting up blog filters...');
       const filterButtons = document.querySelectorAll('.filter-btn');
       const blogCards = document.querySelectorAll('#blog-grid article');
+      
+      console.log('Filter buttons found:', filterButtons.length);
+      console.log('Blog cards found:', blogCards.length);
+      
+      if (filterButtons.length === 0) {
+        console.error('No filter buttons found!');
+        return;
+      }
       
       filterButtons.forEach(button => {
         button.addEventListener('click', function() {

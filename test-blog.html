@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Test</title>
+  <style>
+    .filter-btn { padding: 8px 16px; margin: 4px; border: 1px solid #ccc; background: #f0f0f0; cursor: pointer; }
+    .filter-btn.active { background: #007bff; color: white; }
+    .card { border: 1px solid #ddd; padding: 16px; margin: 8px; }
+    .search-box { width: 100%; padding: 8px; margin: 16px 0; }
+  </style>
+</head>
+<body>
+  <h1>Blog Test Page</h1>
+  
+  <!-- Search Box -->
+  <input type="text" id="search-input" placeholder="Search articles..." class="search-box">
+  
+  <!-- Category Filters -->
+  <div>
+    <button class="filter-btn active" data-category="all">All Posts</button>
+    <button class="filter-btn" data-category="php">PHP</button>
+    <button class="filter-btn" data-category="devops">DevOps</button>
+    <button class="filter-btn" data-category="security">Security</button>
+    <button class="filter-btn" data-category="tutorial">Tutorial</button>
+  </div>
+  
+  <div id="blog-grid">
+    <!-- Blog Cards -->
+    <article class="card" data-category="php">
+      <h2>Laravel: Why is it Still the King of PHP?</h2>
+      <p>Discover why Laravel continues to dominate the PHP ecosystem with its elegant syntax, robust features, and thriving community support.</p>
+      <span class="badge">PHP</span>
+      <span class="badge">Laravel</span>
+    </article>
+    
+    <article class="card" data-category="devops">
+      <h2>Introduction to DevOps: Setting Up CI/CD Pipeline</h2>
+      <p>Learn how DevOps culture, tools, and practices are transforming software development processes with modern CI/CD implementations.</p>
+      <span class="badge">DevOps</span>
+      <span class="badge">CI/CD</span>
+    </article>
+    
+    <article class="card" data-category="security">
+      <h2>Web Application Security Best Practices</h2>
+      <p>Essential security practices every developer should know to protect web applications from common vulnerabilities and attacks.</p>
+      <span class="badge">Security</span>
+      <span class="badge">Web</span>
+    </article>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, setting up functions...');
+      setupBlogSearch();
+      setupBlogFilters();
+    });
+    
+    function setupBlogSearch() {
+      console.log('Setting up blog search...');
+      const searchInput = document.getElementById('search-input');
+      const blogCards = document.querySelectorAll('#blog-grid article');
+      
+      console.log('Search input:', searchInput);
+      console.log('Blog cards:', blogCards.length);
+      
+      if (!searchInput) {
+        console.error('Search input not found!');
+        return;
+      }
+      
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        console.log('Searching for:', searchTerm);
+        
+        blogCards.forEach(card => {
+          const title = card.querySelector('h2').textContent.toLowerCase();
+          const description = card.querySelector('p').textContent.toLowerCase();
+          const badges = Array.from(card.querySelectorAll('.badge')).map(badge => badge.textContent.toLowerCase());
+          
+          const matches = title.includes(searchTerm) || 
+                         description.includes(searchTerm) || 
+                         badges.some(badge => badge.includes(searchTerm));
+          
+          if (matches) {
+            card.style.display = 'block';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              if (card.style.opacity === '0') {
+                card.style.display = 'none';
+              }
+            }, 300);
+          }
+        });
+      });
+    }
+    
+    function setupBlogFilters() {
+      console.log('Setting up blog filters...');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const blogCards = document.querySelectorAll('#blog-grid article');
+      
+      console.log('Filter buttons:', filterButtons.length);
+      console.log('Blog cards:', blogCards.length);
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.dataset.category;
+          console.log('Filtering by category:', category);
+          
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Clear search
+          const searchInput = document.getElementById('search-input');
+          if (searchInput) searchInput.value = '';
+          
+          // Filter cards
+          blogCards.forEach((card, index) => {
+            const cardCategory = card.dataset.category;
+            const shouldShow = category === 'all' || cardCategory === category;
+            
+            console.log(`Card ${index}: category=${cardCategory}, shouldShow=${shouldShow}`);
+            
+            if (shouldShow) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, index * 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                if (card.style.opacity === '0') {
+                  card.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+        });
+      });
+    }
+  </script>
+</body>
+</html>

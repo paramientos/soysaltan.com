@@ -6,6 +6,15 @@ The website is user-friendly and accessible.
 The website is SEO-friendly and fast.
 The website is secure and mobile-friendly.
 
+The files in the blog folder should be in the following format:
+- The file name should be in the format of: year-month-day-title.md
+- The file should contain the following front matter:
+  - title: The title of the blog post
+  - date: The date of the blog post
+  - tags: The tags of the blog post
+  - description: The description of the blog post
+  - image: The image of the blog post
+
 Project Rules
 - Use HTML5
 - Use Tailwind CSS
