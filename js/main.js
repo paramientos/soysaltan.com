@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //setupLoadingAnimations();
     setupKeyboardNavigation();
     setupTableOfContents();
+    setupEasterEggs();
+    setupKonamiCode();
+    setupGitHubActivityFeed();
 });
 
 function setupBlogFilter() {
@@ -800,3 +803,480 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function setupEasterEggs() {
+    let secretSequence = [];
+    const snakeSequence = ['s', 'n', 'a', 'k', 'e'];
+    const tetrisSequence = ['t', 'e', 't', 'r', 'i', 's'];
+    const matrixSequence = ['m', 'a', 't', 'r', 'i', 'x'];
+    const bsodSequence = ['b', 's', 'o', 'd'];
+
+    document.addEventListener('keydown', function (e) {
+        secretSequence.push(e.key.toLowerCase());
+
+        if (secretSequence.length > Math.max(snakeSequence.length, tetrisSequence.length, matrixSequence.length, bsodSequence.length)) {
+            secretSequence.shift();
+        }
+
+        if (arraysEqual(secretSequence.slice(-snakeSequence.length), snakeSequence)) {
+            startSnakeGame();
+            secretSequence = [];
+        } else if (arraysEqual(secretSequence.slice(-tetrisSequence.length), tetrisSequence)) {
+            startTetrisGame();
+            secretSequence = [];
+        } else if (arraysEqual(secretSequence.slice(-matrixSequence.length), matrixSequence)) {
+            startMatrixEffect();
+            secretSequence = [];
+        } else if (arraysEqual(secretSequence.slice(-bsodSequence.length), bsodSequence)) {
+            showBSOD();
+            secretSequence = [];
+        }
+    });
+
+    function arraysEqual(a, b) {
+        return a.length === b.length && a.every((val, i) => val === b[i]);
+    }
+}
+
+function startSnakeGame() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'snake-canvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.backgroundColor = '#000';
+    canvas.style.zIndex = '9999';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const gridSize = 20;
+    const tileCount = Math.floor(canvas.width / gridSize);
+
+    let snake = [{ x: 10, y: 10 }];
+    let food = { x: 15, y: 15 };
+    let dx = 0;
+    let dy = 0;
+    let score = 0;
+
+    function drawGame() {
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#0f0';
+        snake.forEach(segment => {
+            ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+        });
+
+        ctx.fillStyle = '#f00';
+        ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+
+        ctx.fillStyle = '#fff';
+        ctx.font = '20px Arial';
+        ctx.fillText(`Score: ${score}`, 10, 30);
+        ctx.fillText('Press ESC to exit', 10, 60);
+    }
+
+    function update() {
+        const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+        if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= Math.floor(canvas.height / gridSize) ||
+            snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+            resetGame();
+            return;
+        }
+
+        snake.unshift(head);
+
+        if (head.x === food.x && head.y === food.y) {
+            score += 10;
+            food = {
+                x: Math.floor(Math.random() * tileCount),
+                y: Math.floor(Math.random() * Math.floor(canvas.height / gridSize))
+            };
+        } else {
+            snake.pop();
+        }
+    }
+
+    function resetGame() {
+        snake = [{ x: 10, y: 10 }];
+        food = { x: 15, y: 15 };
+        dx = 0;
+        dy = 0;
+        score = 0;
+    }
+
+    function gameLoop() {
+        update();
+        drawGame();
+    }
+
+    const gameInterval = setInterval(gameLoop, 100);
+
+    function handleKeyPress(e) {
+        if (e.key === 'Escape') {
+            clearInterval(gameInterval);
+            document.body.removeChild(canvas);
+            document.removeEventListener('keydown', handleKeyPress);
+            return;
+        }
+
+        switch (e.key) {
+            case 'ArrowUp':
+                if (dy === 0) { dx = 0; dy = -1; }
+                break;
+            case 'ArrowDown':
+                if (dy === 0) { dx = 0; dy = 1; }
+                break;
+            case 'ArrowLeft':
+                if (dx === 0) { dx = -1; dy = 0; }
+                break;
+            case 'ArrowRight':
+                if (dx === 0) { dx = 1; dy = 0; }
+                break;
+        }
+    }
+
+    document.addEventListener('keydown', handleKeyPress);
+    drawGame();
+}
+
+function startTetrisGame() {
+    alert('Tetris game coming soon! 🎮');
+}
+
+function startMatrixEffect() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'matrix-canvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.zIndex = '9998';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const matrix = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}';
+    const matrixArray = matrix.split('');
+    const fontSize = 10;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+
+    for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+    }
+
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#0F0';
+        ctx.font = fontSize + 'px arial';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    const matrixInterval = setInterval(draw, 35);
+
+    function handleEscape(e) {
+        if (e.key === 'Escape') {
+            clearInterval(matrixInterval);
+            document.body.removeChild(canvas);
+            document.removeEventListener('keydown', handleEscape);
+        }
+    }
+
+    document.addEventListener('keydown', handleEscape);
+
+    setTimeout(() => {
+        clearInterval(matrixInterval);
+        if (document.body.contains(canvas)) {
+            document.body.removeChild(canvas);
+        }
+        document.removeEventListener('keydown', handleEscape);
+    }, 10000);
+}
+
+function showBSOD() {
+    const bsod = document.createElement('div');
+    bsod.id = 'bsod';
+    bsod.style.position = 'fixed';
+    bsod.style.top = '0';
+    bsod.style.left = '0';
+    bsod.style.width = '100vw';
+    bsod.style.height = '100vh';
+    bsod.style.backgroundColor = '#0000FF';
+    bsod.style.color = '#FFFFFF';
+    bsod.style.fontFamily = 'Courier New, monospace';
+    bsod.style.fontSize = '14px';
+    bsod.style.padding = '20px';
+    bsod.style.zIndex = '9999';
+    bsod.innerHTML = `
+        <div style="text-align: center; margin-top: 100px;">
+            <h1>:(</h1>
+            <p>Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.</p>
+            <br>
+            <p>0% complete</p>
+            <br>
+            <p>For more information about this issue and possible fixes, visit our website</p>
+            <p>If you call a support person, give them this info:</p>
+            <p>Stop code: EASTER_EGG_ACTIVATED</p>
+            <br>
+            <p style="font-size: 12px;">Press ESC to continue...</p>
+        </div>
+    `;
+    document.body.appendChild(bsod);
+
+    function handleEscape(e) {
+        if (e.key === 'Escape') {
+            document.body.removeChild(bsod);
+            document.removeEventListener('keydown', handleEscape);
+        }
+    }
+
+    document.addEventListener('keydown', handleEscape);
+
+    setTimeout(() => {
+        if (document.body.contains(bsod)) {
+            document.body.removeChild(bsod);
+        }
+        document.removeEventListener('keydown', handleEscape);
+    }, 5000);
+}
+
+function setupKonamiCode() {
+    const konamiCode = [
+        'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+        'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+        'KeyB', 'KeyA'
+    ];
+
+    let userInput = [];
+
+    document.addEventListener('keydown', function (e) {
+        userInput.push(e.code);
+
+        if (userInput.length > konamiCode.length) {
+            userInput.shift();
+        }
+
+        if (userInput.length === konamiCode.length &&
+            userInput.every((key, index) => key === konamiCode[index])) {
+            activateKonamiEffect();
+            userInput = [];
+        }
+    });
+}
+
+function activateKonamiEffect() {
+    document.body.style.transform = 'rotate(360deg)';
+    document.body.style.transition = 'transform 2s ease-in-out';
+
+    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+    let colorIndex = 0;
+
+    const colorInterval = setInterval(() => {
+        document.body.style.backgroundColor = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 200);
+
+    setTimeout(() => {
+        document.body.style.transform = '';
+        document.body.style.backgroundColor = '';
+        document.body.style.transition = '';
+        clearInterval(colorInterval);
+    }, 3000);
+
+    const message = document.createElement('div');
+    message.innerHTML = '🎉 KONAMI CODE ACTIVATED! 🎉';
+    message.style.position = 'fixed';
+    message.style.top = '50%';
+    message.style.left = '50%';
+    message.style.transform = 'translate(-50%, -50%)';
+    message.style.fontSize = '3rem';
+    message.style.fontWeight = 'bold';
+    message.style.color = '#fff';
+    message.style.textShadow = '2px 2px 4px rgba(0,0,0,0.8)';
+    message.style.zIndex = '10000';
+    message.style.animation = 'bounce 1s infinite';
+
+    document.body.appendChild(message);
+
+    setTimeout(() => {
+        if (document.body.contains(message)) {
+            document.body.removeChild(message);
+        }
+    }, 3000);
+}
+
+function setupGitHubActivityFeed() {
+    const githubFeed = document.getElementById('github-feed');
+    const githubLoading = document.getElementById('github-loading');
+
+    if (!githubFeed) return;
+
+    // GitHub username
+    const username = 'paramientos';
+
+    // Fetch GitHub events
+    fetch(`https://api.github.com/users/${username}/events/public?per_page=10`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('GitHub API request failed');
+            }
+            return response.json();
+        })
+        .then(events => {
+            githubLoading.style.display = 'none';
+            displayGitHubEvents(events);
+        })
+        .catch(error => {
+            console.error('Error fetching GitHub activity:', error);
+            githubLoading.innerHTML = `
+                <div class="text-center py-12">
+                    <div class="text-red-400 mb-4">
+                        <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p class="text-lg font-medium mb-2">Unable to load GitHub activity</p>
+                        <p class="text-sm text-gray-400">Please check back later or visit my GitHub profile directly</p>
+                    </div>
+                </div>
+            `;
+        });
+}
+
+function displayGitHubEvents(events) {
+    const githubFeed = document.getElementById('github-feed');
+
+    if (events.length === 0) {
+        githubFeed.innerHTML = `
+            <div class="text-center py-12">
+                <div class="text-gray-400">
+                    <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33"></path>
+                    </svg>
+                    <p class="text-lg font-medium mb-2">No recent activity</p>
+                    <p class="text-sm">Check back later for updates</p>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    const eventItems = events.slice(0, 6).map(event => {
+        const eventDate = new Date(event.created_at);
+        const timeAgo = getTimeAgo(eventDate);
+
+        let eventIcon = '📝';
+        let eventText = '';
+        let eventColor = 'text-gray-300';
+
+        switch (event.type) {
+            case 'PushEvent':
+                eventIcon = '🚀';
+                eventColor = 'text-green-400';
+                const commitCount = event.payload.commits ? event.payload.commits.length : 0;
+                eventText = `Pushed ${commitCount} commit${commitCount !== 1 ? 's' : ''} to`;
+                break;
+            case 'CreateEvent':
+                eventIcon = '✨';
+                eventColor = 'text-blue-400';
+                eventText = `Created ${event.payload.ref_type}`;
+                break;
+            case 'IssuesEvent':
+                eventIcon = '🐛';
+                eventColor = 'text-yellow-400';
+                eventText = `${event.payload.action} issue in`;
+                break;
+            case 'PullRequestEvent':
+                eventIcon = '🔀';
+                eventColor = 'text-purple-400';
+                eventText = `${event.payload.action} pull request in`;
+                break;
+            case 'WatchEvent':
+                eventIcon = '⭐';
+                eventColor = 'text-yellow-400';
+                eventText = 'Starred';
+                break;
+            case 'ForkEvent':
+                eventIcon = '🍴';
+                eventColor = 'text-orange-400';
+                eventText = 'Forked';
+                break;
+            default:
+                eventText = `${event.type.replace('Event', '').toLowerCase()} in`;
+        }
+
+        return `
+            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+                <div class="flex items-start space-x-4">
+                    <div class="text-2xl">${eventIcon}</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="${eventColor} font-medium">${eventText}</span>
+                            <a href="${event.repo.url.replace('api.github.com/repos', 'github.com')}" 
+                               target="_blank" rel="noopener noreferrer"
+                               class="text-white hover:text-purple-300 transition-colors font-mono text-sm truncate">
+                                ${event.repo.name}
+                            </a>
+                        </div>
+                        ${event.payload.commits && event.payload.commits.length > 0 ? `
+                            <div class="text-sm text-gray-400 mb-2">
+                                Latest: "${event.payload.commits[event.payload.commits.length - 1].message.split('\n')[0]}"
+                            </div>
+                        ` : ''}
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">${timeAgo}</span>
+                            <a href="${event.repo.url.replace('api.github.com/repos', 'github.com')}" 
+                               target="_blank" rel="noopener noreferrer"
+                               class="text-xs text-purple-400 hover:text-purple-300 transition-colors">
+                                View Repository →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    githubFeed.innerHTML = eventItems;
+}
+
+function getTimeAgo(date) {
+    const now = new Date();
+    const diffInSeconds = Math.floor((now - date) / 1000);
+
+    if (diffInSeconds < 60) {
+        return 'Just now';
+    } else if (diffInSeconds < 3600) {
+        const minutes = Math.floor(diffInSeconds / 60);
+        return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+    } else if (diffInSeconds < 86400) {
+        const hours = Math.floor(diffInSeconds / 3600);
+        return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+    } else if (diffInSeconds < 2592000) {
+        const days = Math.floor(diffInSeconds / 86400);
+        return `${days} day${days !== 1 ? 's' : ''} ago`;
+    } else {
+        const months = Math.floor(diffInSeconds / 2592000);
+        return `${months} month${months !== 1 ? 's' : ''} ago`;
+    }
+}
