@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laravel Nightwatch Testing Guide | Soysal Tan</title>
+  <title>Laravel Nightwatch: Application Monitoring Guide | Soysal Tan</title>
   <meta name="description"
-    content="A comprehensive guide to implementing end-to-end testing in Laravel applications using Nightwatch.js for automated browser testing.">
+    content="A comprehensive guide to using Laravel Nightwatch for monitoring and debugging your Laravel applications with real-time insights.">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://soysaltan.com/blog/laravel-nightwatch-testing.html" />
-  <meta property="og:title" content="Laravel Nightwatch Testing Guide | Soysal Tan" />
+  <meta property="og:title" content="Laravel Nightwatch: Application Monitoring Guide | Soysal Tan" />
   <meta property="og:description"
-    content="A comprehensive guide to implementing end-to-end testing in Laravel applications using Nightwatch.js for automated browser testing." />
+    content="A comprehensive guide to using Laravel Nightwatch for monitoring and debugging your Laravel applications with real-time insights." />
   <meta property="og:image" content="https://soysaltan.com/images/blog/laravel-nightwatch-testing.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://soysaltan.com/blog/laravel-nightwatch-testing.html" />
-  <meta property="twitter:title" content="Laravel Nightwatch Testing Guide | Soysal Tan" />
+  <meta property="twitter:title" content="Laravel Nightwatch: Application Monitoring Guide | Soysal Tan" />
   <meta property="twitter:description"
-    content="A comprehensive guide to implementing end-to-end testing in Laravel applications using Nightwatch.js for automated browser testing." />
+    content="A comprehensive guide to using Laravel Nightwatch for monitoring and debugging your Laravel applications with real-time insights." />
   <meta property="twitter:image" content="https://soysaltan.com/images/blog/laravel-nightwatch-testing.png" />
 
   <link rel="stylesheet" href="/css/tailwind.css?v=1">
@@ -98,7 +98,7 @@
               d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
               clip-rule="evenodd"></path>
           </svg>
-          <span class="text-white font-medium">Laravel Nightwatch Testing Guide</span>
+          <span class="text-white font-medium">Laravel Nightwatch: Application Monitoring Guide</span>
         </li>
       </ol>
     </div>
@@ -108,7 +108,8 @@
   <main class="container mx-auto px-6 py-12 relative z-10">
     <article class="max-w-4xl mx-auto">
       <header class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Laravel Nightwatch Testing Guide</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Laravel Nightwatch: Application Monitoring Guide
+        </h1>
         <div class="flex items-center text-gray-400 text-sm mb-6">
           <span class="mr-4 flex items-center">
             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -116,12 +117,11 @@
                 d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                 clip-rule="evenodd"></path>
             </svg>
-            June 15, 2023
+            Sept 06, 2025
           </span>
           <span class="flex items-center">
             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
               <path fill-rule="evenodd"
                 d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
                 clip-rule="evenodd"></path>
@@ -131,192 +131,155 @@
         </div>
         <div class="flex flex-wrap gap-2">
           <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-xs font-medium">Laravel</span>
-          <span class="bg-purple-600/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium">Testing</span>
+          <span class="bg-purple-600/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium">Monitoring</span>
           <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium">Nightwatch</span>
-          <span class="bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-medium">E2E Testing</span>
+          <span class="bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-medium">DevOps</span>
         </div>
       </header>
 
       <div class="prose prose-lg prose-invert max-w-none">
-        <p class="lead">End-to-end testing is a crucial part of modern web application development. In this guide, we'll explore how to integrate Nightwatch.js with Laravel to create robust automated browser tests for your applications.</p>
-        
-        <h2>What is Nightwatch.js?</h2>
-        <p>Nightwatch.js is an integrated, easy to use end-to-end testing solution for web applications and websites, written in Node.js. It uses the W3C WebDriver API to drive browsers in order to perform commands and assertions on DOM elements.</p>
-        
-        <p>Some key features of Nightwatch include:</p>
+        <p class="lead">Application monitoring is essential for maintaining reliable Laravel applications. In this
+          guide, we'll explore Laravel Nightwatch, an official Laravel product designed to provide real-time monitoring
+          and debugging capabilities for your applications.</p>
+
+        <h2>What is Laravel Nightwatch?</h2>
+        <p>Laravel Nightwatch is an elegant application monitoring solution designed specifically for Laravel
+          applications. It provides real-time insights into your application's performance, errors, and behavior,
+          allowing you to quickly identify and resolve issues before they impact your users.</p>
+
+        <p>Some key features of Laravel Nightwatch include:</p>
         <ul>
-          <li>Built-in test runner with parallel test execution capability</li>
-          <li>Straightforward syntax for writing tests</li>
-          <li>Automatic management of Selenium/WebDriver services</li>
-          <li>Cloud testing integration (SauceLabs, BrowserStack, etc.)</li>
-          <li>CI/CD friendly</li>
+          <li>Real-time application monitoring and error tracking</li>
+          <li>Performance metrics and bottleneck identification</li>
+          <li>Request and database query monitoring</li>
+          <li>Exception tracking with detailed context</li>
+          <li>Seamless Laravel integration</li>
         </ul>
 
-        <h2>Setting Up Nightwatch with Laravel</h2>
-        <p>Let's walk through the process of integrating Nightwatch.js with a Laravel application.</p>
+        <h2>Setting Up Laravel Nightwatch</h2>
+        <p>Let's walk through the process of integrating Laravel Nightwatch with your application.</p>
 
-        <h3>Step 1: Install Nightwatch</h3>
-        <p>First, we need to install Nightwatch and its dependencies:</p>
+        <h3>Step 1: Create a Nightwatch Account</h3>
+        <p>First, you need to create an account on the Laravel Nightwatch website:</p>
 
-        <pre><code>npm install nightwatch --save-dev
-npm install chromedriver --save-dev</code></pre>
+        <pre><code>https://nightwatch.laravel.com/register</code></pre>
 
-        <h3>Step 2: Create Configuration File</h3>
-        <p>Create a <code>nightwatch.conf.js</code> file in your project root:</p>
+        <h3>Step 2: Install the Nightwatch Package</h3>
+        <p>Install the Laravel Nightwatch package via Composer:</p>
 
-        <pre><code>module.exports = {
-  src_folders: ['tests/e2e'],
-  output_folder: 'tests_output',
-  
-  webdriver: {
-    start_process: true,
-    server_path: require('chromedriver').path,
-    port: 9515
-  },
-  
-  test_settings: {
-    default: {
-      desiredCapabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-          args: ['--headless', '--no-sandbox']
-        }
-      }
-    }
-  }
-};</code></pre>
+        <pre><code>composer require laravel/nightwatch</code></pre>
 
-        <h3>Step 3: Create Test Directory</h3>
-        <p>Create a directory for your E2E tests:</p>
+        <h3>Step 3: Configure Your Application</h3>
+        <p>After installation, publish the configuration file:</p>
 
-        <pre><code>mkdir -p tests/e2e</code></pre>
+        <pre><code>php artisan vendor:publish --provider="Laravel\Nightwatch\NightwatchServiceProvider"</code></pre>
 
-        <h3>Step 4: Write Your First Test</h3>
-        <p>Let's create a simple test to verify that the homepage loads correctly:</p>
+        <p>Then, add your Nightwatch API key to your <code>.env</code> file:</p>
 
-        <pre><code>// tests/e2e/homepage.test.js
+        <pre><code>NIGHTWATCH_API_KEY=your-api-key-here</code></pre>
 
-module.exports = {
-  'Homepage Test': function(browser) {
-    browser
-      .url(process.env.APP_URL)
-      .waitForElementVisible('body')
-      .assert.titleContains('Laravel')
-      .assert.visible('.container')
-      .end();
-  }
-};</code></pre>
+        <h3>Step 4: Start Monitoring</h3>
+        <p>Once configured, Laravel Nightwatch will automatically begin monitoring your application. You can view your
+          dashboard at:</p>
 
-        <h3>Step 5: Update package.json</h3>
-        <p>Add a script to run your Nightwatch tests:</p>
+        <pre><code>https://nightwatch.laravel.com/dashboard</code></pre>
+        <h2>Dashboard Overview</h2>
+        <p>The Laravel Nightwatch dashboard provides a comprehensive overview of your application's health and
+          performance. Here's what you can expect to see:</p>
 
-        <pre><code>{
-  "scripts": {
-    "e2e": "nightwatch"
+        <h3>Performance Metrics</h3>
+        <p>Monitor key performance indicators such as:</p>
+
+        <ul>
+          <li><strong>Response Times:</strong> Track how quickly your application responds to requests</li>
+          <li><strong>Database Query Performance:</strong> Identify slow queries that might be affecting performance
+          </li>
+          <li><strong>Memory Usage:</strong> Monitor your application's memory consumption</li>
+          <li><strong>CPU Utilization:</strong> Keep an eye on server resource usage</li>
+        </ul>
+
+        <h3>Error Tracking</h3>
+        <p>Laravel Nightwatch provides detailed error tracking capabilities:</p>
+
+        <pre><code>// Example of an error captured by Nightwatch
+{
+  "type": "Exception",
+  "message": "Undefined property: App\Models\User::$profile",
+  "file": "/app/Http/Controllers/UserController.php",
+  "line": 42,
+  "trace": [...],
+  "context": {
+    "user_id": 123,
+    "request_path": "/users/profile",
+    "request_method": "GET"
   }
 }</code></pre>
 
-        <h2>Advanced Testing Scenarios</h2>
-        
-        <h3>Testing Authentication</h3>
-        <p>Here's how to test a login process:</p>
+        <h2>Advanced Features</h2>
+        <p>Let's explore some of the more advanced features of Laravel Nightwatch.</p>
 
-        <pre><code>// tests/e2e/auth.test.js
+        <h3>Custom Metrics</h3>
+        <p>You can define custom metrics to track specific aspects of your application:</p>
 
-module.exports = {
-  'User can login': function(browser) {
-    browser
-      .url(process.env.APP_URL + '/login')
-      .waitForElementVisible('form')
-      .setValue('input[name=email]', 'test@example.com')
-      .setValue('input[name=password]', 'password')
-      .click('button[type=submit]')
-      .waitForElementVisible('.dashboard')
-      .assert.urlContains('/dashboard')
-      .end();
-  }
-};</code></pre>
+        <pre><code>// In your application code
+use Laravel\Nightwatch\Facades\Nightwatch;
 
-        <h3>Testing CRUD Operations</h3>
-        <p>Testing a create operation:</p>
+// Track a custom metric
+Nightwatch::recordMetric('orders_processed', 1);
 
-        <pre><code>// tests/e2e/posts.test.js
+// Track a custom metric with context
+Nightwatch::recordMetric('payment_processed', 149.99, [
+    'payment_method' => 'credit_card',
+    'currency' => 'USD'
+]);</code></pre>
 
-module.exports = {
-  'User can create a post': function(browser) {
-    // First login
-    browser
-      .url(process.env.APP_URL + '/login')
-      .waitForElementVisible('form')
-      .setValue('input[name=email]', 'test@example.com')
-      .setValue('input[name=password]', 'password')
-      .click('button[type=submit]')
-      .waitForElementVisible('.dashboard')
-      
-      // Navigate to create post page
-      .url(process.env.APP_URL + '/posts/create')
-      .waitForElementVisible('form')
-      
-      // Fill the form
-      .setValue('input[name=title]', 'Test Post Title')
-      .setValue('textarea[name=content]', 'This is test content')
-      .click('button[type=submit]')
-      
-      // Assert post was created
-      .waitForElementVisible('.alert-success')
-      .assert.containsText('.alert-success', 'Post created successfully')
-      .end();
-  }
-};</code></pre>
+        <h3>Request Monitoring</h3>
+        <p>Laravel Nightwatch automatically monitors all incoming HTTP requests to your application, providing valuable
+          insights into your application's traffic patterns and performance:</p>
 
-        <h2>Custom Commands and Assertions</h2>
-        <p>Nightwatch allows you to create custom commands and assertions to make your tests more readable and maintainable.</p>
-
-        <h3>Creating a Custom Command</h3>
-        <p>Create a <code>commands</code> directory in your Nightwatch tests folder:</p>
-
-        <pre><code>// tests/e2e/commands/login.js
-
-module.exports = {
-  command: function(email, password) {
-    return this
-      .url(process.env.APP_URL + '/login')
-      .waitForElementVisible('form')
-      .setValue('input[name=email]', email)
-      .setValue('input[name=password]', password)
-      .click('button[type=submit]')
-      .waitForElementVisible('.dashboard');
-  }
-};</code></pre>
-
-        <p>Now you can use this command in your tests:</p>
-
-        <pre><code>module.exports = {
-  'User can view profile': function(browser) {
-    browser
-      .login('test@example.com', 'password')
-      .url(process.env.APP_URL + '/profile')
-      .waitForElementVisible('.profile-info')
-      .assert.containsText('.profile-info', 'test@example.com')
-      .end();
-  }
-};</code></pre>
+        <pre><code>// Example of request data captured by Nightwatch
+{
+  "method": "POST",
+  "url": "/api/orders",
+  "duration": 235, // milliseconds
+  "status": 201,
+  "controller": "App\Http\Controllers\OrderController@store",
+  "middleware": ["auth:api", "throttle:60,1"],
+  "headers": {...},
+  "payload": {...},
+  "database_queries": [...]
+}</code></pre>
 
         <h2>Integrating with CI/CD</h2>
-        <p>Nightwatch tests can be easily integrated into CI/CD pipelines. Here's an example for GitHub Actions:</p>
+        <p>Laravel Nightwatch can be integrated into your CI/CD pipeline to monitor your application during the
+          deployment process.</p>
 
-        <pre><code>// .github/workflows/e2e-tests.yml
+        <h3>Deployment Tracking</h3>
+        <p>Track deployments to correlate performance changes with code updates:</p>
 
-name: E2E Tests
+        <pre><code>// In your deployment script
+use Laravel\Nightwatch\Facades\Nightwatch;
+
+Nightwatch::trackDeployment([
+    'commit' => 'abc123',
+    'branch' => 'main',
+    'environment' => 'production',
+    'deployer' => 'GitHub Actions'
+]);</code></pre>
+
+        <h3>CI/CD Pipeline Integration</h3>
+        <p>Here's an example of how to integrate Nightwatch monitoring into your GitHub Actions workflow:</p>
+
+        <pre><code>// .github/workflows/deploy.yml
+
+name: Deploy and Monitor
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  e2e-tests:
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
@@ -327,64 +290,46 @@ jobs:
       with:
         php-version: '8.0'
     
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     
-    - name: Generate key
-      run: php artisan key:generate
+    - name: Deploy Application
+      run: ./deploy.sh
     
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
-    
-    - name: Create Database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
-    
-    - name: Execute migrations
+    - name: Notify Nightwatch of Deployment
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: php artisan migrate --seed
-    
-    - name: Install NPM dependencies
-      run: npm ci
-    
-    - name: Start Laravel server
-      run: php artisan serve &
-    
-    - name: Run E2E tests
-      env:
-        APP_URL: http://localhost:8000
-      run: npm run e2e
+        NIGHTWATCH_API_KEY: ${{ secrets.NIGHTWATCH_API_KEY }}
+      run: php artisan nightwatch:deployment
 </code></pre>
 
         <h2>Best Practices</h2>
-        <p>When implementing Nightwatch tests with Laravel, consider these best practices:</p>
-        
+        <p>When implementing Laravel Nightwatch for application monitoring, consider these best practices:</p>
+
         <ul>
-          <li><strong>Use a test database:</strong> Always run your tests against a separate test database.</li>
-          <li><strong>Seed test data:</strong> Use Laravel's seeding mechanism to create consistent test data.</li>
-          <li><strong>Organize tests logically:</strong> Group related tests in separate files.</li>
-          <li><strong>Use page objects:</strong> Implement the page object pattern to make tests more maintainable.</li>
-          <li><strong>Keep tests independent:</strong> Each test should be able to run independently of others.</li>
-          <li><strong>Use explicit waits:</strong> Always wait for elements to be visible before interacting with them.</li>
-          <li><strong>Take screenshots on failures:</strong> Configure Nightwatch to take screenshots when tests fail.</li>
+          <li><strong>Monitor critical paths:</strong> Focus on monitoring the most important user journeys in your
+            application.</li>
+          <li><strong>Set up alerts:</strong> Configure alerts for critical errors and performance thresholds.</li>
+          <li><strong>Use custom metrics:</strong> Track business-specific metrics that matter to your application.</li>
+          <li><strong>Implement proper error handling:</strong> Ensure exceptions are properly caught and reported.</li>
+          <li><strong>Respect privacy:</strong> Be careful not to log sensitive user information.</li>
+          <li><strong>Regular review:</strong> Periodically review your monitoring data to identify trends.</li>
+          <li><strong>Optimize based on insights:</strong> Use the gathered data to make informed optimization
+            decisions.</li>
         </ul>
 
         <h2>Conclusion</h2>
-        <p>Integrating Nightwatch.js with Laravel provides a powerful solution for end-to-end testing of your web applications. By automating browser testing, you can catch issues early, ensure consistent user experiences, and build more reliable applications.</p>
-        
-        <p>Remember that E2E tests are just one part of a comprehensive testing strategy. They work best when combined with unit tests, feature tests, and other testing methodologies to provide complete coverage of your application.</p>
+        <p>Laravel Nightwatch provides a powerful monitoring solution specifically designed for Laravel applications. By
+          implementing real-time monitoring, you can quickly identify and resolve issues, improve application
+          performance, and deliver a better user experience.</p>
+
+        <p>Remember that application monitoring is an ongoing process. Regularly reviewing your monitoring data and
+          making adjustments to your application based on these insights will help you maintain a reliable,
+          high-performing Laravel application.</p>
       </div>
 
       <!-- Author Bio -->
       <div class="mt-16 pt-8 border-t border-gray-700/30">
         <div class="flex items-center">
-          <img src="/images/profile.jpg" alt="Soysal Tan" class="w-16 h-16 rounded-full mr-4 object-cover">
           <div>
             <h3 class="text-xl font-bold">Soysal Tan</h3>
             <p class="text-gray-400">Full Stack Developer & DevOps Engineer</p>
@@ -397,10 +342,13 @@ jobs:
         <h2 class="text-2xl font-bold mb-6">Related Posts</h2>
         <div class="grid md:grid-cols-2 gap-8">
           <a href="/blog/laravel-api-tutorial.html" class="block group">
-            <div class="bg-[#1a2036]/50 border border-gray-700/30 rounded-lg overflow-hidden transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-lg group-hover:shadow-blue-500/10">
+            <div
+              class="bg-[#1a2036]/50 border border-gray-700/30 rounded-lg overflow-hidden transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-lg group-hover:shadow-blue-500/10">
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Building RESTful APIs with Laravel</h3>
-                <p class="text-gray-400 mb-4">Learn how to build robust and scalable RESTful APIs using Laravel framework.</p>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Building
+                  RESTful APIs with Laravel</h3>
+                <p class="text-gray-400 mb-4">Learn how to build robust and scalable RESTful APIs using Laravel
+                  framework.</p>
                 <div class="flex flex-wrap gap-2">
                   <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded-full text-xs font-medium">Laravel</span>
                   <span class="bg-green-600/20 text-green-400 px-2 py-1 rounded-full text-xs font-medium">API</span>
@@ -409,12 +357,15 @@ jobs:
             </div>
           </a>
           <a href="/blog/devops-intro.html" class="block group">
-            <div class="bg-[#1a2036]/50 border border-gray-700/30 rounded-lg overflow-hidden transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-lg group-hover:shadow-blue-500/10">
+            <div
+              class="bg-[#1a2036]/50 border border-gray-700/30 rounded-lg overflow-hidden transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-lg group-hover:shadow-blue-500/10">
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Introduction to DevOps</h3>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">Introduction
+                  to DevOps</h3>
                 <p class="text-gray-400 mb-4">A beginner's guide to understanding DevOps principles and practices.</p>
                 <div class="flex flex-wrap gap-2">
-                  <span class="bg-purple-600/20 text-purple-400 px-2 py-1 rounded-full text-xs font-medium">DevOps</span>
+                  <span
+                    class="bg-purple-600/20 text-purple-400 px-2 py-1 rounded-full text-xs font-medium">DevOps</span>
                   <span class="bg-yellow-600/20 text-yellow-400 px-2 py-1 rounded-full text-xs font-medium">CI/CD</span>
                 </div>
               </div>
@@ -448,7 +399,8 @@ jobs:
               </path>
             </svg>
           </a>
-          <a href="https://linkedin.com/in/soysaltan" class="text-gray-400 hover:text-white transition-colors duration-300">
+          <a href="https://linkedin.com/in/soysaltan"
+            class="text-gray-400 hover:text-white transition-colors duration-300">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fill-rule="evenodd"
                 d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"
@@ -466,7 +418,7 @@ jobs:
   <script src="/js/main.js"></script>
   <script>
     // Mobile menu toggle
-    document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('menu-btn').addEventListener('click', function () {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 

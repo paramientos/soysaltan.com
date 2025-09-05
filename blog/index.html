@@ -175,6 +175,9 @@
             <button class="filter-btn" data-category="laravel">Laravel</button>
             <button class="filter-btn" data-category="testing">Testing</button>
             <button class="filter-btn" data-category="devops">DevOps</button>
+            <button class="filter-btn" data-category="monitoring">Monitoring</button>
+            <button class="filter-btn" data-category="databases">Databases</button>
+            <button class="filter-btn" data-category="clickhouse">ClickHouse</button>
             <button class="filter-btn" data-category="security">Security</button>
             <button class="filter-btn" data-category="tutorial">Tutorial</button>
             <button class="filter-btn" data-category="agile">Agile</button>
@@ -183,16 +186,36 @@
         
         <div id="blog-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- Blog Cards Start -->
-          <article class="card p-6 animate-fade-in-up" data-category="laravel php testing" style="animation-delay: 0.1s">
+          <article class="card p-6 animate-fade-in-up" data-category="databases clickhouse performance analytics" style="animation-delay: 0.1s">
+            <a href="/blog/clickhouse-migration-guide.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">ClickHouse Migration Guide: Supercharging Your Data Analytics</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">A comprehensive guide to migrating from traditional databases to ClickHouse for high-performance analytics and real-time data processing.</p>
+              </div>
+              <div class="blog-meta">
+                <span class="badge">Databases</span>
+                <span class="badge">ClickHouse</span>
+                <span class="badge">Performance</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>8 min read</span>
+                </div>
+              </div>
+            </a>
+          </article>
+          
+          <article class="card p-6 animate-fade-in-up" data-category="laravel devops monitoring" style="animation-delay: 0.2s">
             <a href="/blog/laravel-nightwatch-testing.html" class="block h-full flex flex-col">
               <div class="flex-1">
-                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Laravel Nightwatch Testing Guide</h2>
-                <p class="text-gray-300 mb-4 text-sm leading-relaxed">A comprehensive guide to implementing end-to-end testing in Laravel applications using Nightwatch.js for automated browser testing.</p>
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Laravel Nightwatch: Application Monitoring Guide</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">A comprehensive guide to using Laravel Nightwatch for monitoring and debugging your Laravel applications with real-time insights.</p>
               </div>
               <div class="blog-meta">
                 <span class="badge">Laravel</span>
-                <span class="badge">Testing</span>
-                <span class="badge">E2E</span>
+                <span class="badge">Monitoring</span>
+                <span class="badge">DevOps</span>
                 <div class="read-time">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
