@@ -172,6 +172,8 @@
           <div class="flex flex-wrap justify-center gap-3 mb-12">
             <button class="filter-btn active" data-category="all">All Posts</button>
             <button class="filter-btn" data-category="php">PHP</button>
+            <button class="filter-btn" data-category="laravel">Laravel</button>
+            <button class="filter-btn" data-category="testing">Testing</button>
             <button class="filter-btn" data-category="devops">DevOps</button>
             <button class="filter-btn" data-category="security">Security</button>
             <button class="filter-btn" data-category="tutorial">Tutorial</button>
@@ -181,7 +183,28 @@
         
         <div id="blog-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- Blog Cards Start -->
-          <article class="card p-6 animate-fade-in-up" data-category="agile" style="animation-delay: 0.1s">
+          <article class="card p-6 animate-fade-in-up" data-category="laravel php testing" style="animation-delay: 0.1s">
+            <a href="/blog/laravel-nightwatch-testing.html" class="block h-full flex flex-col">
+              <div class="flex-1">
+                <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">Laravel Nightwatch Testing Guide</h2>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">A comprehensive guide to implementing end-to-end testing in Laravel applications using Nightwatch.js for automated browser testing.</p>
+              </div>
+              <div class="blog-meta">
+                <span class="badge">Laravel</span>
+                <span class="badge">Testing</span>
+                <span class="badge">E2E</span>
+                <div class="read-time">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  5 min read
+                </div>
+                <span class="text-xs text-white/60">June 15, 2023</span>
+              </div>
+            </a>
+          </article>
+          
+          <article class="card p-6 animate-fade-in-up" data-category="agile" style="animation-delay: 0.2s">
             <a href="/blog/agile-development-cycles.html" class="block h-full flex flex-col">
               <div class="flex-1">
                 <h2 class="text-xl font-bold mb-3 text-white hover:text-purple-300 transition-colors">The Cycles of Agile Development</h2>
