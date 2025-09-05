@@ -736,6 +736,9 @@ function setupTableOfContents() {
     let tocOriginalPosition = null;
     let tocFloating = false;
 
+    // Add smooth transition to TOC container
+    tocContainer.style.transition = 'transform 0.3s ease-out';
+    
     function handleTocScroll() {
         if (!tocOriginalPosition) {
             tocOriginalPosition = tocContainer.getBoundingClientRect().top + window.pageYOffset;
@@ -744,16 +747,31 @@ function setupTableOfContents() {
         const headerHeight = document.querySelector('header').offsetHeight;
         const scrollTop = window.pageYOffset;
         const shouldFloat = scrollTop > (tocOriginalPosition - headerHeight - 20);
-
-        if (shouldFloat && !tocFloating) {
-            tocContainer.style.position = 'fixed';
-            tocContainer.style.top = `${headerHeight + 20}px`;
-            tocContainer.style.right = '20px';
-            tocContainer.style.width = '280px';
-            tocContainer.style.maxHeight = `calc(100vh - ${headerHeight + 40}px)`;
-            tocContainer.style.overflowY = 'auto';
-            tocContainer.style.zIndex = '30';
-            tocFloating = true;
+        
+        // Calculate how far we've scrolled past the original position
+        const scrollDifference = scrollTop - (tocOriginalPosition - headerHeight - 20);
+        
+        if (shouldFloat) {
+            if (!tocFloating) {
+                // Initial setup when first becoming floating
+                tocContainer.style.position = 'fixed';
+                tocContainer.style.top = `${headerHeight + 20}px`;
+                tocContainer.style.right = '20px';
+                tocContainer.style.width = '280px';
+                tocContainer.style.maxHeight = `calc(100vh - ${headerHeight + 40}px)`;
+                tocContainer.style.overflowY = 'auto';
+                tocContainer.style.zIndex = '30';
+                tocFloating = true;
+            }
+            
+            // Apply smooth follow behavior instead of snapping
+            // This creates a slight delay effect as you scroll
+            const followFactor = 0.3; // Lower value = more delay/lag (0.1 to 0.5 is a good range)
+            const targetY = headerHeight + 20;
+            const currentY = parseInt(tocContainer.style.top) || targetY;
+            const newY = currentY + ((targetY - currentY) * followFactor);
+            
+            tocContainer.style.transform = `translateY(${Math.min(10, scrollDifference * 0.05)}px)`;
         } else if (!shouldFloat && tocFloating) {
             tocContainer.style.position = 'static';
             tocContainer.style.top = 'auto';
@@ -761,6 +779,7 @@ function setupTableOfContents() {
             tocContainer.style.width = 'auto';
             tocContainer.style.maxHeight = 'none';
             tocContainer.style.overflowY = 'visible';
+            tocContainer.style.transform = 'translateY(0)';
             tocFloating = false;
         }
     }
